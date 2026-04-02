@@ -21,7 +21,7 @@ export function Footer() {
               <img src={logoImg} alt="Atlas Corporate Services" className="h-10 mb-6 cursor-pointer" />
             </Link>
             <p className="text-slate-500 mb-6 max-w-sm text-sm leading-relaxed">
-              Your trusted partner for DIFC company setup and corporate services. Specializing in comprehensive solutions for international businesses in Dubai.
+              Your trusted partner for DIFC company setup and corporate services. Specialising in comprehensive solutions for international businesses in Dubai.
             </p>
             <div className="text-sm text-slate-500 space-y-1.5">
               <p>Atlas Corporate Services Ltd</p>

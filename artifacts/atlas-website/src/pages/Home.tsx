@@ -34,7 +34,7 @@ const services = [
   {
     title: "Fund & SPV Support",
     slug: "fund-spv-support",
-    description: "Specialized fund administration and SPV support services for investment funds, family offices, and investment vehicles.",
+    description: "Specialised fund administration and SPV support services for investment funds, family offices, and investment vehicles.",
     image: "https://framerusercontent.com/images/boAvRohjbYrJ6IpCgHMw0B5fSU.jpg?width=6144&height=3456"
   },
   {
@@ -117,7 +117,7 @@ export default function Home() {
                 Your DIFC Expertise Partner
               </h3>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Atlas Corporate Services specializes in establishing and managing corporate entities in the Dubai International Financial Centre (DIFC), offering comprehensive solutions tailored to global businesses.
+                Atlas Corporate Services specialises in establishing and managing corporate entities in the Dubai International Financial Centre (DIFC), offering comprehensive solutions tailored to global businesses.
               </p>
             </motion.div>
             
@@ -349,7 +349,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="font-bold text-foreground mb-1">Expert Assessment</h4>
-                      <p className="text-sm">We analyze your business needs and recommend the optimal DIFC structure.</p>
+                      <p className="text-sm">We analyse your business needs and recommend the optimal DIFC structure.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">

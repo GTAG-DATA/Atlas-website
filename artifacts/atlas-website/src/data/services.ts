@@ -313,7 +313,7 @@ export const servicesData: ServiceData[] = [
     title: "Fund & SPV Support",
     tagline: "Specialised administration for investment vehicles",
     description:
-      "Specialized fund administration and SPV support services for investment funds, family offices, and investment vehicles operating in DIFC and ADGM.",
+      "Specialised fund administration and SPV support services for investment funds, family offices, and investment vehicles operating in DIFC and ADGM.",
     heroImage:
       "https://framerusercontent.com/images/boAvRohjbYrJ6IpCgHMw0B5fSU.jpg?width=6144&height=3456",
     overview:
