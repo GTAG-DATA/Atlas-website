@@ -104,60 +104,58 @@ function MegaMenuServices({ onClose }: { onClose: () => void }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 10 }}
-      transition={{ duration: 0.18 }}
-      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[820px] max-w-[95vw] bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50"
+      exit={{ opacity: 0, y: 8 }}
+      transition={{ duration: 0.16 }}
+      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[780px] max-w-[95vw] bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50"
       onMouseLeave={onClose}
     >
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 divide-x divide-slate-100">
         {/* Col 1 */}
-        <div className="p-5 border-r border-slate-100">
+        <div className="py-3 px-3">
           {col1.map((item) => (
             <Link key={item.slug + item.title} href={`/service/${item.slug}`}>
               <div
-                className="px-3 py-3 rounded-xl hover:bg-slate-50 cursor-pointer group transition-colors"
+                className="px-2 py-1.5 rounded-lg hover:bg-slate-50 cursor-pointer group transition-colors"
                 onClick={onClose}
               >
-                <p className="font-semibold text-sm text-foreground font-manrope group-hover:text-[#142E36] leading-snug">
+                <p className="font-bold text-sm text-[#111] font-manrope group-hover:text-[#142E36] leading-tight">
                   {item.title}
                 </p>
-                <p className="text-xs text-slate-400 mt-0.5 leading-snug">{item.subtitle}</p>
+                <p className="text-xs text-slate-400 leading-tight truncate">{item.subtitle}</p>
               </div>
             </Link>
           ))}
         </div>
 
         {/* Col 2 */}
-        <div className="p-5 border-r border-slate-100">
+        <div className="py-3 px-3">
           {col2.map((item) => (
             <Link key={item.slug + item.title} href={`/service/${item.slug}`}>
               <div
-                className="px-3 py-3 rounded-xl hover:bg-slate-50 cursor-pointer group transition-colors"
+                className="px-2 py-1.5 rounded-lg hover:bg-slate-50 cursor-pointer group transition-colors"
                 onClick={onClose}
               >
-                <p className="font-semibold text-sm text-foreground font-manrope group-hover:text-[#142E36] leading-snug">
+                <p className="font-bold text-sm text-[#111] font-manrope group-hover:text-[#142E36] leading-tight">
                   {item.title}
                 </p>
-                <p className="text-xs text-slate-400 mt-0.5 leading-snug">{item.subtitle}</p>
+                <p className="text-xs text-slate-400 leading-tight truncate">{item.subtitle}</p>
               </div>
             </Link>
           ))}
         </div>
 
         {/* Preview panel */}
-        <div className="p-6 bg-slate-50 flex flex-col justify-between">
-          <div>
-            <p className="text-base font-bold font-manrope text-foreground leading-snug mb-3">
-              {MEGA_PREVIEW_TEXT}
-            </p>
-          </div>
-          <div className="rounded-xl overflow-hidden mt-4 flex-shrink-0">
+        <div className="py-4 px-4 flex flex-col gap-3">
+          <p className="text-sm font-bold font-manrope text-foreground leading-snug">
+            {MEGA_PREVIEW_TEXT}
+          </p>
+          <div className="rounded-xl overflow-hidden flex-1">
             <img
               src={MEGA_PREVIEW_IMAGE}
               alt="Atlas Corporate Services"
-              className="w-full h-36 object-cover"
+              className="w-full h-full object-cover min-h-[120px]"
             />
           </div>
         </div>
@@ -172,64 +170,58 @@ function MegaMenuInsights({ onClose }: { onClose: () => void }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 10 }}
-      transition={{ duration: 0.18 }}
-      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[720px] max-w-[95vw] bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50"
+      exit={{ opacity: 0, y: 8 }}
+      transition={{ duration: 0.16 }}
+      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[680px] max-w-[95vw] bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50"
       onMouseLeave={onClose}
     >
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 divide-x divide-slate-100">
         {/* Col 1 */}
-        <div className="p-5 border-r border-slate-100">
+        <div className="py-3 px-3">
           {col1.map((item) => (
             <Link key={item.title} href={item.path}>
               <div
-                className="px-3 py-3 rounded-xl hover:bg-slate-50 cursor-pointer group transition-colors"
+                className="px-2 py-1.5 rounded-lg hover:bg-slate-50 cursor-pointer group transition-colors"
                 onClick={onClose}
               >
-                <p
-                  className={`font-semibold text-sm font-manrope group-hover:text-[#142E36] leading-snug ${
-                    item.isViewAll ? "text-foreground" : "text-foreground"
-                  }`}
-                >
+                <p className="font-bold text-sm text-[#111] font-manrope group-hover:text-[#142E36] leading-tight">
                   {item.title}
                 </p>
-                <p className="text-xs text-slate-400 mt-0.5">{item.subtitle}</p>
+                <p className="text-xs text-slate-400 leading-tight">{item.subtitle}</p>
               </div>
             </Link>
           ))}
         </div>
 
         {/* Col 2 */}
-        <div className="p-5 border-r border-slate-100">
+        <div className="py-3 px-3">
           {col2.map((item) => (
             <Link key={item.title} href={item.path}>
               <div
-                className="px-3 py-3 rounded-xl hover:bg-slate-50 cursor-pointer group transition-colors"
+                className="px-2 py-1.5 rounded-lg hover:bg-slate-50 cursor-pointer group transition-colors"
                 onClick={onClose}
               >
-                <p className="font-semibold text-sm text-foreground font-manrope group-hover:text-[#142E36] leading-snug">
+                <p className="font-bold text-sm text-[#111] font-manrope group-hover:text-[#142E36] leading-tight">
                   {item.title}
                 </p>
-                <p className="text-xs text-slate-400 mt-0.5">{item.subtitle}</p>
+                <p className="text-xs text-slate-400 leading-tight">{item.subtitle}</p>
               </div>
             </Link>
           ))}
         </div>
 
         {/* Preview panel */}
-        <div className="p-6 bg-slate-50 flex flex-col justify-between">
-          <div>
-            <p className="text-base font-bold font-manrope text-foreground leading-snug mb-3">
-              {MEGA_PREVIEW_TEXT}
-            </p>
-          </div>
-          <div className="rounded-xl overflow-hidden mt-4">
+        <div className="py-4 px-4 flex flex-col gap-3">
+          <p className="text-sm font-bold font-manrope text-foreground leading-snug">
+            {MEGA_PREVIEW_TEXT}
+          </p>
+          <div className="rounded-xl overflow-hidden flex-1">
             <img
               src="https://framerusercontent.com/images/boAvRohjbYrJ6IpCgHMw0B5fSU.jpg?width=6144&height=3456"
               alt="Insights"
-              className="w-full h-36 object-cover"
+              className="w-full h-full object-cover min-h-[100px]"
             />
           </div>
         </div>
