@@ -1,5 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/atlas-website run build",
   "outputDirectory": "artifacts/atlas-website/dist/public",
-  "installCommand": "pnpm install"
+  "installCommand": "pnpm install",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
