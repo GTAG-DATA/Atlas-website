@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "./ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import logoImg from "@assets/logo.png";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -28,28 +28,19 @@ const insightsMenu = [
 ];
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [location] = useLocation();
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
     setOpenDropdown(null);
     setIsMobileMenuOpen(false);
   }, [location]);
 
-  const isHome = location === "/";
-  const isTransparent = !isScrolled && isHome;
-  const navBg = isTransparent ? "bg-transparent py-5" : "bg-white/97 backdrop-blur-sm shadow-sm py-4";
-  const textClass = isTransparent ? "text-white" : "text-[#111]";
-  const logoInvert = isTransparent ? "brightness-0 invert" : "";
+  const navBg = "bg-white shadow-sm py-4";
+  const textClass = "text-[#111]";
+  const logoInvert = "";
 
   const open = (menu: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -83,34 +74,35 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/"><span className={`text-sm font-medium hover:text-sky-500 transition-colors cursor-pointer ${textClass}`}>Home</span></Link>
+          <nav className="hidden md:flex items-center gap-7">
+            <Link href="/"><span className="text-sm text-[#111] hover:text-sky-500 transition-colors cursor-pointer">Home</span></Link>
 
             <button
               onMouseEnter={() => open("services")}
-              className={`flex items-center gap-1 text-sm font-medium hover:text-sky-500 transition-colors cursor-pointer ${textClass} ${openDropdown === "services" ? "text-sky-500" : ""}`}
+              className={`flex items-center gap-1 text-sm text-[#111] hover:text-sky-500 transition-colors cursor-pointer ${openDropdown === "services" ? "text-sky-500" : ""}`}
             >
               Services
-              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${openDropdown === "services" ? "rotate-180 text-sky-500" : ""}`} />
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${openDropdown === "services" ? "rotate-180" : ""}`} />
             </button>
 
             <button
               onMouseEnter={() => open("insights")}
-              className={`flex items-center gap-1 text-sm font-medium hover:text-sky-500 transition-colors cursor-pointer ${textClass} ${openDropdown === "insights" ? "text-sky-500" : ""}`}
+              className={`flex items-center gap-1 text-sm text-[#111] hover:text-sky-500 transition-colors cursor-pointer ${openDropdown === "insights" ? "text-sky-500" : ""}`}
             >
               Insights
-              <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${openDropdown === "insights" ? "rotate-180 text-sky-500" : ""}`} />
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${openDropdown === "insights" ? "rotate-180" : ""}`} />
             </button>
 
-            <Link href="/blog"><span className={`text-sm font-medium hover:text-sky-500 transition-colors cursor-pointer ${textClass}`}>Blog</span></Link>
-            <Link href="/contact"><span className={`text-sm font-medium hover:text-sky-500 transition-colors cursor-pointer ${textClass}`}>Contact</span></Link>
+            <Link href="/blog"><span className="text-sm text-[#111] hover:text-sky-500 transition-colors cursor-pointer">Blog</span></Link>
+            <Link href="/contact"><span className="text-sm text-[#111] hover:text-sky-500 transition-colors cursor-pointer">Contact</span></Link>
           </nav>
 
           <div className="hidden md:block">
             <Link href="/contact">
-              <Button className="rounded-full bg-white text-[#142E36] hover:bg-slate-50 font-semibold px-6 text-sm border border-slate-200 shadow-sm">
+              <button className="flex items-center gap-1.5 rounded-full bg-[#0f172a] hover:bg-[#1e293b] text-white text-sm font-medium px-5 py-2.5 transition-colors">
                 Book a Consultation
-              </Button>
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </button>
             </Link>
           </div>
 
