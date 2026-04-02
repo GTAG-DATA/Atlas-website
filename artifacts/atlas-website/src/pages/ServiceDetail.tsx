@@ -1,17 +1,17 @@
 import { useParams, Link } from "wouter";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ChevronRight, Mail } from "lucide-react";
 import { getServiceBySlug, servicesData } from "@/data/services";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
 };
 
-const stagger = {
+const stagger: Variants = {
   show: { transition: { staggerChildren: 0.09 } },
 };
 
