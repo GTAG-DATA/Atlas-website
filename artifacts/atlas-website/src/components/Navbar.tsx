@@ -108,16 +108,16 @@ function MegaMenuServices({ onClose }: { onClose: () => void }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 8 }}
       transition={{ duration: 0.16 }}
-      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[780px] max-w-[95vw] bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50"
+      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[920px] max-w-[95vw] bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50"
       onMouseLeave={onClose}
     >
       <div className="grid grid-cols-3 divide-x divide-slate-100">
         {/* Col 1 */}
-        <div className="py-3 px-3">
+        <div className="py-4 px-5">
           {col1.map((item) => (
             <Link key={item.slug + item.title} href={`/service/${item.slug}`}>
               <div
-                className="px-2 py-1.5 rounded-lg hover:bg-slate-50 cursor-pointer group transition-colors"
+                className="px-3 py-2 rounded-lg hover:bg-slate-50 cursor-pointer group transition-colors"
                 onClick={onClose}
               >
                 <p className="font-bold text-sm text-[#111] font-manrope group-hover:text-[#142E36] leading-tight">
@@ -130,11 +130,11 @@ function MegaMenuServices({ onClose }: { onClose: () => void }) {
         </div>
 
         {/* Col 2 */}
-        <div className="py-3 px-3">
+        <div className="py-4 px-5">
           {col2.map((item) => (
             <Link key={item.slug + item.title} href={`/service/${item.slug}`}>
               <div
-                className="px-2 py-1.5 rounded-lg hover:bg-slate-50 cursor-pointer group transition-colors"
+                className="px-3 py-2 rounded-lg hover:bg-slate-50 cursor-pointer group transition-colors"
                 onClick={onClose}
               >
                 <p className="font-bold text-sm text-[#111] font-manrope group-hover:text-[#142E36] leading-tight">
@@ -147,7 +147,7 @@ function MegaMenuServices({ onClose }: { onClose: () => void }) {
         </div>
 
         {/* Preview panel */}
-        <div className="py-4 px-4 flex flex-col gap-3">
+        <div className="py-5 px-6 flex flex-col gap-4 bg-slate-50/60">
           <p className="text-sm font-bold font-manrope text-foreground leading-snug">
             {MEGA_PREVIEW_TEXT}
           </p>
@@ -155,7 +155,7 @@ function MegaMenuServices({ onClose }: { onClose: () => void }) {
             <img
               src={MEGA_PREVIEW_IMAGE}
               alt="Atlas Corporate Services"
-              className="w-full h-full object-cover min-h-[120px]"
+              className="w-full h-full object-cover min-h-[130px]"
             />
           </div>
         </div>
