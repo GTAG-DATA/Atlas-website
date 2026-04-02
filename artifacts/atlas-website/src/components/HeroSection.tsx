@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "./ui/button";
 import { Link } from "wouter";
+import heroImg from "@assets/ChatGPT_Image_Jan_6,_2026,_04_59_10_PM_1775111154305.png";
 
 export function HeroSection() {
   const { scrollY } = useScroll();
@@ -14,10 +15,10 @@ export function HeroSection() {
         style={{ y }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-10" />
-        <img 
-          src="https://framerusercontent.com/images/JRNXZ0ssmFSymmrwIh3eBrGXd4.jpg?width=5000&height=2813" 
-          alt="DIFC Dubai Architecture" 
-          className="w-full h-full object-cover"
+        <img
+          src={heroImg}
+          alt="DIFC Gate Dubai"
+          className="w-full h-full object-cover object-center"
         />
       </motion.div>
 
