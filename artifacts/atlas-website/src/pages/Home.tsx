@@ -101,39 +101,48 @@ export default function Home() {
       <main className="flex-grow">
         <HeroSection />
 
-        <section className="py-24 bg-slate-50">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-4xl mx-auto mb-16"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-4">
-                Powering Your Business Future
-              </h2>
-              <h3 className="text-xl md:text-2xl font-medium text-slate-600 mb-6">
-                Your DIFC Expertise Partner
-              </h3>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                Atlas Corporate Services specialises in establishing and managing corporate entities in the Dubai International Financial Centre (DIFC), offering comprehensive solutions tailored to global businesses.
-              </p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="rounded-3xl overflow-hidden shadow-2xl relative h-[400px] md:h-[600px] lg:h-[700px] w-full"
-            >
-              <img 
-                src="https://framerusercontent.com/images/JRNXZ0ssmFSymmrwIh3eBrGXd4.jpg?width=5000&height=2813" 
-                alt="Business Future" 
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-6 md:px-10 max-w-7xl">
+            <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+
+              {/* Left: text */}
+              <motion.div
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex-1 min-w-0"
+              >
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" />
+                  <span className="text-xs font-semibold tracking-widest uppercase text-slate-500">Powering Your Business Future</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-slate-900 leading-tight mb-6">
+                  Your DIFC Expertise Partner
+                </h2>
+                <p className="text-sm text-slate-500 leading-relaxed max-w-sm">
+                  Atlas Corporate Services specialises in establishing and managing corporate entities in the Dubai International Financial Centre (DIFC), offering comprehensive solutions tailored to global businesses.
+                </p>
+              </motion.div>
+
+              {/* Right: image */}
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="flex-[1.3] min-w-0"
+              >
+                <div className="rounded-2xl overflow-hidden shadow-sm w-full aspect-[4/3]">
+                  <img
+                    src="https://framerusercontent.com/images/JRNXZ0ssmFSymmrwIh3eBrGXd4.jpg?width=5000&height=2813"
+                    alt="Business meeting"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+              </motion.div>
+
+            </div>
           </div>
         </section>
 
