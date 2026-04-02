@@ -77,19 +77,22 @@ const services = [
 
 const blogPosts = [
   {
-    title: "The Art of Effective Communication in the Workplace",
-    category: "Marketing",
-    image: "https://framerusercontent.com/images/bGqZ5eZrsmU4vOel3VkEPRbYk.jpg?width=6240&height=4160"
+    title: "DIFC 2026: New Fund Regulations and What They Mean for Asset Managers",
+    category: "Regulatory",
+    date: "March 10, 2026",
+    image: "https://framerusercontent.com/images/P76llRCKVB3dVH4mQZOPnkQk.jpg?width=1600&height=896"
   },
   {
-    title: "Digital Transformation: Navigating the New Normal",
-    category: "Marketing",
-    image: "https://framerusercontent.com/images/Aq2YBz7Yh4ZJawKPMWJfq5TMFuU.jpg?width=4058&height=6087"
+    title: "Setting Up a Family Office in DIFC: The 2026 Complete Guide",
+    category: "Wealth",
+    date: "February 14, 2026",
+    image: "https://framerusercontent.com/images/KoUWP2aYlCOne6cr66MZd9uRmw.jpg?width=8192&height=4096"
   },
   {
-    title: "Unlocking the Secrets of Successful Remote Teams",
-    category: "Innovation",
-    image: "https://framerusercontent.com/images/hpmFZ0xb2ce2EAwy1zmjA2Lfsg.jpg?width=6048&height=8064"
+    title: "UAE Corporate Tax: Year-End Compliance Checklist for DIFC Companies",
+    category: "Tax",
+    date: "January 22, 2026",
+    image: "https://framerusercontent.com/images/YU2rhSsokkhKubOesoL3UxW8nE.jpg?width=6240&height=4160"
   }
 ];
 
@@ -279,6 +282,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="p-6">
+                    <div className="text-xs text-slate-400 mb-2">{post.date}</div>
                     <h3 className="text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors leading-tight">
                       {post.title}
                     </h3>
