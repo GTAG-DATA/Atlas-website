@@ -34,7 +34,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-foreground mb-6 font-manrope text-sm uppercase tracking-widest">Services</h4>
+            <h4 className="font-bold text-foreground mb-6 font-display text-sm uppercase tracking-widest">Services</h4>
             <ul className="space-y-3.5 text-sm text-slate-500">
               {serviceLinks.map((link) => (
                 <li key={link.slug}>
@@ -47,7 +47,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-foreground mb-6 font-manrope text-sm uppercase tracking-widest">Insights</h4>
+            <h4 className="font-bold text-foreground mb-6 font-display text-sm uppercase tracking-widest">Insights</h4>
             <ul className="space-y-3.5 text-sm text-slate-500">
               <li><Link href="/insights"><span className="hover:text-[#142E36] transition-colors cursor-pointer">DIFC 101</span></Link></li>
               <li><Link href="/insights"><span className="hover:text-[#142E36] transition-colors cursor-pointer">Prescribed Company Handbook</span></Link></li>
@@ -58,7 +58,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-foreground mb-6 font-manrope text-sm uppercase tracking-widest">Company</h4>
+            <h4 className="font-bold text-foreground mb-6 font-display text-sm uppercase tracking-widest">Company</h4>
             <ul className="space-y-3.5 text-sm text-slate-500">
               <li><Link href="/about"><span className="hover:text-[#142E36] transition-colors cursor-pointer">Why Atlas</span></Link></li>
               <li><Link href="/contact"><span className="hover:text-[#142E36] transition-colors cursor-pointer">Contact Us</span></Link></li>

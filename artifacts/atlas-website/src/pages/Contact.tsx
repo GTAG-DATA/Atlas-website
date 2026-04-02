@@ -20,7 +20,7 @@ export default function Contact() {
               transition={{ duration: 0.6 }}
               className="max-w-3xl"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-manrope text-foreground mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-foreground mb-6">
                 Contact Us
               </h1>
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
@@ -40,9 +40,9 @@ export default function Contact() {
                 className="space-y-12"
               >
                 <div>
-                  <h2 className="text-3xl font-bold font-manrope text-foreground mb-6">Office Location</h2>
+                  <h2 className="text-3xl font-bold font-display text-foreground mb-6">Office Location</h2>
                   <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100">
-                    <h3 className="text-xl font-bold text-primary mb-4 font-manrope">Atlas Corporate Services Ltd</h3>
+                    <h3 className="text-xl font-bold text-primary mb-4 font-display">Atlas Corporate Services Ltd</h3>
                     <p className="text-slate-600 mb-2">GV-00-10-03-BC09, Level 3</p>
                     <p className="text-slate-600 mb-2">Gate Village Building 10, DIFC</p>
                     <p className="text-slate-600 mb-6">Dubai, United Arab Emirates</p>
@@ -77,7 +77,7 @@ export default function Contact() {
                 className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100 h-fit"
               >
                 <div className="mb-8">
-                  <h2 className="text-3xl font-bold font-manrope text-foreground mb-4">Schedule a free consultation!</h2>
+                  <h2 className="text-3xl font-bold font-display text-foreground mb-4">Schedule a free consultation!</h2>
                   <p className="text-slate-600">Secure your financial future with Atlas expert services. Contact us now.</p>
                 </div>
                 <form className="space-y-6">

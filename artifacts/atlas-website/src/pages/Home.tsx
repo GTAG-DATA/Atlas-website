@@ -110,7 +110,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-center max-w-4xl mx-auto mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold font-manrope text-foreground mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-4">
                 Powering Your Business Future
               </h2>
               <h3 className="text-xl md:text-2xl font-medium text-slate-600 mb-6">
@@ -148,7 +148,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="text-4xl md:text-5xl font-bold font-manrope text-foreground">
+                <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground">
                   Our Services
                 </h2>
               </motion.div>
@@ -186,7 +186,7 @@ export default function Home() {
               <div className="grid grid-cols-1 lg:grid-cols-5 items-center gap-0">
                 {/* Left: text */}
                 <div className="lg:col-span-3 p-10 md:p-14 flex flex-col justify-center">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-manrope leading-tight mb-5">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight mb-5">
                     Structure Your Business Right. Scale Without Risk.
                   </h2>
                   <p className="text-white/70 text-sm md:text-base leading-relaxed mb-8 max-w-lg">
@@ -221,7 +221,7 @@ export default function Home() {
         <section className="bg-gradient-to-r from-sky-500 to-sky-400 py-16">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-manrope text-white max-w-3xl leading-snug">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-display text-white max-w-3xl leading-snug">
                 We build compliant structures that protect clients and support long-term growth.
               </h2>
               <div className="flex-shrink-0">
@@ -238,7 +238,7 @@ export default function Home() {
         <section className="py-24 bg-slate-50">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col sm:flex-row justify-between items-end mb-12 gap-6">
-              <h2 className="text-4xl md:text-5xl font-bold font-manrope text-foreground">
+              <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground">
                 The latest blog from us.
               </h2>
               <Link href="/blog">
@@ -270,7 +270,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold font-manrope text-foreground group-hover:text-primary transition-colors leading-tight">
+                    <h3 className="text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors leading-tight">
                       {post.title}
                     </h3>
                   </div>
@@ -282,7 +282,7 @@ export default function Home() {
 
         <section className="py-24 bg-white">
           <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-bold font-manrope text-center text-foreground mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-center text-foreground mb-12">
               Frequently Asked Questions
             </h2>
             <Accordion type="single" collapsible className="w-full">
@@ -342,7 +342,7 @@ export default function Home() {
                 <span className="inline-block py-1 px-3 rounded-full bg-sky-100 text-sky-600 text-xs font-bold tracking-wider uppercase mb-6">
                   CONTACT US
                 </span>
-                <h2 className="text-4xl md:text-5xl font-bold font-manrope text-foreground mb-6 leading-tight">
+                <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-6 leading-tight">
                   Schedule a free consultation!
                 </h2>
                 <p className="text-lg text-slate-600 mb-8 max-w-md leading-relaxed">
@@ -430,7 +430,7 @@ export default function Home() {
             >
               <div className="grid grid-cols-1 lg:grid-cols-5 items-center">
                 <div className="lg:col-span-3 p-10 md:p-14 flex flex-col justify-center">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-manrope leading-tight mb-5">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight mb-5">
                     Structure Your Business Right. Scale Without Risk.
                   </h2>
                   <div className="mt-4">

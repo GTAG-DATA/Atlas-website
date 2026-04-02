@@ -20,7 +20,7 @@ function ServicesSidebar({ currentSlug }: { currentSlug: string }) {
     <aside className="w-full">
       {/* Services list card */}
       <div className="bg-slate-50 rounded-2xl p-6 mb-4">
-        <h3 className="text-lg font-bold font-manrope text-foreground mb-4">
+        <h3 className="text-lg font-bold font-display text-foreground mb-4">
           Our Services
         </h3>
         <hr className="border-slate-200 mb-4" />
@@ -48,7 +48,7 @@ function ServicesSidebar({ currentSlug }: { currentSlug: string }) {
 
       {/* Plan Your Business CTA card */}
       <div className="bg-[#1a1a1a] rounded-2xl p-6 text-white">
-        <h3 className="text-xl font-bold font-manrope mb-2 leading-snug">
+        <h3 className="text-xl font-bold font-display mb-2 leading-snug">
           Plan Your Business
         </h3>
         <p className="text-white/60 text-sm leading-relaxed mb-5">
@@ -120,7 +120,7 @@ export default function ServiceDetail() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="text-3xl md:text-5xl font-bold text-white font-manrope leading-tight max-w-2xl"
+              className="text-3xl md:text-5xl font-bold text-white font-display leading-tight max-w-2xl"
             >
               {service.title}
             </motion.h1>
@@ -158,7 +158,7 @@ export default function ServiceDetail() {
                 className="mb-16"
               >
                 <p className="text-sky-500 text-xs font-bold uppercase tracking-widest mb-3">Overview</p>
-                <h2 className="text-2xl md:text-3xl font-bold font-manrope text-foreground mb-5 leading-snug">
+                <h2 className="text-2xl md:text-3xl font-bold font-display text-foreground mb-5 leading-snug">
                   {service.description}
                 </h2>
                 <p className="text-slate-500 leading-relaxed text-base">{service.overview}</p>
@@ -173,7 +173,7 @@ export default function ServiceDetail() {
                 className="mb-16"
               >
                 <p className="text-sky-500 text-xs font-bold uppercase tracking-widest mb-3">Why Choose Atlas</p>
-                <h2 className="text-2xl md:text-3xl font-bold font-manrope text-foreground mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold font-display text-foreground mb-8">
                   Key Features & Benefits
                 </h2>
                 <motion.div
@@ -192,7 +192,7 @@ export default function ServiceDetail() {
                       <div className="w-9 h-9 rounded-full bg-[#142E36]/8 flex items-center justify-center mb-4 group-hover:bg-sky-50 transition-colors">
                         <span className="text-[#142E36] font-bold text-xs">{String(i + 1).padStart(2, "0")}</span>
                       </div>
-                      <h3 className="font-bold text-foreground font-manrope text-base mb-2">{feature.title}</h3>
+                      <h3 className="font-bold text-foreground font-display text-base mb-2">{feature.title}</h3>
                       <p className="text-slate-500 text-sm leading-relaxed">{feature.description}</p>
                     </motion.div>
                   ))}
@@ -208,7 +208,7 @@ export default function ServiceDetail() {
                 className="mb-16"
               >
                 <p className="text-sky-500 text-xs font-bold uppercase tracking-widest mb-3">Our Process</p>
-                <h2 className="text-2xl md:text-3xl font-bold font-manrope text-foreground mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold font-display text-foreground mb-8">
                   How We Work
                 </h2>
                 <div className="relative">
@@ -223,10 +223,10 @@ export default function ServiceDetail() {
                     {service.steps.map((step, i) => (
                       <motion.div key={i} variants={fadeUp} className="flex gap-5 items-start">
                         <div className="relative flex-shrink-0 w-12 h-12 rounded-full bg-[#142E36] flex items-center justify-center z-10">
-                          <span className="text-white font-bold text-xs font-manrope">{step.number}</span>
+                          <span className="text-white font-bold text-xs font-display">{step.number}</span>
                         </div>
                         <div className="flex-1 pb-6 border-b border-slate-100 last:border-0 pt-2">
-                          <h3 className="font-bold text-foreground font-manrope text-lg mb-1.5">{step.title}</h3>
+                          <h3 className="font-bold text-foreground font-display text-lg mb-1.5">{step.title}</h3>
                           <p className="text-slate-500 text-sm leading-relaxed">{step.description}</p>
                         </div>
                       </motion.div>
@@ -244,7 +244,7 @@ export default function ServiceDetail() {
                 className="mb-16 bg-[#142E36] rounded-2xl p-8 md:p-10"
               >
                 <p className="text-sky-400 text-xs font-bold uppercase tracking-widest mb-3">Full Service</p>
-                <h2 className="text-2xl md:text-3xl font-bold font-manrope text-white mb-3 leading-snug">
+                <h2 className="text-2xl md:text-3xl font-bold font-display text-white mb-3 leading-snug">
                   What's Included
                 </h2>
                 <p className="text-white/55 text-sm leading-relaxed mb-8">
@@ -275,7 +275,7 @@ export default function ServiceDetail() {
                 className="mb-4 bg-slate-50 rounded-2xl p-8 md:p-10 text-center"
               >
                 <p className="text-sky-500 text-xs font-bold uppercase tracking-widest mb-3">Get Expert Advice</p>
-                <h2 className="text-2xl md:text-3xl font-bold font-manrope text-foreground mb-4 leading-snug">
+                <h2 className="text-2xl md:text-3xl font-bold font-display text-foreground mb-4 leading-snug">
                   {service.ctaText}
                 </h2>
                 <p className="text-slate-500 text-sm mb-7 leading-relaxed max-w-xl mx-auto">
@@ -311,7 +311,7 @@ export default function ServiceDetail() {
             className="mb-10"
           >
             <p className="text-sky-500 text-xs font-bold uppercase tracking-widest mb-3">Explore More</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground font-manrope">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground font-display">
               Related Services
             </h2>
           </motion.div>
@@ -334,7 +334,7 @@ export default function ServiceDetail() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0c1e24]/80 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-5">
-                        <h3 className="text-white font-bold font-manrope text-base leading-snug">{s.title}</h3>
+                        <h3 className="text-white font-bold font-display text-base leading-snug">{s.title}</h3>
                       </div>
                     </div>
                     <div className="p-5">

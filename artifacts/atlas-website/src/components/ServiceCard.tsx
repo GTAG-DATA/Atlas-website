@@ -30,7 +30,7 @@ export function ServiceCard({ title, description, image, slug, delay = 0 }: Serv
         <div className="absolute inset-0 bg-[#142E36]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
       <div className="p-6 md:p-7 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold font-manrope text-foreground mb-3">{title}</h3>
+        <h3 className="text-xl font-bold font-display text-foreground mb-3">{title}</h3>
         <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">{description}</p>
         <Link href={href}>
           <div className="inline-flex items-center text-sm font-semibold text-[#142E36] hover:text-sky-600 transition-colors mt-auto cursor-pointer group/link gap-1">

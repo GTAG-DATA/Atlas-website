@@ -21,7 +21,7 @@ export default function Services() {
               <p className="text-sm font-semibold text-sky-500 uppercase tracking-widest mb-4">
                 What We Do
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-manrope text-foreground mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-foreground mb-6 leading-tight">
                 Our Services
               </h1>
               <p className="text-lg md:text-xl text-slate-500 leading-relaxed">

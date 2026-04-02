@@ -41,7 +41,7 @@ export default function Insights() {
               transition={{ duration: 0.6 }}
               className="max-w-3xl"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-manrope text-foreground mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-foreground mb-6">
                 Insights Hub
               </h1>
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
@@ -65,7 +65,7 @@ export default function Insights() {
                   <div className="w-14 h-14 rounded-2xl bg-slate-50 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                     <resource.icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-2xl font-bold font-manrope text-foreground mb-3">{resource.title}</h3>
+                  <h3 className="text-2xl font-bold font-display text-foreground mb-3">{resource.title}</h3>
                   <p className="text-slate-600 leading-relaxed mb-6">{resource.description}</p>
                   <Link href="#">
                     <div className="inline-flex items-center font-semibold text-primary hover:text-sky-500 transition-colors cursor-pointer group/link">

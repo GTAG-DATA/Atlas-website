@@ -39,7 +39,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="text-[28px] md:text-[38px] font-bold font-manrope text-white leading-snug mb-4"
+            className="text-[28px] md:text-[38px] font-bold font-display text-white leading-snug mb-4"
           >
             Your Trusted Partner for DIFC Company Setup &amp; Corporate Services
           </motion.h1>
@@ -49,7 +49,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-sm text-white/65 max-w-sm mb-7 leading-relaxed"
+            className="text-sm text-white/65 max-w-sm mb-7 leading-relaxed font-instrument"
           >
             Expert corporate services for DIFC, ADGM and UAE — from company setup and fund structuring to compliance and ongoing governance.
           </motion.p>

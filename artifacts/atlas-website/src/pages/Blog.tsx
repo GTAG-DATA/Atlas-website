@@ -55,7 +55,7 @@ export default function Blog() {
               transition={{ duration: 0.6 }}
               className="max-w-3xl"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-manrope text-foreground mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-foreground mb-6">
                 Blog
               </h1>
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
@@ -88,7 +88,7 @@ export default function Blog() {
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
                     <div className="text-sm text-slate-500 mb-3">{post.date}</div>
-                    <h3 className="text-xl font-bold font-manrope text-foreground group-hover:text-primary transition-colors leading-tight mb-4 flex-grow">
+                    <h3 className="text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors leading-tight mb-4 flex-grow">
                       {post.title}
                     </h3>
                   </div>

@@ -54,7 +54,7 @@ export function StatsSection() {
               <span className="inline-block py-1 px-3 rounded-full bg-slate-100 text-slate-600 text-xs font-bold tracking-wider uppercase mb-6">
                 ATLAS IMPACT
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold font-manrope text-foreground mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-6 leading-tight">
                 Trusted by Global Businesses
               </h2>
               <p className="text-lg text-slate-600">
@@ -74,7 +74,7 @@ export function StatsSection() {
                   <img src="https://framerusercontent.com/images/q7MA7L9DlMIVHQ3cqAbABE19n4.jpg?width=5467&height=3067" className="w-full h-full object-cover" alt="" />
                 </div>
                 <div className="relative z-10">
-                  <div className="text-4xl font-bold font-manrope text-primary mb-2">
+                  <div className="text-4xl font-bold font-display text-primary mb-2">
                     <Counter from={0} to={500} suffix="+" />
                   </div>
                   <div className="text-sm font-medium text-slate-600">Satisfied Clients</div>
@@ -89,7 +89,7 @@ export function StatsSection() {
                 className="bg-slate-50 rounded-3xl p-6 border border-slate-100 relative overflow-hidden"
               >
                 <div className="relative z-10">
-                  <div className="text-4xl font-bold font-manrope text-primary mb-2">
+                  <div className="text-4xl font-bold font-display text-primary mb-2">
                     <Counter from={0} to={180} suffix="+" />
                   </div>
                   <div className="text-sm font-medium text-slate-600">Companies Established</div>
@@ -107,7 +107,7 @@ export function StatsSection() {
                   <img src="https://framerusercontent.com/images/iMNSvKxIZUItkgn8ZuVlSUiDc.jpg?width=7452&height=4947" className="w-full h-full object-cover object-center" alt="" />
                 </div>
                 <div className="relative z-10">
-                  <div className="text-4xl font-bold font-manrope text-primary mb-2">
+                  <div className="text-4xl font-bold font-display text-primary mb-2">
                     <Counter from={0} to={100} suffix="+" />
                   </div>
                   <div className="text-sm font-medium text-slate-600">Collective experience (Years)</div>
@@ -148,7 +148,7 @@ export function StatsSection() {
                   {idx + 1}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold font-manrope text-foreground mb-2">{feature.title}</h3>
+                  <h3 className="text-xl font-bold font-display text-foreground mb-2">{feature.title}</h3>
                   <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
                 </div>
               </motion.div>

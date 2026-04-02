@@ -132,7 +132,7 @@ export function Navbar() {
                   {svcCol1.map((item) => (
                     <Link key={item.slug + item.title} href={`/service/${item.slug}`}>
                       <div className="py-3 group cursor-pointer" onClick={close}>
-                        <p className="font-bold text-base text-[#111] font-manrope group-hover:text-[#142E36] leading-snug">
+                        <p className="font-bold text-base text-[#111] font-display group-hover:text-[#142E36] leading-snug">
                           {item.title}
                         </p>
                         <p className="text-sm text-slate-400 mt-0.5">{item.subtitle}</p>
@@ -146,7 +146,7 @@ export function Navbar() {
                   {svcCol2.map((item) => (
                     <Link key={item.slug + item.title} href={`/service/${item.slug}`}>
                       <div className="py-3 group cursor-pointer" onClick={close}>
-                        <p className="font-bold text-base text-[#111] font-manrope group-hover:text-[#142E36] leading-snug">
+                        <p className="font-bold text-base text-[#111] font-display group-hover:text-[#142E36] leading-snug">
                           {item.title}
                         </p>
                         <p className="text-sm text-slate-400 mt-0.5">{item.subtitle}</p>
@@ -157,7 +157,7 @@ export function Navbar() {
 
                 {/* Preview */}
                 <div className="py-8 pl-10 flex flex-col gap-5">
-                  <p className="text-lg font-bold font-manrope text-foreground leading-snug">
+                  <p className="text-lg font-bold font-display text-foreground leading-snug">
                     Strategic structuring, compliance and corporate solutions in DIFC and the UAE.
                   </p>
                   <p className="text-sm text-slate-500 -mt-2">
@@ -194,7 +194,7 @@ export function Navbar() {
                   {insCol1.map((item) => (
                     <Link key={item.title} href={item.path}>
                       <div className="py-3 group cursor-pointer" onClick={close}>
-                        <p className="font-bold text-base text-[#111] font-manrope group-hover:text-[#142E36] leading-snug">
+                        <p className="font-bold text-base text-[#111] font-display group-hover:text-[#142E36] leading-snug">
                           {item.title}
                         </p>
                         <p className="text-sm text-slate-400 mt-0.5">{item.subtitle}</p>
@@ -208,7 +208,7 @@ export function Navbar() {
                   {insCol2.map((item) => (
                     <Link key={item.title} href={item.path}>
                       <div className="py-3 group cursor-pointer" onClick={close}>
-                        <p className="font-bold text-base text-[#111] font-manrope group-hover:text-[#142E36] leading-snug">
+                        <p className="font-bold text-base text-[#111] font-display group-hover:text-[#142E36] leading-snug">
                           {item.title}
                         </p>
                         <p className="text-sm text-slate-400 mt-0.5">{item.subtitle}</p>
@@ -219,7 +219,7 @@ export function Navbar() {
 
                 {/* Preview */}
                 <div className="py-8 pl-10 flex flex-col gap-5">
-                  <p className="text-lg font-bold font-manrope text-foreground leading-snug">
+                  <p className="text-lg font-bold font-display text-foreground leading-snug">
                     Strategic structuring, compliance and corporate solutions in DIFC and the UAE.
                   </p>
                   <p className="text-sm text-slate-500 -mt-2">

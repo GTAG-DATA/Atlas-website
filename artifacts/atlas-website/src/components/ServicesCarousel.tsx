@@ -25,7 +25,7 @@ export function ServicesCarousel() {
   return (
     <section className="py-20 bg-background overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold font-manrope text-foreground text-center">
+        <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground text-center">
           Comprehensive Solutions
         </h2>
       </div>
@@ -50,7 +50,7 @@ export function ServicesCarousel() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent pointer-events-none" />
               <div className="absolute bottom-0 left-0 p-8 w-full pointer-events-none">
-                <h3 className="text-white text-2xl font-bold font-manrope leading-tight group-hover:text-sky-300 transition-colors">
+                <h3 className="text-white text-2xl font-bold font-display leading-tight group-hover:text-sky-300 transition-colors">
                   {service.name}
                 </h3>
               </div>
