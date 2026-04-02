@@ -1,5 +1,4 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Button } from "./ui/button";
 import { Link } from "wouter";
 import heroImg from "@assets/ChatGPT_Image_Jan_6,_2026,_04_59_10_PM_1775111154305.png";
 
@@ -9,12 +8,12 @@ export function HeroSection() {
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
 
   return (
-    <section className="relative h-screen min-h-[600px] w-full flex items-end pb-24 overflow-hidden bg-slate-900">
-      <motion.div 
+    <section className="relative h-screen min-h-[600px] w-full flex items-end pb-20 overflow-hidden bg-slate-900">
+      <motion.div
         className="absolute inset-0 w-full h-[120%]"
         style={{ y }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 z-10" />
         <img
           src={heroImg}
           alt="DIFC Gate Dubai"
@@ -23,49 +22,51 @@ export function HeroSection() {
       </motion.div>
 
       <div className="container relative z-20 mx-auto px-4 md:px-6">
-        <motion.div 
-          style={{ opacity }}
-          className="max-w-4xl"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
-            <span className="inline-block py-1 px-3 rounded-full bg-sky-500/20 border border-sky-400/30 text-sky-400 text-xs font-semibold tracking-wider uppercase mb-6">
-              Together, We Create Impact
-            </span>
-          </motion.div>
+        <motion.div style={{ opacity }} className="max-w-xl">
 
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
+          {/* Label */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-            className="text-4xl md:text-5xl lg:text-7xl font-bold font-manrope text-white leading-tight mb-6"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-sky-400 text-sm font-medium mb-3"
           >
-            Your Trusted Partner for <br className="hidden md:block"/> DIFC Company Setup & <br className="hidden md:block"/> Corporate Services
+            Together, We Create Impact
+          </motion.p>
+
+          {/* Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="text-[28px] md:text-[38px] font-bold font-manrope text-white leading-snug mb-4"
+          >
+            Your Trusted Partner for DIFC Company Setup &amp; Corporate Services
           </motion.h1>
 
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed"
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="text-sm text-white/65 max-w-sm mb-7 leading-relaxed"
           >
             Expert corporate services for DIFC, ADGM and UAE — from company setup and fund structuring to compliance and ongoing governance.
           </motion.p>
 
+          {/* CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
           >
             <Link href="/contact">
-              <button className="rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/40 backdrop-blur-sm px-6 py-2.5 text-sm font-normal transition-colors">
+              <button className="rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/35 backdrop-blur-sm px-5 py-2 text-sm font-normal transition-colors">
                 Contact us
               </button>
             </Link>
           </motion.div>
+
         </motion.div>
       </div>
     </section>
