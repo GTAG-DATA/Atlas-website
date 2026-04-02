@@ -52,7 +52,7 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="text-lg md:text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed"
           >
-            Your support powers life changing missions feeding families & rebuilding hope.
+            Expert corporate services for DIFC, ADGM and UAE — from company setup and fund structuring to compliance and ongoing governance.
           </motion.p>
 
           <motion.div
