@@ -1,35 +1,249 @@
 import { Link, useLocation } from "wouter";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logoImg from "@assets/logo.png";
 import { motion, AnimatePresence } from "framer-motion";
 
-const servicesDropdown = [
-  { name: "DIFC Company Setup", slug: "difc-company-setup" },
-  { name: "Family Office Setup", slug: "family-office-setup" },
-  { name: "Fund Setup", slug: "fund-setup" },
-  { name: "Fund & SPV Support", slug: "fund-spv-support" },
-  { name: "Residency & Banking Concierge", slug: "residency-banking-concierge" },
-  { name: "DIFC Foundations", slug: "difc-foundations" },
-  { name: "DIFC Prescribed Company (SPV)", slug: "difc-prescribed-company-spv" },
-  { name: "Company Secretarial & Governance", slug: "company-secretarial-governance" },
-  { name: "Compliance & Economic Substance", slug: "compliance-economic-substance" },
+const servicesMenu = [
+  {
+    title: "DIFC Company Setup",
+    subtitle: "Strategic DIFC setup for growth and credibility",
+    slug: "difc-company-setup",
+  },
+  {
+    title: "DIFC Foundations",
+    subtitle: "Secure structures for wealth and succession planning",
+    slug: "difc-foundations",
+  },
+  {
+    title: "Company Secretarial & Governance",
+    subtitle: "Ongoing governance and compliance, handled properly",
+    slug: "company-secretarial-governance",
+  },
+  {
+    title: "Family Office Setup",
+    subtitle: "Tailored structures for wealth control and legacy",
+    slug: "family-office-setup",
+  },
+  {
+    title: "Compliance & Economic Substance",
+    subtitle: "Stay compliant and reduce regulatory risk",
+    slug: "compliance-economic-substance",
+  },
+  {
+    title: "Accounting, Tax & Payroll",
+    subtitle: "Accurate financial management with full compliance",
+    slug: "compliance-economic-substance",
+  },
+  {
+    title: "Residency & Banking Concierge",
+    subtitle: "Smooth residency and banking setup in the UAE",
+    slug: "residency-banking-concierge",
+  },
+  {
+    title: "Fund & SPV Support",
+    subtitle: "End-to-end support for funds and SPV structures",
+    slug: "fund-spv-support",
+  },
+  {
+    title: "DIFC Prescribed Company (SPV)",
+    subtitle: "Cost-effective SPV for investment holding",
+    slug: "difc-prescribed-company-spv",
+  },
+  {
+    title: "Fund Setup",
+    subtitle: "Full fund formation in DIFC and ADGM",
+    slug: "fund-setup",
+  },
 ];
 
-const insightsDropdown = [
-  { name: "DIFC 101", path: "/insights" },
-  { name: "Prescribed Company Handbook", path: "/insights" },
-  { name: "Economic Substance Guide", path: "/insights" },
-  { name: "UAE Corporate Tax", path: "/insights" },
-  { name: "Case Notes", path: "/insights" },
+const insightsMenu = [
+  {
+    title: "All Insights & Resources",
+    subtitle: "View All",
+    path: "/insights",
+    isViewAll: true,
+  },
+  {
+    title: "DIFC 101 Guide",
+    subtitle: "Guide",
+    path: "/insights",
+  },
+  {
+    title: "Prescribed Company Handbook",
+    subtitle: "Guide",
+    path: "/insights",
+  },
+  {
+    title: "Innovation License Guide",
+    subtitle: "Guide",
+    path: "/insights",
+  },
+  {
+    title: "Economic Substance Updates",
+    subtitle: "Update",
+    path: "/insights",
+  },
+  {
+    title: "UAE Corporate Tax",
+    subtitle: "Update",
+    path: "/insights",
+  },
 ];
+
+const MEGA_PREVIEW_IMAGE =
+  "https://framerusercontent.com/images/H7uTwhmDFTPQD22lho2q2ZJbNE.jpg?width=4104&height=2736";
+const MEGA_PREVIEW_TEXT =
+  "Strategic structuring, compliance and corporate solutions in DIFC and the UAE.";
+
+function MegaMenuServices({ onClose }: { onClose: () => void }) {
+  const half = Math.ceil(servicesMenu.length / 2);
+  const col1 = servicesMenu.slice(0, half);
+  const col2 = servicesMenu.slice(half);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      transition={{ duration: 0.18 }}
+      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[820px] max-w-[95vw] bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50"
+      onMouseLeave={onClose}
+    >
+      <div className="grid grid-cols-3">
+        {/* Col 1 */}
+        <div className="p-5 border-r border-slate-100">
+          {col1.map((item) => (
+            <Link key={item.slug + item.title} href={`/service/${item.slug}`}>
+              <div
+                className="px-3 py-3 rounded-xl hover:bg-slate-50 cursor-pointer group transition-colors"
+                onClick={onClose}
+              >
+                <p className="font-semibold text-sm text-foreground font-manrope group-hover:text-[#142E36] leading-snug">
+                  {item.title}
+                </p>
+                <p className="text-xs text-slate-400 mt-0.5 leading-snug">{item.subtitle}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Col 2 */}
+        <div className="p-5 border-r border-slate-100">
+          {col2.map((item) => (
+            <Link key={item.slug + item.title} href={`/service/${item.slug}`}>
+              <div
+                className="px-3 py-3 rounded-xl hover:bg-slate-50 cursor-pointer group transition-colors"
+                onClick={onClose}
+              >
+                <p className="font-semibold text-sm text-foreground font-manrope group-hover:text-[#142E36] leading-snug">
+                  {item.title}
+                </p>
+                <p className="text-xs text-slate-400 mt-0.5 leading-snug">{item.subtitle}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Preview panel */}
+        <div className="p-6 bg-slate-50 flex flex-col justify-between">
+          <div>
+            <p className="text-base font-bold font-manrope text-foreground leading-snug mb-3">
+              {MEGA_PREVIEW_TEXT}
+            </p>
+          </div>
+          <div className="rounded-xl overflow-hidden mt-4 flex-shrink-0">
+            <img
+              src={MEGA_PREVIEW_IMAGE}
+              alt="Atlas Corporate Services"
+              className="w-full h-36 object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function MegaMenuInsights({ onClose }: { onClose: () => void }) {
+  const col1 = insightsMenu.slice(0, 4);
+  const col2 = insightsMenu.slice(4);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      transition={{ duration: 0.18 }}
+      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[720px] max-w-[95vw] bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden z-50"
+      onMouseLeave={onClose}
+    >
+      <div className="grid grid-cols-3">
+        {/* Col 1 */}
+        <div className="p-5 border-r border-slate-100">
+          {col1.map((item) => (
+            <Link key={item.title} href={item.path}>
+              <div
+                className="px-3 py-3 rounded-xl hover:bg-slate-50 cursor-pointer group transition-colors"
+                onClick={onClose}
+              >
+                <p
+                  className={`font-semibold text-sm font-manrope group-hover:text-[#142E36] leading-snug ${
+                    item.isViewAll ? "text-foreground" : "text-foreground"
+                  }`}
+                >
+                  {item.title}
+                </p>
+                <p className="text-xs text-slate-400 mt-0.5">{item.subtitle}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Col 2 */}
+        <div className="p-5 border-r border-slate-100">
+          {col2.map((item) => (
+            <Link key={item.title} href={item.path}>
+              <div
+                className="px-3 py-3 rounded-xl hover:bg-slate-50 cursor-pointer group transition-colors"
+                onClick={onClose}
+              >
+                <p className="font-semibold text-sm text-foreground font-manrope group-hover:text-[#142E36] leading-snug">
+                  {item.title}
+                </p>
+                <p className="text-xs text-slate-400 mt-0.5">{item.subtitle}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Preview panel */}
+        <div className="p-6 bg-slate-50 flex flex-col justify-between">
+          <div>
+            <p className="text-base font-bold font-manrope text-foreground leading-snug mb-3">
+              {MEGA_PREVIEW_TEXT}
+            </p>
+          </div>
+          <div className="rounded-xl overflow-hidden mt-4">
+            <img
+              src="https://framerusercontent.com/images/boAvRohjbYrJ6IpCgHMw0B5fSU.jpg?width=6144&height=3456"
+              alt="Insights"
+              className="w-full h-36 object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [location] = useLocation();
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -46,16 +260,22 @@ export function Navbar() {
   const isTransparent = !isScrolled && isHome;
 
   const navClass = isTransparent
-    ? "bg-transparent py-6"
-    : "bg-white/95 backdrop-blur-sm shadow-sm py-4";
+    ? "bg-transparent py-5"
+    : "bg-white/97 backdrop-blur-sm shadow-sm py-4";
   const textClass = isTransparent ? "text-white" : "text-[#142E36]";
   const logoInvertClass = isTransparent ? "brightness-0 invert" : "";
 
+  const handleMouseEnter = (menu: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpenDropdown(menu);
+  };
+
+  const handleClose = () => {
+    closeTimer.current = setTimeout(() => setOpenDropdown(null), 120);
+  };
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navClass}`}
-      onMouseLeave={() => setOpenDropdown(null)}
-    >
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navClass}`}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link href="/">
@@ -67,88 +287,43 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-7">
+          <nav className="hidden md:flex items-center gap-7 relative">
             <Link href="/">
               <span className={`text-sm font-medium hover:text-sky-500 transition-colors cursor-pointer ${textClass}`}>
                 Home
               </span>
             </Link>
 
-            {/* Services Dropdown */}
+            {/* Services */}
             <div
               className="relative"
-              onMouseEnter={() => setOpenDropdown("services")}
+              onMouseEnter={() => handleMouseEnter("services")}
+              onMouseLeave={handleClose}
             >
-              <div
-                className={`flex items-center gap-1 text-sm font-medium hover:text-sky-500 transition-colors cursor-pointer ${textClass}`}
-              >
+              <div className={`flex items-center gap-1 text-sm font-medium hover:text-sky-500 transition-colors cursor-pointer ${textClass}`}>
                 Services
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-200 ${openDropdown === "services" ? "rotate-180" : ""}`}
-                />
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${openDropdown === "services" ? "rotate-180" : ""}`} />
               </div>
               <AnimatePresence>
                 {openDropdown === "services" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.18 }}
-                    className="absolute top-full left-0 pt-3 w-72"
-                  >
-                    <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-2">
-                      {servicesDropdown.map((item) => (
-                        <Link key={item.slug} href={`/service/${item.slug}`}>
-                          <div className="px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 hover:text-[#142E36] rounded-xl cursor-pointer transition-colors font-medium">
-                            {item.name}
-                          </div>
-                        </Link>
-                      ))}
-                      <div className="border-t border-slate-100 mt-2 pt-2">
-                        <Link href="/services">
-                          <div className="px-4 py-2.5 text-sm text-sky-600 hover:bg-sky-50 rounded-xl cursor-pointer transition-colors font-semibold">
-                            View All Services →
-                          </div>
-                        </Link>
-                      </div>
-                    </div>
-                  </motion.div>
+                  <MegaMenuServices onClose={() => setOpenDropdown(null)} />
                 )}
               </AnimatePresence>
             </div>
 
-            {/* Insights Dropdown */}
+            {/* Insights */}
             <div
               className="relative"
-              onMouseEnter={() => setOpenDropdown("insights")}
+              onMouseEnter={() => handleMouseEnter("insights")}
+              onMouseLeave={handleClose}
             >
-              <div
-                className={`flex items-center gap-1 text-sm font-medium hover:text-sky-500 transition-colors cursor-pointer ${textClass}`}
-              >
+              <div className={`flex items-center gap-1 text-sm font-medium hover:text-sky-500 transition-colors cursor-pointer ${textClass}`}>
                 Insights
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-200 ${openDropdown === "insights" ? "rotate-180" : ""}`}
-                />
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${openDropdown === "insights" ? "rotate-180" : ""}`} />
               </div>
               <AnimatePresence>
                 {openDropdown === "insights" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.18 }}
-                    className="absolute top-full left-0 pt-3 w-60"
-                  >
-                    <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-2">
-                      {insightsDropdown.map((item) => (
-                        <Link key={item.name} href={item.path}>
-                          <div className="px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 hover:text-[#142E36] rounded-xl cursor-pointer transition-colors font-medium">
-                            {item.name}
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
+                  <MegaMenuInsights onClose={() => setOpenDropdown(null)} />
                 )}
               </AnimatePresence>
             </div>
@@ -167,7 +342,7 @@ export function Navbar() {
 
           <div className="hidden md:block">
             <Link href="/contact">
-              <Button className="rounded-full bg-[#142E36] hover:bg-[#142E36]/90 text-white font-medium px-6 text-sm">
+              <Button className="rounded-full bg-white text-[#142E36] hover:bg-white/90 font-semibold px-6 text-sm border border-slate-200 shadow-sm">
                 Book a Consultation
               </Button>
             </Link>
@@ -194,37 +369,38 @@ export function Navbar() {
           >
             <div className="flex flex-col px-4 py-6 gap-1 max-h-[80vh] overflow-y-auto">
               <Link href="/">
-                <div className="py-3 text-base font-medium text-foreground border-b border-slate-100 cursor-pointer">
-                  Home
-                </div>
+                <div className="py-3 text-base font-medium text-foreground border-b border-slate-100 cursor-pointer">Home</div>
               </Link>
               <div className="py-3 border-b border-slate-100">
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">Services</p>
-                {servicesDropdown.map((item) => (
-                  <Link key={item.slug} href={`/service/${item.slug}`}>
-                    <div className="py-2 pl-3 text-sm text-slate-600 hover:text-primary cursor-pointer">
-                      {item.name}
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Services</p>
+                {servicesMenu.map((item) => (
+                  <Link key={item.slug + item.title} href={`/service/${item.slug}`}>
+                    <div className="py-2 pl-2 cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>
+                      <p className="text-sm font-medium text-foreground">{item.title}</p>
+                      <p className="text-xs text-slate-400">{item.subtitle}</p>
                     </div>
                   </Link>
                 ))}
               </div>
-              <Link href="/insights">
-                <div className="py-3 text-base font-medium text-foreground border-b border-slate-100 cursor-pointer">
-                  Insights
-                </div>
-              </Link>
+              <div className="py-3 border-b border-slate-100">
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Insights</p>
+                {insightsMenu.map((item) => (
+                  <Link key={item.title} href={item.path}>
+                    <div className="py-2 pl-2 cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>
+                      <p className="text-sm font-medium text-foreground">{item.title}</p>
+                      <p className="text-xs text-slate-400">{item.subtitle}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
               <Link href="/blog">
-                <div className="py-3 text-base font-medium text-foreground border-b border-slate-100 cursor-pointer">
-                  Blog
-                </div>
+                <div className="py-3 text-base font-medium text-foreground border-b border-slate-100 cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>Blog</div>
               </Link>
               <Link href="/contact">
-                <div className="py-3 text-base font-medium text-foreground border-b border-slate-100 cursor-pointer">
-                  Contact
-                </div>
+                <div className="py-3 text-base font-medium text-foreground border-b border-slate-100 cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>Contact</div>
               </Link>
               <Link href="/contact">
-                <Button className="w-full rounded-full bg-primary mt-4">
+                <Button className="w-full rounded-full bg-[#142E36] text-white mt-4" onClick={() => setIsMobileMenuOpen(false)}>
                   Book a Consultation
                 </Button>
               </Link>
