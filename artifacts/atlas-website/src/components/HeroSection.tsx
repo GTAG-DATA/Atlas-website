@@ -61,9 +61,9 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           >
             <Link href="/contact">
-              <Button size="lg" className="rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md px-8 py-6 text-base font-medium">
+              <button className="rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/40 backdrop-blur-sm px-6 py-2.5 text-sm font-normal transition-colors">
                 Contact us
-              </Button>
+              </button>
             </Link>
           </motion.div>
         </motion.div>
