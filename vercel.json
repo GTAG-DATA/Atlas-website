@@ -1,0 +1,5 @@
+{
+  "buildCommand": "pnpm --filter @workspace/atlas-website run build",
+  "outputDirectory": "artifacts/atlas-website/dist",
+  "installCommand": "pnpm install"
+}
