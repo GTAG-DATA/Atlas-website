@@ -169,42 +169,49 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-primary text-white py-0 overflow-hidden relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+        <section className="py-10 bg-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="p-12 md:p-24 flex flex-col justify-center"
+              className="relative overflow-hidden rounded-2xl text-white"
+              style={{
+                backgroundColor: '#3b5fd4',
+                backgroundImage: `radial-gradient(circle at 68% 50%, #5070e8 0%, #3555cc 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='104'%3E%3Cpolygon points='30,2 58,18 58,50 30,66 2,50 2,18' fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='1.5'/%3E%3Cpolygon points='30,70 58,86 58,118 30,134 2,118 2,86' fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='1.5'/%3E%3C/svg%3E")`,
+                backgroundSize: 'cover, 60px 104px',
+              }}
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-manrope leading-tight mb-6">
-                Structure Your Business Right. Scale Without Risk.
-              </h2>
-              <p className="text-slate-300 text-lg leading-relaxed mb-10 max-w-xl">
-                Set up, manage, and optimise your company in the UAE with expert guidance. From DIFC and ADGM structuring to compliance and corporate governance, we handle the complexity so you can focus on growth.
-              </p>
-              <div>
-                <Link href="/contact">
-                  <Button size="lg" className="rounded-full bg-white hover:bg-slate-100 text-primary px-8 py-6 text-base font-bold">
-                    Get Expert Advice
-                  </Button>
-                </Link>
+              <div className="grid grid-cols-1 lg:grid-cols-5 items-center gap-0">
+                {/* Left: text */}
+                <div className="lg:col-span-3 p-10 md:p-14 flex flex-col justify-center">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-manrope leading-tight mb-5">
+                    Structure Your Business Right. Scale Without Risk.
+                  </h2>
+                  <p className="text-white/70 text-sm md:text-base leading-relaxed mb-8 max-w-lg">
+                    Set up, manage, and optimise your company in the UAE with expert guidance. From DIFC and ADGM structuring to compliance and corporate governance, we handle the complexity so you can focus on growth.
+                  </p>
+                  <div>
+                    <Link href="/contact">
+                      <Button className="rounded-full bg-white hover:bg-slate-100 text-[#3b5fd4] px-7 py-5 text-sm font-semibold shadow-sm">
+                        Get Expert Advice
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Right: image */}
+                <div className="lg:col-span-2 p-8 flex items-center justify-center">
+                  <div className="rounded-xl overflow-hidden w-full shadow-xl">
+                    <img
+                      src="https://framerusercontent.com/images/Xb3NT7pu31BcEL4phMEbofsQo.jpeg?width=2048&height=1306"
+                      alt="DIFC"
+                      className="w-full h-56 md:h-64 object-cover"
+                    />
+                  </div>
+                </div>
               </div>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 1.05 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="h-[400px] lg:h-auto"
-            >
-              <img 
-                src="https://framerusercontent.com/images/Xb3NT7pu31BcEL4phMEbofsQo.jpeg?width=2048&height=1306" 
-                alt="Expert Advice" 
-                className="w-full h-full object-cover"
-              />
             </motion.div>
           </div>
         </section>
@@ -411,27 +418,39 @@ export default function Home() {
           </div>
         </section>
         
-        <section className="bg-primary text-white py-0 overflow-hidden relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="p-12 md:p-24 flex flex-col justify-center">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-manrope leading-tight mb-6">
-                Structure Your Business Right. Scale Without Risk.
-              </h2>
-              <div className="mt-6">
-                <Link href="/contact">
-                  <Button size="lg" className="rounded-full bg-white hover:bg-slate-100 text-primary px-8 py-6 text-base font-bold">
-                    Get Expert Advice
-                  </Button>
-                </Link>
+        <section className="py-10 bg-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <div
+              className="relative overflow-hidden rounded-2xl text-white"
+              style={{
+                backgroundColor: '#3b5fd4',
+                backgroundImage: `radial-gradient(circle at 68% 50%, #5070e8 0%, #3555cc 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='104'%3E%3Cpolygon points='30,2 58,18 58,50 30,66 2,50 2,18' fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='1.5'/%3E%3Cpolygon points='30,70 58,86 58,118 30,134 2,118 2,86' fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='1.5'/%3E%3C/svg%3E")`,
+                backgroundSize: 'cover, 60px 104px',
+              }}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-5 items-center">
+                <div className="lg:col-span-3 p-10 md:p-14 flex flex-col justify-center">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-manrope leading-tight mb-5">
+                    Structure Your Business Right. Scale Without Risk.
+                  </h2>
+                  <div className="mt-4">
+                    <Link href="/contact">
+                      <Button className="rounded-full bg-white hover:bg-slate-100 text-[#3b5fd4] px-7 py-5 text-sm font-semibold shadow-sm">
+                        Get Expert Advice
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+                <div className="lg:col-span-2 p-8 flex items-center justify-center">
+                  <div className="rounded-xl overflow-hidden w-full shadow-xl">
+                    <img
+                      src="https://framerusercontent.com/images/Xb3NT7pu31BcEL4phMEbofsQo.jpeg?width=2048&height=1306"
+                      alt="DIFC"
+                      className="w-full h-56 md:h-64 object-cover"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-            
-            <div className="h-[400px] lg:h-[500px]">
-              <img 
-                src="https://framerusercontent.com/images/JRNXZ0ssmFSymmrwIh3eBrGXd4.jpg?width=5000&height=2813" 
-                alt="DIFC Architecture" 
-                className="w-full h-full object-cover"
-              />
             </div>
           </div>
         </section>
