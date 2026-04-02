@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Atlas Corporate Services"
+version = "1.0.0"
+id = "artifacts/atlas-website"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18244
+
+[services.development]
+run = "pnpm --filter @workspace/atlas-website run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/atlas-website", "run", "build" ]
+publicDir = "artifacts/atlas-website/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18244"
+BASE_PATH = "/"
