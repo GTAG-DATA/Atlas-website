@@ -6,10 +6,12 @@ const serviceLinks = [
   { name: "Family Office Setup", slug: "family-office-setup" },
   { name: "DIFC Prescribed Company (SPV)", slug: "difc-prescribed-company-spv" },
   { name: "DIFC Foundations", slug: "difc-foundations" },
-  { name: "Company Secretarial", slug: "company-secretarial-governance" },
+  { name: "Company Secretarial & Governance", slug: "company-secretarial-governance" },
   { name: "Compliance & Economic Substance", slug: "compliance-economic-substance" },
   { name: "Accounting & Tax", slug: "accounting-tax" },
   { name: "Fund Setup", slug: "fund-setup" },
+  { name: "Fund & SPV Support", slug: "fund-spv-support" },
+  { name: "Residency & Banking Concierge", slug: "residency-banking-concierge" },
 ];
 
 export function Footer() {
@@ -26,11 +28,10 @@ export function Footer() {
             </p>
             <div className="text-sm text-slate-500 space-y-1.5">
               <p>Atlas Corporate Services Ltd</p>
-              <p>GV-00-10-03-BC09, Level 3,</p>
-              <p>Gate Village Building 10, DIFC,</p>
+              <p>Level 3, Gate Village Building 10, DIFC,</p>
               <p>Dubai, United Arab Emirates</p>
-              <p className="mt-4 font-semibold text-[#142E36]">+971 4 400 0000</p>
-              <p className="font-semibold text-[#142E36]">info@atlascorporate.ae</p>
+              <p className="mt-4 font-semibold text-[#142E36]">+971 52 979 8302</p>
+              <p className="font-semibold text-[#142E36]">info@atlascorp.ae</p>
             </div>
           </div>
 
