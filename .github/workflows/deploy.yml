@@ -37,4 +37,6 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: a17938b32e7eb98cc78cc27ee3d42f6d
-        run: pnpm exec wrangler pages deploy dist/public --project-name=atlas --branch=main
+        run: |
+          pnpm add -g wrangler
+          wrangler pages deploy dist/public --project-name=atlas --branch=main
