@@ -25,12 +25,10 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        working-directory: artifacts/atlas-website
         run: pnpm install --no-frozen-lockfile
 
       - name: Build
-        working-directory: artifacts/atlas-website
-        run: pnpm build
+        run: pnpm --filter @workspace/atlas-website build
 
       - name: Deploy to Cloudflare Pages
         working-directory: artifacts/atlas-website
