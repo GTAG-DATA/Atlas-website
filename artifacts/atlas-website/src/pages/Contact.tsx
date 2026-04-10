@@ -5,10 +5,16 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 
 export default function Contact() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans pt-24">
+      <SEO
+        title="Contact Atlas Corporate Services | DIFC Advisory"
+        description="Get in touch with the Atlas team for expert advice on DIFC company setup, fund structuring, compliance and corporate governance. Schedule a consultation at our DIFC office."
+        canonical="/contact"
+      />
       <Navbar />
       
       <main className="flex-grow">

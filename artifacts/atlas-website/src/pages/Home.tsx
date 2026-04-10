@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -17,6 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import SEO from "@/components/SEO";
 
 const services = [
   {
@@ -79,28 +81,112 @@ const blogPosts = [
   {
     title: "DIFC 2026: New Fund Regulations and What They Mean for Asset Managers",
     category: "Regulatory",
-    date: "March 10, 2026",
+    date: "10 March 2026",
+    slug: "difc-2026-fund-regulations",
     image: "https://framerusercontent.com/images/P76llRCKVB3dVH4mQZOPnkQk.jpg?width=1600&height=896"
   },
   {
     title: "Setting Up a Family Office in DIFC: The 2026 Complete Guide",
     category: "Wealth",
-    date: "February 14, 2026",
+    date: "14 February 2026",
+    slug: "family-office-difc-2026-guide",
     image: "https://framerusercontent.com/images/KoUWP2aYlCOne6cr66MZd9uRmw.jpg?width=8192&height=4096"
   },
   {
     title: "UAE Corporate Tax: Year-End Compliance Checklist for DIFC Companies",
     category: "Tax",
-    date: "January 22, 2026",
+    date: "22 January 2026",
+    slug: "uae-corporate-tax-year-end-checklist",
     image: "https://framerusercontent.com/images/YU2rhSsokkhKubOesoL3UxW8nE.jpg?width=6240&height=4160"
   }
 ];
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Atlas Corporate Services",
+  "url": "https://www.atlascorp.ae",
+  "logo": "https://www.atlascorp.ae/favicon.png",
+  "description": "Atlas Corporate Services provides expert DIFC company setup, fund structuring, family office services and compliance support in Dubai.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Gate Village Building 10, Level 3",
+    "addressLocality": "Dubai International Financial Centre",
+    "addressRegion": "Dubai",
+    "addressCountry": "AE"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+971-4-400-0000",
+    "contactType": "customer service",
+    "email": "info@atlascorp.ae"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/atlas-corporate-services"
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What types of companies can be set up in DIFC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The DIFC offers a range of entity types including companies limited by shares, limited liability companies, protected cell companies, investment companies, special purpose companies and foundations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an office in DIFC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, DIFC-registered companies require a registered office within the DIFC. The size and nature of the office depends on your licence type and the activities you plan to carry out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a DIFC holding company?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A DIFC holding company is an entity established to hold assets, shares or property using the DIFC's English common law framework. Prescribed Companies are a popular holding structure within the DIFC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Atlas help with in DIFC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Atlas assists with the full lifecycle of DIFC corporate services, including entity setup and structuring, DFSA licensing, compliance, ongoing company secretarial support and accounting and tax services."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to be in Dubai to start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Atlas can handle the initial documentation, application preparation and registration process remotely. Many clients complete their DIFC setup without needing to be physically present in Dubai."
+      }
+    }
+  ]
+};
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
+      <SEO
+        title="DIFC Company Setup, Fund Structuring and Compliance | Atlas Corporate Services"
+        description="Atlas Corporate Services helps businesses establish and manage entities in the DIFC. Expert company setup, fund structuring, family office services and compliance support in Dubai."
+        canonical="/"
+      />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
       <Navbar />
-      
+
       <main className="flex-grow">
         <HeroSection />
 
@@ -154,7 +240,7 @@ export default function Home() {
         <section className="py-24 bg-slate-50">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -165,7 +251,7 @@ export default function Home() {
                 </h2>
               </motion.div>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, idx) => (
                 <ServiceCard
@@ -233,9 +319,9 @@ export default function Home() {
         <section className="bg-gradient-to-r from-sky-500 to-sky-400 py-16">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-display text-white max-w-3xl leading-snug">
+              <p className="text-2xl md:text-3xl lg:text-4xl font-bold font-display text-white max-w-3xl leading-snug">
                 We build compliant structures that protect clients and support long-term growth.
-              </h2>
+              </p>
               <div className="flex-shrink-0">
                 <Link href="/contact">
                   <Button size="lg" className="rounded-full bg-white hover:bg-slate-100 text-sky-500 px-8 py-6 text-base font-bold shadow-lg">
@@ -260,33 +346,36 @@ export default function Home() {
                 </div>
               </Link>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {blogPosts.map((post, idx) => (
-                <motion.div 
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md transition-all cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden relative">
-                    <img 
-                      src={post.image} 
-                      alt={post.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm py-1 px-3 rounded-full text-xs font-bold text-primary uppercase tracking-wide">
-                      {post.category}
+                  <Link href={`/blog/${post.slug}`}>
+                    <div className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md transition-all cursor-pointer">
+                      <div className="aspect-[4/3] overflow-hidden relative">
+                        <img
+                          src={post.image}
+                          alt={post.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm py-1 px-3 rounded-full text-xs font-bold text-primary uppercase tracking-wide">
+                          {post.category}
+                        </div>
+                      </div>
+                      <div className="p-6">
+                        <div className="text-xs text-slate-400 mb-2">{post.date}</div>
+                        <h3 className="text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors leading-tight">
+                          {post.title}
+                        </h3>
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="text-xs text-slate-400 mb-2">{post.date}</div>
-                    <h3 className="text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors leading-tight">
-                      {post.title}
-                    </h3>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -346,7 +435,7 @@ export default function Home() {
         <section className="py-24 bg-slate-50">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -361,7 +450,7 @@ export default function Home() {
                 <p className="text-lg text-slate-600 mb-8 max-w-md leading-relaxed">
                   Secure your financial future with Atlas expert Financial Planning services. Contact us now to schedule a consultation.
                 </p>
-                
+
                 <div className="space-y-6 text-slate-600">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary font-bold">
@@ -383,8 +472,8 @@ export default function Home() {
                   </div>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -430,7 +519,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
+
         <section className="py-10 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <div
@@ -443,9 +532,9 @@ export default function Home() {
             >
               <div className="grid grid-cols-1 lg:grid-cols-5 items-center">
                 <div className="lg:col-span-3 p-10 md:p-14 flex flex-col justify-center">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight mb-5">
+                  <p className="text-3xl md:text-4xl lg:text-5xl font-bold font-display leading-tight mb-5">
                     Structure Your Business Right. Scale Without Risk.
-                  </h2>
+                  </p>
                   <div className="mt-4">
                     <Link href="/contact">
                       <Button className="rounded-full bg-white hover:bg-slate-100 text-[#3b5fd4] px-7 py-5 text-sm font-semibold shadow-sm">

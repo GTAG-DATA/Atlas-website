@@ -8,7 +8,9 @@ import Services from "@/pages/Services";
 import ServiceDetail from "@/pages/ServiceDetail";
 import Contact from "@/pages/Contact";
 import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 import Insights from "@/pages/Insights";
+import InsightArticle from "@/pages/InsightArticle";
 
 const queryClient = new QueryClient();
 
@@ -20,7 +22,9 @@ function Router() {
       <Route path="/service/:slug" component={ServiceDetail} />
       <Route path="/contact" component={Contact} />
       <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/insights" component={Insights} />
+      <Route path="/insights/:slug" component={InsightArticle} />
       <Route path="/about" component={Home} />
       <Route path="/terms" component={Home} />
       <Route path="/privacy" component={Home} />
