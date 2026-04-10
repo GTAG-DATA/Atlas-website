@@ -11,7 +11,7 @@ const servicesMenu = [
   { title: "Company Secretarial & Governance", subtitle: "Ongoing governance and compliance, handled properly", slug: "company-secretarial-governance" },
   { title: "Family Office Setup", subtitle: "Tailored structures for wealth control and legacy", slug: "family-office-setup" },
   { title: "Compliance & Economic Substance", subtitle: "Stay compliant and reduce regulatory risk", slug: "compliance-economic-substance" },
-  { title: "Accounting, Tax & Payroll", subtitle: "Accurate financial management with full compliance", slug: "compliance-economic-substance" },
+  { title: "Accounting & Tax", subtitle: "Financial reporting and tax compliance for DIFC entities", slug: "accounting-tax" },
   { title: "Residency & Banking Concierge", subtitle: "Smooth residency and banking setup in the UAE", slug: "residency-banking-concierge" },
   { title: "Fund & SPV Support", subtitle: "End-to-end support for funds and SPV structures", slug: "fund-spv-support" },
   { title: "DIFC Prescribed Company (SPV)", subtitle: "Cost-effective SPV for investment holding", slug: "difc-prescribed-company-spv" },
