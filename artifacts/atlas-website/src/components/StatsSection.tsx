@@ -60,7 +60,7 @@ const statCards = [
     value: 100,
     suffix: "+",
     label: "Collective experience",
-    image: "/stats-team.webp",
+    image: "https://framerusercontent.com/images/iMNSvKxIZUItkgn8ZuVlSUiDc.jpg?width=7452&height=4947",
   },
 ];
 
