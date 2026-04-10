@@ -8,6 +8,7 @@ const serviceLinks = [
   { name: "DIFC Foundations", slug: "difc-foundations" },
   { name: "Company Secretarial", slug: "company-secretarial-governance" },
   { name: "Compliance & Economic Substance", slug: "compliance-economic-substance" },
+  { name: "Accounting & Tax", slug: "accounting-tax" },
   { name: "Fund Setup", slug: "fund-setup" },
 ];
 

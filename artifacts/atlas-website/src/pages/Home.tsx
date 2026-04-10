@@ -138,7 +138,7 @@ export default function Home() {
               >
                 <div className="rounded-2xl overflow-hidden shadow-sm w-full aspect-[4/3]">
                   <img
-                    src="https://framerusercontent.com/images/JRNXZ0ssmFSymmrwIh3eBrGXd4.jpg?width=5000&height=2813"
+                    src="/about-team.webp"
                     alt="Business meeting"
                     className="w-full h-full object-cover object-center"
                   />
