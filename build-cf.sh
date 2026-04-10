@@ -4,3 +4,7 @@ echo "Using pre-built production files..."
 mkdir -p artifacts/atlas-website/dist/public
 cp -r artifacts/atlas-website/dist-production/* artifacts/atlas-website/dist/public/
 echo "Done! Production files ready."
+
+echo "Running static HTML pre-renderer for SEO..."
+node artifacts/atlas-website/scripts/prerender.mjs
+echo "Pre-rendering complete!"
