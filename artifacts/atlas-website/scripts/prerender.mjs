@@ -46,7 +46,7 @@ const routes = [
   {
     path: '/',
     title: 'Atlas Corporate Services | DIFC Company Setup, Fund Structuring and Compliance',
-    description: 'Atlas Corporate Services helps businesses establish and manage entities in the DIFC. Expert company setup, fund structuring, family office services and compliance support in Dubai.',
+    description: 'Atlas Corporate Services specialises in DIFC company formation, fund structuring, family office setup and compliance support in Dubai.',
   },
   {
     path: '/services',
