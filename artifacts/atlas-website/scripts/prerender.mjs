@@ -1,14 +1,22 @@
 /**
  * Atlas Corporate Services — Static HTML Pre-renderer
  *
- * Runs after `vite build` to generate route-specific HTML files with
- * pre-injected <title>, <meta description>, <canonical> and Open Graph tags.
+ * Runs after `vite build` to generate route-specific HTML files.
  *
- * This allows search engines to read the correct metadata for every page
- * without waiting for JavaScript to execute, dramatically improving crawlability
- * and SERP snippet quality.
+ * Two modes:
+ *   1. Full SSG  — if dist/server/entry-server.js exists (SSR bundle built),
+ *                  renders the full React tree with renderToString and injects
+ *                  it into <div id="root">. Google reads complete page content.
  *
- * Usage (automatic via build script):
+ *   2. Meta-only — fallback when no SSR bundle is present (e.g. CF Pages build).
+ *                  Injects <title>, <meta description>, <canonical>, and OG tags
+ *                  only. React hydrates on the client as usual.
+ *
+ * Usage:
+ *   node scripts/prerender.mjs
+ *
+ * For full SSG, build the SSR bundle first:
+ *   pnpm run build:ssr   (runs vite build --config vite.ssr.config.ts)
  *   node scripts/prerender.mjs
  */
 
@@ -19,6 +27,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir   = path.resolve(__dirname, '../dist/public');
 const indexPath = path.join(distDir, 'index.html');
+const serverBundle = path.resolve(__dirname, '../dist/server/entry-server.js');
 
 if (!fs.existsSync(indexPath)) {
   console.error('❌  dist/public/index.html not found — run `vite build` first.');
@@ -180,7 +189,6 @@ const routes = [
 // ─── Meta injection helper ────────────────────────────────────────────────────
 
 function esc(str) {
-  // Escape characters that could break HTML attribute values
   return str
     .replace(/&/g, '&amp;')
     .replace(/"/g, '&quot;')
@@ -195,65 +203,65 @@ function injectMeta(html, route) {
   const safeDesc  = esc(description);
   const safeCanon = esc(canonical);
 
-  // Replace <title>
-  html = html.replace(
-    /<title>[^<]*<\/title>/,
-    `<title>${safeTitle}</title>`,
-  );
-
-  // Replace meta description
-  html = html.replace(
-    /<meta name="description" content="[^"]*"/,
-    `<meta name="description" content="${safeDesc}"`,
-  );
-
-  // Replace canonical
-  html = html.replace(
-    /<link rel="canonical" href="[^"]*"/,
-    `<link rel="canonical" href="${safeCanon}"`,
-  );
-
-  // Replace OG title
-  html = html.replace(
-    /<meta property="og:title" content="[^"]*"/,
-    `<meta property="og:title" content="${safeTitle}"`,
-  );
-
-  // Replace OG description
-  html = html.replace(
-    /<meta property="og:description" content="[^"]*"/,
-    `<meta property="og:description" content="${safeDesc}"`,
-  );
-
-  // Replace OG URL
-  html = html.replace(
-    /<meta property="og:url" content="[^"]*"/,
-    `<meta property="og:url" content="${safeCanon}"`,
-  );
-
-  // Replace OG type
-  html = html.replace(
-    /<meta property="og:type" content="[^"]*"/,
-    `<meta property="og:type" content="${esc(ogType)}"`,
-  );
+  html = html.replace(/<title>[^<]*<\/title>/, `<title>${safeTitle}</title>`);
+  html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${safeDesc}"`);
+  html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${safeCanon}"`);
+  html = html.replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${safeTitle}"`);
+  html = html.replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${safeDesc}"`);
+  html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${safeCanon}"`);
+  html = html.replace(/<meta property="og:type" content="[^"]*"/, `<meta property="og:type" content="${esc(ogType)}"`);
 
   return html;
+}
+
+// ─── Load SSR bundle (optional — enables full SSG mode) ───────────────────────
+
+let renderFn = null;
+
+if (fs.existsSync(serverBundle)) {
+  try {
+    const mod = await import(serverBundle);
+    renderFn = mod.render;
+    console.log('🔄  Full SSG mode: renderToString enabled');
+  } catch (err) {
+    console.warn('⚠️   SSR bundle failed to load — falling back to meta-only:', err.message);
+  }
+} else {
+  console.log('ℹ️   Meta-only mode (no SSR bundle found)');
 }
 
 // ─── Main prerender loop ──────────────────────────────────────────────────────
 
 const templateHtml = fs.readFileSync(indexPath, 'utf-8');
-let   count = 0;
+let count = 0;
+let ssgCount = 0;
 
 for (const route of routes) {
-  const html = injectMeta(templateHtml, route);
+  // Step 1: Always inject meta tags
+  let html = injectMeta(templateHtml, route);
 
+  // Step 2: Inject full rendered body if SSR bundle available
+  if (renderFn) {
+    try {
+      const { html: appHtml } = renderFn(route.path);
+      if (appHtml && appHtml.length > 100) {
+        html = html.replace(
+          '<div id="root"></div>',
+          `<div id="root">${appHtml}</div>`,
+        );
+        ssgCount++;
+      }
+    } catch (err) {
+      // Per-route fallback: meta-only for this route
+      console.warn(`  ⚠️  SSR failed for ${route.path}: ${err.message}`);
+    }
+  }
+
+  // Write output
   let outputPath;
   if (route.path === '/') {
-    // Overwrite root index.html with homepage meta
     outputPath = indexPath;
   } else {
-    // Create /path/to/route/index.html
     const relDir = route.path.replace(/^\//, '');
     const outDir = path.join(distDir, relDir);
     fs.mkdirSync(outDir, { recursive: true });
@@ -262,7 +270,11 @@ for (const route of routes) {
 
   fs.writeFileSync(outputPath, html, 'utf-8');
   count++;
-  console.log(`  ✓  ${route.path}`);
+  console.log(`  ✓  ${route.path}${renderFn ? ' (SSG)' : ''}`);
 }
 
-console.log(`\n🚀  Pre-rendered ${count} routes to ${distDir}\n`);
+if (renderFn) {
+  console.log(`\n🚀  Pre-rendered ${count} routes (${ssgCount} full SSG, ${count - ssgCount} meta-only) → ${distDir}\n`);
+} else {
+  console.log(`\n🚀  Pre-rendered ${count} routes (meta-only) → ${distDir}\n`);
+}
