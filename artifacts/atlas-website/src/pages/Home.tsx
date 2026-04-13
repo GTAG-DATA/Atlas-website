@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -18,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import SEO from "@/components/SEO";
+import SEO, { localBusinessSchema } from "@/components/SEO";
 
 const services = [
   {
@@ -101,31 +100,6 @@ const blogPosts = [
   }
 ];
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Atlas Corporate Services",
-  "url": "https://www.atlascorp.ae",
-  "logo": "https://www.atlascorp.ae/favicon.png",
-  "description": "Atlas Corporate Services provides expert DIFC company setup, fund structuring, family office services and compliance support in Dubai.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Gate Village Building 10, Level 3",
-    "addressLocality": "Dubai International Financial Centre",
-    "addressRegion": "Dubai",
-    "addressCountry": "AE"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+971-4-400-0000",
-    "contactType": "customer service",
-    "email": "info@atlascorp.ae"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/atlas-corporate-services"
-  ]
-};
-
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -180,11 +154,8 @@ export default function Home() {
         title="DIFC Company Setup, Fund Structuring and Compliance | Atlas Corporate Services"
         description="Atlas Corporate Services helps businesses establish and manage entities in the DIFC. Expert company setup, fund structuring, family office services and compliance support in Dubai."
         canonical="/"
+        schema={[localBusinessSchema, faqSchema]}
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
       <Navbar />
 
       <main className="flex-grow">

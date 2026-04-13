@@ -94,6 +94,27 @@ export default function InsightArticle() {
         description={article.description}
         canonical={`/insights/${article.slug}`}
         ogType="article"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": article.title,
+          "description": article.description,
+          "author": {
+            "@type": "Organization",
+            "name": "Atlas Corporate Services",
+            "url": "https://www.atlascorp.ae"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Atlas Corporate Services",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.atlascorp.ae/assets/logo-D-IPHjNp.png"
+            }
+          },
+          "url": `https://www.atlascorp.ae/insights/${article.slug}`,
+          "mainEntityOfPage": `https://www.atlascorp.ae/insights/${article.slug}`
+        }}
       />
       <Navbar />
       <main>

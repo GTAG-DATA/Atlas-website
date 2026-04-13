@@ -93,6 +93,28 @@ export default function BlogPost() {
         canonical={`/blog/${post.slug}`}
         ogImage={post.image}
         ogType="article"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": post.title,
+          "description": post.excerpt,
+          "image": post.image,
+          "author": {
+            "@type": "Organization",
+            "name": "Atlas Corporate Services",
+            "url": "https://www.atlascorp.ae"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Atlas Corporate Services",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.atlascorp.ae/assets/logo-D-IPHjNp.png"
+            }
+          },
+          "url": `https://www.atlascorp.ae/blog/${post.slug}`,
+          "mainEntityOfPage": `https://www.atlascorp.ae/blog/${post.slug}`
+        }}
       />
       <Navbar />
       <main>

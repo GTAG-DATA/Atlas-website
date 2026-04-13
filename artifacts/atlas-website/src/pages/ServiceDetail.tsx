@@ -169,11 +169,8 @@ export default function ServiceDetail() {
         title={meta.title}
         description={meta.description}
         canonical={`/service/${service.slug}`}
+        schema={[breadcrumbSchema, serviceSchema]}
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-      </Helmet>
       <Navbar />
 
       {/* Hero */}
