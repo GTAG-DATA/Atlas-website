@@ -226,15 +226,15 @@ function injectMeta(html, route) {
   const safeCanon = esc(canonical);
 
   // 1. Update <title> tag (always present in vite output)
-  html = html.replace(/<title>[^<]*<\/title>/, `<title>${safeTitle}</title>`);
+  html = html.replace(/<title[^>]*>[^<]*<\/title>/, `<title>${safeTitle}</title>`);
 
-  // 2. Strip any existing SEO tags so we don't duplicate on repeated runs
+  // 2. Strip any existing SEO tags (handles data-rh="true" attribute reordering)
   html = html
-    .replace(/<meta name="description"[^>]*\/?>/gi, '')
-    .replace(/<link rel="canonical"[^>]*\/?>/gi, '')
-    .replace(/<meta property="og:[^>]*\/?>/gi, '')
-    .replace(/<meta name="twitter:[^>]*\/?>/gi, '')
-    .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/gi, '');
+    .replace(/<meta\s[^>]*name="description"[^>]*\/?>/gi, '')
+    .replace(/<link\s[^>]*rel="canonical"[^>]*\/?>/gi, '')
+    .replace(/<meta\s[^>]*property="og:[^>]*\/?>/gi, '')
+    .replace(/<meta\s[^>]*name="twitter:[^>]*\/?>/gi, '')
+    .replace(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, '');
 
   // 3. Build complete SEO block and inject before </head>
   const seoBlock = `
@@ -280,24 +280,53 @@ let count = 0;
 let ssgCount = 0;
 
 for (const route of routes) {
-  // Step 1: Always inject meta tags
-  let html = injectMeta(templateHtml, route);
+  let html = templateHtml;
 
-  // Step 2: Inject full rendered body if SSR bundle available
   if (renderFn) {
+    // ── Full SSG mode ─────────────────────────────────────────────────────────
     try {
-      const { html: appHtml } = renderFn(route.path);
+      const { html: appHtml, helmet } = renderFn(route.path);
+
+      // 1. Replace <title> with the one react-helmet-async generated
+      //    (includes data-rh="true" so React won't duplicate on hydration)
+      const helmetTitle = helmet.title.toString();
+      if (helmetTitle) {
+        html = html.replace(/<title[^>]*>[^<]*<\/title>/, helmetTitle);
+      }
+
+      // 2. Strip any existing SEO tags (handles data-rh="true" attribute reordering)
+      html = html
+        .replace(/<meta\s[^>]*name="description"[^>]*\/?>/gi, '')
+        .replace(/<link\s[^>]*rel="canonical"[^>]*\/?>/gi, '')
+        .replace(/<meta\s[^>]*property="og:[^>]*\/?>/gi, '')
+        .replace(/<meta\s[^>]*name="twitter:[^>]*\/?>/gi, '')
+        .replace(/<script[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi, '');
+
+      // 3. Inject helmet-generated head tags before </head>
+      //    These carry data-rh="true" — React hydration recognises them
+      //    and does NOT add a second copy, preventing duplicate tags.
+      const helmetHead = [
+        helmet.meta.toString(),
+        helmet.link.toString(),
+        helmet.script.toString(),
+      ].filter(s => s && s.trim()).join('\n  ');
+
+      if (helmetHead) {
+        html = html.replace('</head>', `  ${helmetHead}\n  </head>`);
+      }
+
+      // 4. Inject fully-rendered React body
       if (appHtml && appHtml.length > 100) {
-        html = html.replace(
-          '<div id="root"></div>',
-          `<div id="root">${appHtml}</div>`,
-        );
+        html = html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
         ssgCount++;
       }
     } catch (err) {
-      // Per-route fallback: meta-only for this route
       console.warn(`  ⚠️  SSR failed for ${route.path}: ${err.message}`);
+      html = injectMeta(templateHtml, route);
     }
+  } else {
+    // ── Meta-only fallback mode ───────────────────────────────────────────────
+    html = injectMeta(templateHtml, route);
   }
 
   // Write output

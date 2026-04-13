@@ -152,7 +152,7 @@ export default function Home() {
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
         title="DIFC Company Setup, Fund Structuring and Compliance | Atlas Corporate Services"
-        description="Atlas Corporate Services helps businesses establish and manage entities in the DIFC. Expert company setup, fund structuring, family office services and compliance support in Dubai."
+        description="Atlas Corporate Services specialises in DIFC company formation, fund structuring, family office setup and compliance support in Dubai."
         canonical="/"
         schema={[localBusinessSchema, faqSchema]}
       />
