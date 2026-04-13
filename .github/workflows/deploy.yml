@@ -17,7 +17,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 9
+          version: 10
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -27,8 +27,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Build
-        run: pnpm --filter @workspace/atlas-website build
+      - name: Build client
+        run: pnpm --filter @workspace/atlas-website exec vite build --config vite.config.ts
+
+      - name: Build SSR bundle
+        run: pnpm --filter @workspace/atlas-website exec vite build --config vite.ssr.config.ts
+
+      - name: Pre-render all routes (full SSG)
+        run: node artifacts/atlas-website/scripts/prerender.mjs
 
       - name: Deploy to Cloudflare Pages
         working-directory: artifacts/atlas-website
