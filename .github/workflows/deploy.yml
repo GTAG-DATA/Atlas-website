@@ -36,6 +36,9 @@ jobs:
       - name: Pre-render all routes (full SSG)
         run: node artifacts/atlas-website/scripts/prerender.mjs
 
+      - name: Copy public assets to dist
+        run: cp -r artifacts/atlas-website/public/. artifacts/atlas-website/dist/public/
+
       - name: Deploy to Cloudflare Pages
         working-directory: artifacts/atlas-website
         env:
