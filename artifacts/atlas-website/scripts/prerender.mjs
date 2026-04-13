@@ -196,6 +196,28 @@ function esc(str) {
     .replace(/>/g, '&gt;');
 }
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Atlas Corporate Services",
+  "url": "https://www.atlascorp.ae",
+  "logo": "https://www.atlascorp.ae/assets/logo-D-IPHjNp.png",
+  "description": "Atlas Corporate Services specialises in DIFC company formation, fund structuring, family office setup, compliance and ongoing corporate governance in Dubai.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dubai",
+    "addressCountry": "AE"
+  },
+  "areaServed": ["AE", "GB", "US", "SG", "IN"],
+  "sameAs": ["https://www.linkedin.com/company/atlas-corporate-services"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "areaServed": "AE",
+    "availableLanguage": ["English", "Arabic"]
+  }
+};
+
 function injectMeta(html, route) {
   const { title, description, path: routePath, ogType = 'website' } = route;
   const canonical = `${BASE_URL}${routePath === '/' ? '' : routePath}`;
@@ -203,13 +225,34 @@ function injectMeta(html, route) {
   const safeDesc  = esc(description);
   const safeCanon = esc(canonical);
 
+  // 1. Update <title> tag (always present in vite output)
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${safeTitle}</title>`);
-  html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${safeDesc}"`);
-  html = html.replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${safeCanon}"`);
-  html = html.replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${safeTitle}"`);
-  html = html.replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${safeDesc}"`);
-  html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${safeCanon}"`);
-  html = html.replace(/<meta property="og:type" content="[^"]*"/, `<meta property="og:type" content="${esc(ogType)}"`);
+
+  // 2. Strip any existing SEO tags so we don't duplicate on repeated runs
+  html = html
+    .replace(/<meta name="description"[^>]*\/?>/gi, '')
+    .replace(/<link rel="canonical"[^>]*\/?>/gi, '')
+    .replace(/<meta property="og:[^>]*\/?>/gi, '')
+    .replace(/<meta name="twitter:[^>]*\/?>/gi, '')
+    .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/gi, '');
+
+  // 3. Build complete SEO block and inject before </head>
+  const seoBlock = `
+  <meta name="description" content="${safeDesc}" />
+  <link rel="canonical" href="${safeCanon}" />
+  <meta property="og:title" content="${safeTitle}" />
+  <meta property="og:description" content="${safeDesc}" />
+  <meta property="og:url" content="${safeCanon}" />
+  <meta property="og:type" content="${esc(ogType)}" />
+  <meta property="og:image" content="${BASE_URL}/opengraph.jpg" />
+  <meta property="og:site_name" content="${esc(SITE_NAME)}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${safeTitle}" />
+  <meta name="twitter:description" content="${safeDesc}" />
+  <meta name="twitter:image" content="${BASE_URL}/opengraph.jpg" />
+  <script type="application/ld+json">${JSON.stringify(organizationSchema)}</script>`;
+
+  html = html.replace('</head>', `${seoBlock}\n  </head>`);
 
   return html;
 }
