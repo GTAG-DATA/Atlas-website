@@ -368,7 +368,7 @@ export default function Home() {
                       1
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground mb-1">Expert Assessment</h4>
+                      <h3 className="font-bold text-foreground mb-1">Expert Assessment</h3>
                       <p className="text-sm">We analyse your business needs and recommend the optimal DIFC structure.</p>
                     </div>
                   </div>
@@ -377,7 +377,7 @@ export default function Home() {
                       2
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground mb-1">Seamless Setup</h4>
+                      <h3 className="font-bold text-foreground mb-1">Seamless Setup</h3>
                       <p className="text-sm">We handle all applications, licensing, and documentation on your behalf.</p>
                     </div>
                   </div>

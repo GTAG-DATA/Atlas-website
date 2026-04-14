@@ -70,7 +70,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between">
           <Link href="/">
-            <img src={logoImg} alt="Atlas Corporate Services" className={`h-8 md:h-10 object-contain transition-all ${logoInvert}`} />
+            <img src={logoImg} alt="Atlas Corporate Services" width="40" height="40" className={`h-8 md:h-10 object-contain transition-all ${logoInvert}`} />
           </Link>
 
           {/* Desktop nav */}
