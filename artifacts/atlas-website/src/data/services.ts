@@ -32,7 +32,7 @@ export const servicesData: ServiceData[] = [
     heroImage:
       "https://framerusercontent.com/images/H7uTwhmDFTPQD22lho2q2ZJbNE.jpg?width=4104&height=2736",
     overview:
-      "The Dubai International Financial Centre (DIFC) is the Middle East, Africa and South Asia's premier financial hub. As a dedicated onshore financial free zone, DIFC offers world-class infrastructure, a common law legal framework, and zero per cent tax rate on income and profits. Atlas guides you through every step of establishing your business presence in this prestigious jurisdiction — from selecting the right entity type to obtaining your DIFC licence and opening corporate bank accounts.",
+      "The Dubai International Financial Centre (DIFC) is the Middle East, Africa and South Asia's premier financial hub. As a dedicated onshore financial free zone, DIFC offers world-class infrastructure, a common law legal framework, and zero per cent tax rate on income and profits. Atlas guides you through every step of establishing your business presence in this prestigious jurisdiction, from selecting the right entity type to obtaining your DIFC licence and opening corporate bank accounts.",
     features: [
       {
         title: "Regulated & Non-Regulated Activities",
@@ -50,9 +50,9 @@ export const servicesData: ServiceData[] = [
           "Enjoy full foreign ownership of your company with no requirement for a local UAE sponsor or partner.",
       },
       {
-        title: "Zero Tax Environment",
+        title: "Low to Zero Tax Environment",
         description:
-          "Benefit from a 0% tax rate on income and profits, along with no restrictions on capital or profit repatriation.",
+          "DIFC entities may benefit from a 0% tax rate on qualifying income and profits under the UAE Corporate Tax regime, subject to eligibility conditions, with no restrictions on capital or profit repatriation.",
       },
       {
         title: "World-Class Infrastructure",

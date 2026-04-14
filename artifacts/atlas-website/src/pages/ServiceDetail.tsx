@@ -248,7 +248,7 @@ export default function ServiceDetail() {
                   What's Included
                 </h2>
                 <p className="text-white/55 text-sm leading-relaxed mb-8">
-                  Everything handled — from initial advisory through to ongoing compliance and support.
+                  Everything handled, from initial advisory through to ongoing compliance and support.
                 </p>
                 <motion.div
                   variants={stagger}
