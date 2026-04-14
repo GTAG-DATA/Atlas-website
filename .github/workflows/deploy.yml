@@ -27,14 +27,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Build client
-        run: pnpm --filter @workspace/atlas-website exec vite build --config vite.config.ts
-
-      - name: Build SSR bundle
-        run: pnpm --filter @workspace/atlas-website exec vite build --config vite.ssr.config.ts
-
-      - name: Pre-render all routes (full SSG)
-        run: node artifacts/atlas-website/scripts/prerender.mjs
+      - name: Use pre-built dist-production
+        run: |
+          mkdir -p artifacts/atlas-website/dist/public
+          cp -r artifacts/atlas-website/dist-production/. artifacts/atlas-website/dist/public/
 
       - name: Copy public assets to dist
         run: cp -r artifacts/atlas-website/public/. artifacts/atlas-website/dist/public/
