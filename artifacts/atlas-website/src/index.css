@@ -2,27 +2,6 @@
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
-/* ── Page Loader keyframes ───────────────────────────────────────── */
-@keyframes letterAnim {
-  0%   { opacity: 0; }
-  5%   { opacity: 1; text-shadow: 0 0 4px #fff; transform: scale(1.1) translateY(-2px); }
-  20%  { opacity: 0.2; }
-  100% { opacity: 0; }
-}
-@keyframes transformAnim {
-  0%   { transform: translate(-55%); }
-  100% { transform: translate(55%); }
-}
-@keyframes opacityAnim {
-  0%, 100% { opacity: 0; }
-  15%       { opacity: 1; }
-  65%       { opacity: 0; }
-}
-@keyframes loaderFadeOut {
-  0%   { opacity: 1; }
-  100% { opacity: 0; }
-}
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

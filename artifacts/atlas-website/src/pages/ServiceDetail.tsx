@@ -1,9 +1,7 @@
 import { useParams, Link } from "wouter";
-import { Helmet } from "react-helmet-async";
 import { motion, type Variants } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ChevronRight, Mail } from "lucide-react";
 import { getServiceBySlug, servicesData } from "@/data/services";
@@ -15,49 +13,6 @@ const fadeUp: Variants = {
 
 const stagger: Variants = {
   show: { transition: { staggerChildren: 0.09 } },
-};
-
-const serviceMeta: Record<string, { title: string; description: string }> = {
-  'difc-company-setup': {
-    title: 'DIFC Company Setup | Formation and Licensing',
-    description: 'Set up your company in the Dubai International Financial Centre with Atlas. Full company formation, licensing, registered office and ongoing compliance support for DIFC entities.'
-  },
-  'family-office-setup': {
-    title: 'DIFC Family Office Setup | Structuring and Governance',
-    description: 'Establish a regulated family office in the DIFC with Atlas. Expert structuring, licensing, governance and ongoing compliance support for single and multi-family offices in Dubai.'
-  },
-  'fund-setup': {
-    title: 'DIFC Fund Setup | Fund Structuring and Registration',
-    description: 'Register and structure your investment fund in the DIFC with Atlas. Specialist support for exempt funds, qualified investor funds and fund management company setup in Dubai.'
-  },
-  'fund-spv-support': {
-    title: 'DIFC Fund and SPV Support | Administration and Governance',
-    description: 'Ongoing fund administration, SPV management and governance support for DIFC-registered vehicles. Atlas provides expert back-office and compliance services for fund managers.'
-  },
-  'residency-banking-concierge': {
-    title: 'UAE Residency and Banking Concierge | DIFC Entity Support',
-    description: 'Secure UAE residency visas and open corporate bank accounts for your DIFC entity. Atlas provides end-to-end residency and banking support for founders and key personnel.'
-  },
-  'difc-foundations': {
-    title: 'DIFC Foundation Setup | Wealth Structuring and Succession',
-    description: 'Establish a DIFC Foundation for wealth preservation, succession planning and charitable purposes. Atlas handles the full setup, governance documentation and ongoing compliance.'
-  },
-  'difc-prescribed-company-spv': {
-    title: 'DIFC Prescribed Company (SPV) | Holding Structure Setup',
-    description: 'Set up a DIFC Prescribed Company for use as a holding structure, SPV or co-investment vehicle. Atlas manages the full registration and ongoing administration process.'
-  },
-  'company-secretarial-governance': {
-    title: 'Company Secretarial and Governance Services | DIFC',
-    description: 'Comprehensive company secretarial and governance support for DIFC-registered entities. Atlas handles board meetings, statutory filings, UBO registers and regulatory correspondence.'
-  },
-  'compliance-economic-substance': {
-    title: 'DIFC Compliance and Economic Substance Services',
-    description: 'Stay compliant with DIFC regulations and UAE economic substance requirements. Atlas provides AML compliance, ESR assessments, regulatory reporting and governance advisory.'
-  },
-  'accounting-tax': {
-    title: 'DIFC Accounting and Tax Services | VAT, Corporate Tax and Audit',
-    description: 'Expert accounting, bookkeeping and tax compliance services for DIFC companies. Atlas manages UAE corporate tax filings, VAT returns, financial statements and audit coordination.'
-  }
 };
 
 function ServicesSidebar({ currentSlug }: { currentSlug: string }) {
@@ -134,56 +89,18 @@ export default function ServiceDetail() {
   }
 
   const otherServices = servicesData.filter((s) => s.slug !== service.slug).slice(0, 3);
-  const meta = serviceMeta[service.slug] ?? { title: service.title, description: service.description };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.atlascorp.ae/" },
-      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.atlascorp.ae/services" },
-      { "@type": "ListItem", "position": 3, "name": service.title, "item": `https://www.atlascorp.ae/service/${service.slug}` }
-    ]
-  };
-
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": service.title,
-    "provider": {
-      "@type": "Organization",
-      "name": "Atlas Corporate Services",
-      "url": "https://www.atlascorp.ae"
-    },
-    "description": service.description,
-    "areaServed": {
-      "@type": "Place",
-      "name": "Dubai International Financial Centre, Dubai, UAE"
-    },
-    "url": `https://www.atlascorp.ae/service/${service.slug}`
-  };
 
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
-      <SEO
-        title={meta.title}
-        description={meta.description}
-        canonical={`/service/${service.slug}`}
-        schema={[breadcrumbSchema, serviceSchema]}
-      />
       <Navbar />
 
       {/* Hero */}
       <section className="relative h-[55vh] min-h-[420px] flex items-end overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={service.heroImage}
-            alt={`${service.title} services in the DIFC, Dubai`}
-            className="w-full h-full object-cover"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0c1e24]/90 via-[#0c1e24]/50 to-black/20" />
-        </div>
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${service.heroImage})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0c1e24]/90 via-[#0c1e24]/50 to-black/20" />
         <div className="relative z-10 w-full pb-12 pt-28">
           <div className="container mx-auto px-4 md:px-8">
             {/* Breadcrumb */}
@@ -241,9 +158,9 @@ export default function ServiceDetail() {
                 className="mb-16"
               >
                 <p className="text-sky-500 text-xs font-bold uppercase tracking-widest mb-3">Overview</p>
-                <p className="text-2xl md:text-3xl font-bold font-display text-foreground mb-5 leading-snug">
+                <h2 className="text-2xl md:text-3xl font-bold font-display text-foreground mb-5 leading-snug">
                   {service.description}
-                </p>
+                </h2>
                 <p className="text-slate-500 leading-relaxed text-base">{service.overview}</p>
               </motion.section>
 
@@ -257,7 +174,7 @@ export default function ServiceDetail() {
               >
                 <p className="text-sky-500 text-xs font-bold uppercase tracking-widest mb-3">Why Choose Atlas</p>
                 <h2 className="text-2xl md:text-3xl font-bold font-display text-foreground mb-8">
-                  Key Features &amp; Benefits
+                  Key Features & Benefits
                 </h2>
                 <motion.div
                   variants={stagger}
@@ -331,7 +248,7 @@ export default function ServiceDetail() {
                   What's Included
                 </h2>
                 <p className="text-white/55 text-sm leading-relaxed mb-8">
-                  Everything handled, from initial advisory through to ongoing compliance and support.
+                  Everything handled — from initial advisory through to ongoing compliance and support.
                 </p>
                 <motion.div
                   variants={stagger}

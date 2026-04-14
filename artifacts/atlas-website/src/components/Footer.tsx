@@ -72,7 +72,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between text-sm text-slate-400">
-          <p>© 2026 Atlas Corporate Services. All rights reserved.</p>
+          <p>© 2025 Atlas Corporate Services. All rights reserved.</p>
         </div>
       </div>
     </footer>

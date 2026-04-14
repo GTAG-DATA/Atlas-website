@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, BookOpen, FileText, Landmark, ShieldCheck } from "lucide-react";
@@ -9,43 +8,34 @@ const resources = [
   {
     title: "DIFC 101",
     description: "The complete beginner's guide to the Dubai International Financial Centre, its legal framework, and benefits.",
-    icon: Landmark,
-    slug: "difc-101"
+    icon: Landmark
   },
   {
     title: "Prescribed Company Handbook",
     description: "Everything you need to know about setting up and managing a Prescribed Company (SPV) in the DIFC.",
-    icon: BookOpen,
-    slug: "prescribed-company-handbook"
+    icon: BookOpen
   },
   {
     title: "Economic Substance Guide",
     description: "Navigate the UAE's Economic Substance Regulations and ensure your corporate entity remains compliant.",
-    icon: ShieldCheck,
-    slug: "economic-substance-guide"
+    icon: ShieldCheck
   },
   {
     title: "UAE Corporate Tax Overview",
     description: "A comprehensive look at the new UAE Corporate Tax regime and how it affects free zone entities.",
-    icon: FileText,
-    slug: "uae-corporate-tax-overview"
+    icon: FileText
   }
 ];
 
 export default function Insights() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans pt-24">
-      <SEO
-        title="Resource Library | DIFC Guides and Regulatory Handbooks"
-        description="Download expert guides on DIFC company setup, prescribed companies, economic substance and UAE corporate tax. Practical resources for businesses operating in the DIFC."
-        canonical="/insights"
-      />
       <Navbar />
-
+      
       <main className="flex-grow">
         <section className="py-20 bg-slate-50 border-b border-slate-100">
           <div className="container mx-auto px-4 md:px-6">
-            <motion.div
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -63,10 +53,9 @@ export default function Insights() {
 
         <section className="py-20">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-2xl font-semibold text-[#0c1e24] mb-8">Expert Guides and Resources</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {resources.map((resource, idx) => (
-                <motion.div
+                <motion.div 
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -78,7 +67,7 @@ export default function Insights() {
                   </div>
                   <h3 className="text-2xl font-bold font-display text-foreground mb-3">{resource.title}</h3>
                   <p className="text-slate-600 leading-relaxed mb-6">{resource.description}</p>
-                  <Link href={`/insights/${resource.slug}`}>
+                  <Link href="#">
                     <div className="inline-flex items-center font-semibold text-primary hover:text-sky-500 transition-colors cursor-pointer group/link">
                       Read Guide
                       <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1" />
