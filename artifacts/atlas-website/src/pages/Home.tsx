@@ -210,24 +210,6 @@ export default function Home() {
           </div>
         </section>
 
-        <ServicesCarousel />
-
-        <section className="bg-gradient-to-r from-sky-500 to-sky-400 py-16">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold font-display text-white max-w-3xl leading-snug">
-                We build compliant structures that protect clients and support long-term growth.
-              </h2>
-              <div className="flex-shrink-0">
-                <Link href="/contact">
-                  <Button size="lg" className="rounded-full bg-white hover:bg-slate-100 text-sky-500 px-8 py-6 text-base font-bold shadow-lg">
-                    Contact us
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <section className="py-24 bg-slate-50">
           <div className="container mx-auto px-4 md:px-6">
