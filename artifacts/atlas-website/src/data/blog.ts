@@ -16,7 +16,7 @@ export const blogPosts: BlogPost[] = [
     category: "Regulatory",
     date: "10 March 2026",
     excerpt: "The DIFC Authority has introduced significant updates to its fund regulations framework in 2026. We examine the key changes and what they mean for asset managers operating in the centre.",
-    image: "https://framerusercontent.com/images/P76llRCKVB3dVH4mJa8EjTR4UvQ.jpg?width=2400",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&auto=format&fit=crop&q=80",
     readTime: "6 min read",
     content: `
 The Dubai International Financial Centre (DIFC) has updated its collective investment funds framework for 2026, introducing changes that affect how asset managers structure, register and operate investment funds within the centre. The Dubai Financial Services Authority (DFSA) has revised its Collective Investment Rules (CIR) to strengthen investor protections, improve disclosure standards and align DIFC fund regulation more closely with international best practice from jurisdictions such as Luxembourg, the Cayman Islands and Ireland.
@@ -96,7 +96,7 @@ The 2026 amendments introduce initial guidance on ESG disclosures, requiring tha
     category: "Wealth",
     date: "14 February 2026",
     excerpt: "A family office in the DIFC offers significant advantages for high-net-worth families managing assets across multiple jurisdictions. This guide covers everything you need to know about the setup process in 2026.",
-    image: "https://framerusercontent.com/images/KoUWP2aYlCOne6crpVlMvfj96A.jpg?width=2400",
+    image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&auto=format&fit=crop&q=80",
     readTime: "8 min read",
     content: `
 The Dubai International Financial Centre (DIFC) has established itself as one of the world's leading jurisdictions for family office structures, attracting high-net-worth families from across the Middle East, South Asia, Africa and beyond. The DIFC's common law framework, zero per cent tax environment, world-class regulatory infrastructure and proximity to fast-growing regional markets make it an exceptional base for families seeking to professionalise their wealth management operations, consolidate international assets and plan for multi-generational succession.
@@ -195,7 +195,7 @@ A non-regulated DIFC SFO does not have prescribed minimum staffing requirements 
     category: "Tax",
     date: "22 January 2026",
     excerpt: "With the UAE corporate tax regime now firmly established, DIFC-registered companies must ensure their year-end compliance obligations are met. We set out the key steps to take before your financial year closes.",
-    image: "https://framerusercontent.com/images/YU2rhSsokkhKubOe2tq5A2e2dE.jpg?width=2400",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&fit=crop&q=80",
     readTime: "5 min read",
     content: `
 The UAE Corporate Tax regime, which came into effect for financial years beginning on or after 1 June 2023, applies to businesses operating across the UAE, including those registered in the DIFC. Now that the regime has been in place for over two years, DIFC-registered companies should approach year-end compliance with a clear understanding of their obligations, having moved past the initial uncertainty of the first tax period.
@@ -298,7 +298,7 @@ DIFC companies transacting with related parties must ensure that those transacti
     category: "Strategy",
     date: "8 January 2026",
     excerpt: "The Abu Dhabi Global Market and the Dubai International Financial Centre are the UAE's two leading financial free zones. We compare them across key dimensions to help you decide which jurisdiction best suits your business.",
-    image: "https://framerusercontent.com/images/H7uTwhmDFTPQD22lho2q2ZJbNE.jpg?width=2400",
+    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&auto=format&fit=crop&q=80",
     readTime: "7 min read",
     content: `
 The UAE is home to two world-class financial free zones: the Dubai International Financial Centre (DIFC) in Dubai and the Abu Dhabi Global Market (ADGM) on Al Maryah Island in Abu Dhabi. Both jurisdictions offer common law frameworks, internationally recognised regulatory environments and significant tax advantages. Both have attracted hundreds of global financial institutions, asset managers, family offices and professional services firms. Yet the two centres are not identical, and the choice between them can have meaningful implications for your business model, cost base, client relationships and long-term strategic positioning.
@@ -387,7 +387,7 @@ At the level of entity registration and licensing fees, costs are broadly compar
     category: "Structuring",
     date: "3 January 2026",
     excerpt: "The DIFC Prescribed Company regime offers a flexible and cost-effective SPV structure for holding assets, facilitating co-investments and managing GCC family wealth. We explore the key structuring considerations.",
-    image: "https://framerusercontent.com/images/g1PXHBRybcPGNQtvE3CWOJhJyM.jpg?width=2400",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&auto=format&fit=crop&q=80",
     readTime: "6 min read",
     content: `
 The DIFC Prescribed Company (PC) is one of the most versatile and cost-effective corporate structures available within the Dubai International Financial Centre. Designed as a streamlined special purpose vehicle (SPV), the Prescribed Company offers significant advantages for holding assets, structuring co-investments and facilitating wealth management arrangements, particularly for GCC-based families and investors seeking to organise their holdings using a common law framework.
@@ -495,7 +495,7 @@ A Prescribed Company holding qualifying assets may be eligible for Qualifying Fr
     category: "Legal",
     date: "18 December 2025",
     excerpt: "The DIFC Foundation offers a powerful tool for multi-generational wealth planning, succession and philanthropy. We explain how DIFC Foundations work and why they are increasingly popular with families across the region.",
-    image: "https://framerusercontent.com/images/qnS5ctlwALXI1iLRm7F3VT9OiHo.jpg?width=2400",
+    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&auto=format&fit=crop&q=80",
     readTime: "6 min read",
     content: `
 The DIFC Foundation is a legal entity established under the DIFC Foundations Law (DIFC Law No. 3 of 2018). Drawing on the civil law foundation concept while operating within the DIFC's common law framework, the DIFC Foundation has rapidly become one of the most sought-after structures for wealth protection, succession planning, family governance and philanthropy across the GCC region and beyond.

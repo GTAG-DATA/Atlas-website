@@ -8,6 +8,7 @@ import { ServicesCarousel } from "@/components/ServicesCarousel";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
+import { blogPosts as allBlogPosts } from "@/data/blog";
 import {
   Accordion,
   AccordionContent,
@@ -75,26 +76,7 @@ const services = [
   }
 ];
 
-const blogPosts = [
-  {
-    title: "DIFC 2026: New Fund Regulations and What They Mean for Asset Managers",
-    category: "Regulatory",
-    date: "March 10, 2026",
-    image: "https://framerusercontent.com/images/P76llRCKVB3dVH4mQZOPnkQk.jpg?width=1600&height=896"
-  },
-  {
-    title: "Setting Up a Family Office in DIFC: The 2026 Complete Guide",
-    category: "Wealth",
-    date: "February 14, 2026",
-    image: "https://framerusercontent.com/images/KoUWP2aYlCOne6cr66MZd9uRmw.jpg?width=8192&height=4096"
-  },
-  {
-    title: "UAE Corporate Tax: Year-End Compliance Checklist for DIFC Companies",
-    category: "Tax",
-    date: "January 22, 2026",
-    image: "https://framerusercontent.com/images/YU2rhSsokkhKubOesoL3UxW8nE.jpg?width=6240&height=4160"
-  }
-];
+const blogPosts = allBlogPosts.slice(0, 3);
 
 export default function Home() {
   return (
@@ -263,30 +245,33 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {blogPosts.map((post, idx) => (
-                <motion.div 
-                  key={idx}
+                <motion.div
+                  key={post.slug}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md transition-all cursor-pointer"
                 >
-                  <div className="aspect-[4/3] overflow-hidden relative">
-                    <img 
-                      src={post.image} 
-                      alt={post.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm py-1 px-3 rounded-full text-xs font-bold text-primary uppercase tracking-wide">
-                      {post.category}
+                  <Link href={`/blog/${post.slug}`}>
+                    <div className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md transition-all cursor-pointer">
+                      <div className="aspect-[4/3] overflow-hidden relative">
+                        <img
+                          src={post.image}
+                          alt={post.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm py-1 px-3 rounded-full text-xs font-bold text-primary uppercase tracking-wide">
+                          {post.category}
+                        </div>
+                      </div>
+                      <div className="p-6">
+                        <div className="text-xs text-slate-400 mb-2">{post.date}</div>
+                        <h3 className="text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors leading-tight">
+                          {post.title}
+                        </h3>
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="text-xs text-slate-400 mb-2">{post.date}</div>
-                    <h3 className="text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors leading-tight">
-                      {post.title}
-                    </h3>
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
