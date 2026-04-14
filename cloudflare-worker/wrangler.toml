@@ -1,15 +1,15 @@
 name = "atlas-blog"
-main = "src/index.ts"
+main = "src/index.built.ts"
 compatibility_date = "2024-09-23"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "atlas-blog"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "925d12da-afe9-4854-a407-da9c1d6e8e5d"
 
 [[kv_namespaces]]
 binding = "KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "b75e2501e7fd4edeb9052a55205e6ced"
 
 [vars]
 SITE_URL = "https://www.atlascorp.ae"
