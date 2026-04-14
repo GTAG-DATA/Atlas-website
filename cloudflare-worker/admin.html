@@ -954,7 +954,8 @@
     // FAQs
     $('faq-list').innerHTML = '';
     faqCount = 0;
-    const faqs = post.faqs || [];
+    let faqs = post.faqs || [];
+    if (typeof faqs === 'string') { try { faqs = JSON.parse(faqs); } catch(e) { faqs = []; } }
     faqs.forEach(faq => addFaq(faq.question, faq.answer));
 
     // Header
