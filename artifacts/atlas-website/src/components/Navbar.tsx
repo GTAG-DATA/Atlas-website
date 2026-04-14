@@ -69,13 +69,13 @@ export function Navbar() {
       {/* Top bar */}
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between">
-          <Link href="/">
+          <a href="/" onClick={(e) => { e.preventDefault(); window.location.href = "/"; }}>
             <img src={logoImg} alt="Atlas Corporate Services" width="40" height="40" className={`h-8 md:h-10 object-contain transition-all ${logoInvert}`} />
-          </Link>
+          </a>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-7">
-            <Link href="/"><span className="text-sm text-[#111] hover:text-sky-500 transition-colors cursor-pointer">Home</span></Link>
+            <a href="/" onClick={(e) => { e.preventDefault(); window.location.href = "/"; }} className="text-sm text-[#111] hover:text-sky-500 transition-colors cursor-pointer">Home</a>
 
             <button
               onMouseEnter={() => open("services")}
@@ -249,7 +249,7 @@ export function Navbar() {
             className="md:hidden bg-white border-t overflow-hidden"
           >
             <div className="flex flex-col px-4 py-6 gap-1 max-h-[80vh] overflow-y-auto">
-              <Link href="/"><div className="py-3 text-base font-medium text-foreground border-b border-slate-100 cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>Home</div></Link>
+              <a href="/" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); window.location.href = "/"; }} className="block py-3 text-base font-medium text-foreground border-b border-slate-100 cursor-pointer">Home</a>
               <div className="py-3 border-b border-slate-100">
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Services</p>
                 {servicesMenu.map((item) => (
