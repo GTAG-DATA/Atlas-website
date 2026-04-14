@@ -134,6 +134,11 @@ const routes = [
     description: 'A comprehensive guide to UAE Corporate Tax for DIFC-registered entities, covering registration, qualifying free zone person status, exempt income and filing obligations.',
     ogType: 'article',
   },
+  { path: '/insights/innovation-licence', file: 'insights/innovation-licence/index.html',
+    title: `DIFC Innovation Licence Guide 2026${SUFFIX}`,
+    description: 'A complete guide to the DIFC Innovation Licence for technology and fintech businesses: eligibility, costs, the Innovation Testing Licence, and the DFSA regulatory pathway.',
+    ogType: 'article',
+  },
 ];
 
 // ─── Organization schema (injected on every page) ─────────────────────────────

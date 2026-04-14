@@ -10,8 +10,8 @@ export interface InsightArticle {
 export const insightArticles: InsightArticle[] = [
   {
     slug: "difc-101",
-    title: "DIFC 101: A Complete Guide to the Dubai International Financial Centre",
-    description: "Everything you need to know about the DIFC, including its legal framework, entity types, regulatory environment and why businesses choose Dubai's premier financial hub.",
+    title: "DIFC 101: The Complete Guide for 2026",
+    description: "Everything you need to know about the Dubai International Financial Centre: its legal framework, entity types, costs, and why it remains the jurisdiction of choice for international businesses.",
     icon: "Building2",
     relatedService: "difc-company-setup",
     content: `
@@ -90,7 +90,7 @@ Atlas Corporate Services provides full end-to-end DIFC setup support, from initi
   },
   {
     slug: "prescribed-company-handbook",
-    title: "DIFC Prescribed Company Handbook: Structure, Setup and Administration",
+    title: "DIFC Prescribed Company (SPV) Handbook 2026",
     description: "A practical guide to the DIFC Prescribed Company regime, covering eligible uses, the GCC Holding Company category, setup process, annual obligations and key structuring considerations.",
     icon: "FileText",
     relatedService: "difc-prescribed-company-spv",
@@ -190,7 +190,7 @@ Contact the Atlas team to discuss your Prescribed Company requirements.
   },
   {
     slug: "economic-substance-guide",
-    title: "UAE Economic Substance Regulations: A Practical Guide",
+    title: "Economic Substance Regulations: Complete Compliance Guide 2026",
     description: "A clear explanation of the UAE Economic Substance Regulations (ESR), how they have evolved since 2019, what still applies following the introduction of UAE Corporate Tax, and what DIFC companies need to know.",
     icon: "Scale",
     relatedService: "compliance-economic-substance",
@@ -265,7 +265,7 @@ Atlas Corporate Services provides compliance and economic substance advisory ser
   },
   {
     slug: "uae-corporate-tax-overview",
-    title: "UAE Corporate Tax: What DIFC Companies Need to Know",
+    title: "UAE Corporate Tax: What DIFC Businesses Must Know in 2026",
     description: "A comprehensive overview of the UAE Corporate Tax regime, how it applies to DIFC free zone entities, the Qualifying Free Zone Person concept and what businesses need to do to remain compliant.",
     icon: "Calculator",
     relatedService: "accounting-tax",
@@ -361,6 +361,92 @@ Certain categories of income are exempt from UAE Corporate Tax:
 ## How Atlas Can Help
 
 Atlas Corporate Services provides accounting, tax registration and compliance support for DIFC-registered companies navigating the UAE Corporate Tax regime. Our team assists with FTA registration, QFZP eligibility assessments, financial statement preparation, corporate tax return filing and transfer pricing documentation. Contact the Atlas team to discuss your corporate tax obligations.
+    `.trim()
+  },
+  {
+    slug: "innovation-licence",
+    title: "DIFC Innovation Licence Guide 2026",
+    description: "A complete guide to the DIFC Innovation Licence for technology and fintech businesses: eligibility, costs, the Innovation Testing Licence, and the DFSA regulatory pathway.",
+    icon: "Lightbulb",
+    relatedService: "difc-company-setup",
+    content: `
+The DIFC Innovation Licence is a specialist licensing category designed to attract technology companies, fintech businesses and startups to the Dubai International Financial Centre. It offers a cost-effective entry point into the DIFC ecosystem for businesses at early and growth stages.
+
+## What Is the DIFC Innovation Licence?
+
+The DIFC Innovation Licence allows technology and innovation-driven companies to operate from the DIFC at a reduced cost compared to a standard commercial licence. It is available to businesses engaged in activities such as software development, technology consulting, artificial intelligence, blockchain, data analytics, cybersecurity and financial technology.
+
+The licence is designed to support the DIFC's strategy of becoming a leading global hub for innovation and technology, complementing the DIFC's broader financial services ecosystem.
+
+## Eligibility Requirements
+
+To qualify for a DIFC Innovation Licence, a business must:
+
+- Be engaged in a qualifying technology or innovation activity
+- Meet the DIFC Authority's assessment criteria for innovation
+- Demonstrate a credible business model and development roadmap
+- Have at least one founder or director actively involved in the business
+- Commit to establishing a genuine operational presence in the DIFC
+
+The Innovation Licence is generally not available to businesses that primarily provide regulated financial services (which require a DFSA licence) unless they are operating under the Innovation Testing Licence programme.
+
+## DIFC Innovation Licence Structure
+
+**Standard Innovation Licence**
+The standard Innovation Licence is issued by the DIFC Authority and allows technology companies to operate as a non-regulated business within the DIFC. It covers activities such as software development, IT consulting, technology product development and related services.
+
+**Innovation Testing Licence (ITL)**
+The Innovation Testing Licence is a regulatory sandbox administered by the DFSA. It allows fintech companies to test innovative financial products or services in the DIFC under a controlled regulatory environment, with a restricted client base and transaction limits. The ITL is designed as a pathway to a full DFSA licence for companies developing regulated financial technology products.
+
+## Costs and Fees
+
+The DIFC Innovation Licence is priced to be accessible for early-stage technology businesses. Indicative costs for 2026 include:
+
+- **Registration and licence fee**: USD 1,500 to USD 3,000 depending on entity type
+- **Annual licence renewal**: USD 1,500 to USD 3,000
+- **Registered agent fee**: Required — typically USD 2,000 to USD 3,500 per annum
+
+Additional costs include:
+
+- Office space: DIFC offers co-working facilities through FinTech Hive and Gate Avenue co-working spaces, which are more cost-effective than dedicated office leases
+- Employee visas: Standard UAE visa costs apply
+- Registered agent and company secretarial fees
+
+The total first-year cost of establishing a DIFC Innovation Licence company, including all government fees and professional costs, typically ranges from USD 10,000 to USD 20,000.
+
+## The Innovation Testing Licence Process
+
+For fintech businesses seeking regulatory authorisation, the ITL pathway involves the following steps:
+
+1. **Expression of Interest**: Submit an initial application to the DFSA describing the proposed product, target market and testing parameters
+2. **DFSA Review**: The DFSA assesses whether the proposed activity is genuinely innovative and cannot be adequately tested under existing regulatory provisions
+3. **Restricted Authorisation**: If approved, the DFSA issues a restricted authorisation permitting the company to conduct the proposed activity with defined restrictions
+4. **Testing Period**: The company operates under the ITL for up to two years, reporting regularly to the DFSA on testing progress
+5. **Full Authorisation**: Successful applicants may apply for full DFSA authorisation at the end of the testing period
+
+## Benefits of the DIFC Innovation Licence
+
+- **Cost-effective market entry**: Lower fees than standard DIFC commercial licences
+- **Credibility**: Operating from the DIFC provides credibility with investors, financial institutions and clients
+- **Access to ecosystem**: Connection to the DIFC's network of banks, funds, family offices and professional services firms
+- **FinTech Hive**: Access to DIFC's FinTech Hive accelerator programme, one of the region's leading fintech ecosystems
+- **UAE residency visas**: Innovation Licence holders can sponsor employee and founder visas
+- **Regulatory pathway**: Clear pathway to full DFSA authorisation for regulated fintech businesses
+
+## Setting Up a DIFC Innovation Licence Company
+
+The process for establishing a DIFC Innovation Licence company involves:
+
+1. Selecting the appropriate entity type (typically a company limited by shares)
+2. Preparing the application, including a business plan and description of activities
+3. Appointing a DIFC registered agent
+4. Submitting the application to the DIFC Authority
+5. Registering with the relevant UAE authorities for tax and immigration purposes
+6. Opening a UAE corporate bank account
+
+## How Atlas Can Help
+
+Atlas Corporate Services assists technology and fintech companies with DIFC Innovation Licence applications, including business plan preparation, entity formation, registered agent services and ongoing compliance support. We also advise on the DFSA's Innovation Testing Licence programme for fintech businesses seeking regulatory authorisation. Contact the Atlas team to discuss your DIFC Innovation Licence application.
     `.trim()
   }
 ];
