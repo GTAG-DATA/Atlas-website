@@ -199,7 +199,8 @@ export default function BlogPost() {
                 </p>
                 <Link
                   href="/contact"
-                  className="block w-full bg-sky-400 hover:bg-sky-500 text-white font-semibold text-center py-2.5 px-4 rounded-lg transition-colors"
+                  className="block w-full text-white font-semibold text-center py-2.5 px-4 rounded-lg transition-colors"
+                  style={{ backgroundColor: 'oklch(68.5% 0.169 237.323)' }}
                 >
                   Get in Touch
                 </Link>
