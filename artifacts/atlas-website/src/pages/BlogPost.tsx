@@ -199,7 +199,7 @@ export default function BlogPost() {
                 </p>
                 <Link
                   href="/contact"
-                  className="block w-full bg-amber-500 hover:bg-amber-400 text-[#0c1e24] font-semibold text-center py-2.5 px-4 rounded-lg transition-colors"
+                  className="block w-full bg-sky-500 hover:bg-sky-600 text-white font-semibold text-center py-2.5 px-4 rounded-lg transition-colors"
                 >
                   Get in Touch
                 </Link>
