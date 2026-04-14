@@ -171,7 +171,7 @@ export const servicesData: ServiceData[] = [
         number: "02",
         title: "Structure Design",
         description:
-          "We design a bespoke family office structure — entity type, licence category, ownership, and governance framework.",
+          "We design a bespoke family office structure, entity type, licence category, ownership, and governance framework.",
       },
       {
         number: "03",
