@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
+Disallow: /assets/
+Disallow: /*.json$
+
+# Sitemap
 Sitemap: https://www.atlascorp.ae/sitemap.xml
+
+# LLMs
+LLMs: https://www.atlascorp.ae/llms.txt
