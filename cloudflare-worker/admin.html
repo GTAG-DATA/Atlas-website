@@ -765,9 +765,9 @@
     tbody.innerHTML = '<tr class="loading-row"><td colspan="5"><span class="spinner"></span>Loading posts…</td></tr>';
     hide($('stats-bar'));
     try {
-      const posts = await api('GET', '/api/posts');
-      if (!posts) return;
-      renderPosts(posts);
+      const data = await api('GET', '/api/posts');
+      if (!data) return;
+      renderPosts(data.posts || []);
     } catch (err) {
       toast('Failed to load posts: ' + err.message, 'error');
       tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:40px;color:var(--danger);font-size:13px">Error: ${err.message}</td></tr>`;
@@ -911,9 +911,9 @@
   async function loadPost(slug) {
     $('editor-title-heading').textContent = 'Loading…';
     try {
-      const post = await api('GET', `/api/posts/${slug}`);
-      if (!post) return;
-      populateEditor(post);
+      const data = await api('GET', `/api/posts/${slug}`);
+      if (!data) return;
+      populateEditor(data.post || data);
     } catch (err) {
       toast('Failed to load post: ' + err.message, 'error');
       showListView();
