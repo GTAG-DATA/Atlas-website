@@ -106,7 +106,10 @@ export function renderBlogPage(post: Post): string {
   const seoTitle = `${post.seo_title || post.title} | ${SITE_NAME}`;
   const metaDesc = post.meta_description || post.excerpt;
   const canonical = `${SITE}/blog/${post.slug}`;
-  const bodyHtml = markdownToHtml(post.content);
+  // Support both Quill HTML output and legacy markdown
+  const bodyHtml = (post.content || '').trimStart().startsWith('<')
+    ? post.content
+    : markdownToHtml(post.content);
 
   const faqsHtml = faqs.length ? `
     <section class="faq-section">
