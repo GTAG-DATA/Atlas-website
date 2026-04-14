@@ -20,9 +20,9 @@ function ServicesSidebar({ currentSlug }: { currentSlug: string }) {
     <aside className="w-full">
       {/* Services list card */}
       <div className="bg-slate-50 rounded-2xl p-6 mb-4">
-        <h3 className="text-lg font-bold font-display text-foreground mb-4">
+        <h2 className="text-lg font-bold font-display text-foreground mb-4">
           Our Services
-        </h3>
+        </h2>
         <hr className="border-slate-200 mb-4" />
         <nav className="flex flex-col gap-2">
           {servicesData.map((s) => {
@@ -48,9 +48,9 @@ function ServicesSidebar({ currentSlug }: { currentSlug: string }) {
 
       {/* Plan Your Business CTA card */}
       <div className="bg-[#1a1a1a] rounded-2xl p-6 text-white">
-        <h3 className="text-xl font-bold font-display mb-2 leading-snug">
+        <h2 className="text-xl font-bold font-display mb-2 leading-snug">
           Plan Your Business
-        </h3>
+        </h2>
         <p className="text-white/60 text-sm leading-relaxed mb-5">
           Set up and scale in the UAE without compliance risks
         </p>
@@ -116,13 +116,21 @@ export default function ServiceDetail() {
               <ChevronRight className="h-3.5 w-3.5" />
               <span className="text-white/80">{service.title}</span>
             </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-amber-400 text-sm font-bold uppercase tracking-widest mb-2"
+            >
+              {service.title}
+            </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
               className="text-3xl md:text-5xl font-bold text-white font-display leading-tight max-w-2xl"
             >
-              {service.title}
+              {service.tagline}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -330,6 +338,10 @@ export default function ServiceDetail() {
                       <img
                         src={s.heroImage}
                         alt={s.title}
+                        title={s.title}
+                        loading="lazy"
+                        width={400}
+                        height={192}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0c1e24]/80 to-transparent" />
