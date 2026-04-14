@@ -16,7 +16,7 @@ const insights = [
     readTime: "6 min read",
   },
   {
-    slug: "prescribed-company-handbook",
+    slug: "prescribed-company",
     title: "DIFC Prescribed Company (SPV) Handbook 2026",
     description:
       "Everything fund managers, family offices, and investors need to know about structuring a cost-effective special purpose vehicle in the DIFC, including eligibility, costs, and ongoing compliance.",
@@ -26,7 +26,7 @@ const insights = [
     readTime: "7 min read",
   },
   {
-    slug: "economic-substance-guide",
+    slug: "economic-substance",
     title: "Economic Substance Regulations: Complete Compliance Guide 2026",
     description:
       "Who must comply, what the substance test requires, filing deadlines, and penalties for non-compliance. A practical guide for all DIFC-registered entities in 2026.",
@@ -46,7 +46,7 @@ const insights = [
     readTime: "7 min read",
   },
   {
-    slug: "uae-corporate-tax-overview",
+    slug: "corporate-tax",
     title: "UAE Corporate Tax: What DIFC Businesses Must Know in 2026",
     description:
       "The qualifying free zone person regime, qualifying income, registration obligations, transfer pricing rules, and key 2026 filing deadlines for DIFC entities.",

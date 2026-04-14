@@ -20,11 +20,11 @@ const servicesMenu = [
 
 const insightsMenu = [
   { title: "All Insights & Resources", subtitle: "View All", path: "/insights" },
-  { title: "DIFC 101 Guide", subtitle: "Guide", path: "/insights" },
-  { title: "Prescribed Company Handbook", subtitle: "Guide", path: "/insights" },
-  { title: "Innovation License Guide", subtitle: "Guide", path: "/insights" },
-  { title: "Economic Substance Updates", subtitle: "Update", path: "/insights" },
-  { title: "UAE Corporate Tax", subtitle: "Update", path: "/insights" },
+  { title: "DIFC 101 Guide", subtitle: "Guide", path: "/insights/difc-101" },
+  { title: "Prescribed Company Handbook", subtitle: "Handbook", path: "/insights/prescribed-company" },
+  { title: "Innovation Licence Guide", subtitle: "Guide", path: "/insights/innovation-licence" },
+  { title: "Economic Substance Guide", subtitle: "Regulatory Update", path: "/insights/economic-substance" },
+  { title: "UAE Corporate Tax", subtitle: "Tax Update", path: "/insights/corporate-tax" },
 ];
 
 export function Navbar() {

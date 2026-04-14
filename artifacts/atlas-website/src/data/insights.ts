@@ -89,7 +89,7 @@ Atlas Corporate Services provides full end-to-end DIFC setup support, from initi
     `.trim()
   },
   {
-    slug: "prescribed-company-handbook",
+    slug: "prescribed-company",
     title: "DIFC Prescribed Company (SPV) Handbook 2026",
     description: "A practical guide to the DIFC Prescribed Company regime, covering eligible uses, the GCC Holding Company category, setup process, annual obligations and key structuring considerations.",
     icon: "FileText",
@@ -189,7 +189,7 @@ Contact the Atlas team to discuss your Prescribed Company requirements.
     `.trim()
   },
   {
-    slug: "economic-substance-guide",
+    slug: "economic-substance",
     title: "Economic Substance Regulations: Complete Compliance Guide 2026",
     description: "A clear explanation of the UAE Economic Substance Regulations (ESR), how they have evolved since 2019, what still applies following the introduction of UAE Corporate Tax, and what DIFC companies need to know.",
     icon: "Scale",
@@ -264,7 +264,7 @@ Atlas Corporate Services provides compliance and economic substance advisory ser
     `.trim()
   },
   {
-    slug: "uae-corporate-tax-overview",
+    slug: "corporate-tax",
     title: "UAE Corporate Tax: What DIFC Businesses Must Know in 2026",
     description: "A comprehensive overview of the UAE Corporate Tax regime, how it applies to DIFC free zone entities, the Qualifying Free Zone Person concept and what businesses need to do to remain compliant.",
     icon: "Calculator",
