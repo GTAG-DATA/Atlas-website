@@ -218,21 +218,21 @@ export const servicesData: ServiceData[] = [
     title: "Fund Setup",
     tagline: "End-to-end investment fund formation in DIFC and ADGM",
     description:
-      "End-to-end investment fund formation and setup services in DIFC and ADGM, including fund structuring, regulatory licensing, PPM drafting, and ongoing compliance support.",
+      "End-to-end investment fund formation and setup services in DIFC, including fund structuring, regulatory licensing, PPM drafting, and ongoing compliance support.",
     heroImage:
       "https://framerusercontent.com/images/P76llRCKVB3dVH4mQZOPnkQk.jpg?width=1600&height=896",
     overview:
-      "DIFC and ADGM are internationally recognised fund domiciles offering flexible fund structures, a sophisticated regulatory environment, and access to a deep pool of institutional and private investors. Atlas provides comprehensive fund formation services for private equity, venture capital, real estate, hedge, and other alternative investment funds — from initial structuring through to regulatory approval and investor onboarding.",
+      "DIFC is an internationally recognised fund domiciles offering flexible fund structures, a sophisticated regulatory environment, and access to a deep pool of institutional and private investors. Atlas provides comprehensive fund formation services for private equity, venture capital, real estate, hedge, and other alternative investment funds, from initial structuring through to regulatory approval and investor onboarding.",
     features: [
       {
         title: "Multiple Fund Structures",
         description:
-          "Closed-ended, open-ended, umbrella, and feeder fund structures available across DIFC and ADGM jurisdictions.",
+          "Closed-ended, open-ended, umbrella, and feeder fund structures available within DIFC.",
       },
       {
         title: "Regulatory Licensing",
         description:
-          "Full coordination with DFSA and FSRA for fund manager and fund licensing, including pre-application meetings and submission management.",
+          "Full coordination with the DFSA for fund manager and fund licensing, including pre-application meetings and submission management.",
       },
       {
         title: "PPM & Legal Documentation",
@@ -266,13 +266,13 @@ export const servicesData: ServiceData[] = [
         number: "02",
         title: "Entity Formation",
         description:
-          "We establish the fund vehicle and fund manager entity in DIFC or ADGM, including all corporate filings.",
+          "We establish the fund vehicle and fund manager entity in DIFC, including all corporate filings.",
       },
       {
         number: "03",
         title: "Regulatory Application",
         description:
-          "We prepare and submit the DFSA or FSRA fund registration and fund manager licensing applications.",
+          "We prepare and submit the DFSA fund registration and fund manager licensing applications.",
       },
       {
         number: "04",
@@ -296,7 +296,7 @@ export const servicesData: ServiceData[] = [
     whatsIncluded: [
       "Fund strategy and jurisdiction advisory",
       "Fund and fund manager entity formation",
-      "DFSA / FSRA licensing application management",
+      "DFSA licensing application management",
       "PPM and LPA drafting",
       "Subscription Agreement and side letter templates",
       "KYC/AML framework setup",
@@ -313,11 +313,11 @@ export const servicesData: ServiceData[] = [
     title: "Fund & SPV Support",
     tagline: "Specialised administration for investment vehicles",
     description:
-      "Specialised fund administration and SPV support services for investment funds, family offices, and investment vehicles operating in DIFC and ADGM.",
+      "Specialised fund administration and SPV support services for investment funds, family offices, and investment vehicles operating in DIFC.",
     heroImage:
       "https://framerusercontent.com/images/boAvRohjbYrJ6IpCgHMw0B5fSU.jpg?width=6144&height=3456",
     overview:
-      "Atlas provides specialist administration and support services to investment funds, family offices, and special purpose vehicles (SPVs) in DIFC and ADGM. Our team acts as a dedicated back-office partner, handling the administrative, compliance, and reporting obligations that allow fund managers and investors to focus on generating returns.",
+      "Atlas provides specialist administration and support services to investment funds, family offices, and special purpose vehicles (SPVs) in DIFC. Our team acts as a dedicated back-office partner, handling the administrative, compliance, and reporting obligations that allow fund managers and investors to focus on generating returns.",
     features: [
       {
         title: "Fund Administration",
@@ -412,7 +412,7 @@ export const servicesData: ServiceData[] = [
     heroImage:
       "https://framerusercontent.com/images/fjX2nbcynvKYaaXBD9ffxXMNKvk.jpg?width=3840&height=5760",
     overview:
-      "Establishing a company in DIFC is only half the story — your people need to be able to live and work in the UAE. Atlas provides a full concierge service for UAE residency visa processing and corporate banking setup, ensuring that your team can hit the ground running from day one.",
+      "Establishing a company in DIFC is only half the story, your people need to be able to live and work in the UAE. Atlas provides a full concierge service for UAE residency visa processing and corporate banking setup, ensuring that your team can hit the ground running from day one.",
     features: [
       {
         title: "UAE Residency Visa Processing",
