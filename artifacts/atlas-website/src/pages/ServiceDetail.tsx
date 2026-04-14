@@ -59,7 +59,7 @@ function ServicesSidebar({ currentSlug }: { currentSlug: string }) {
           <span>info@atlascorp.ae</span>
         </div>
         <Link href="/contact">
-          <button className="w-full rounded-full bg-sky-500 text-white hover:bg-sky-600 font-semibold text-sm py-3 transition-colors">
+          <button className="w-full rounded-full bg-sky-400 text-white hover:bg-sky-500 font-semibold text-sm py-3 transition-colors">
             Contact Us
           </button>
         </Link>
