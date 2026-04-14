@@ -33,6 +33,22 @@ zone_name = "atlascorp.ae"
 pattern = "atlascorp.ae/blog/*"
 zone_name = "atlascorp.ae"
 
+[[routes]]
+pattern = "www.atlascorp.ae/admin"
+zone_name = "atlascorp.ae"
+
+[[routes]]
+pattern = "www.atlascorp.ae/admin/*"
+zone_name = "atlascorp.ae"
+
+[[routes]]
+pattern = "www.atlascorp.ae/api/*"
+zone_name = "atlascorp.ae"
+
+[[routes]]
+pattern = "www.atlascorp.ae/blog/*"
+zone_name = "atlascorp.ae"
+
 [dev]
 port = 8787
 local_protocol = "http"
