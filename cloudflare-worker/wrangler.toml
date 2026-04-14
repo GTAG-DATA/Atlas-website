@@ -1,0 +1,38 @@
+name = "atlas-blog"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "atlas-blog"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+[vars]
+SITE_URL = "https://www.atlascorp.ae"
+
+# Set ADMIN_PASSWORD as a secret via: wrangler secret put ADMIN_PASSWORD
+# Set TOKEN_SECRET as a secret via: wrangler secret put TOKEN_SECRET
+
+[[routes]]
+pattern = "atlascorp.ae/admin"
+zone_name = "atlascorp.ae"
+
+[[routes]]
+pattern = "atlascorp.ae/admin/*"
+zone_name = "atlascorp.ae"
+
+[[routes]]
+pattern = "atlascorp.ae/api/*"
+zone_name = "atlascorp.ae"
+
+[[routes]]
+pattern = "atlascorp.ae/blog/*"
+zone_name = "atlascorp.ae"
+
+[dev]
+port = 8787
+local_protocol = "http"
