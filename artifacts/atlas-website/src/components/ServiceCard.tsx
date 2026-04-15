@@ -16,10 +16,10 @@ export function ServiceCard({ title, description, image, slug, delay = 0 }: Serv
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.4, delay: Math.min(delay, 0.2) }}
       className="h-full"
     >
       <GlowCard customSize glowColor="blue" className="group">
@@ -27,7 +27,9 @@ export function ServiceCard({ title, description, image, slug, delay = 0 }: Serv
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-[#142E36]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
