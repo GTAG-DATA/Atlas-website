@@ -2,6 +2,15 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "wouter";
 import heroImg from "@assets/ChatGPT_Image_Jan_6,_2026,_04_59_10_PM_1775111154305.png";
 
+const bubbles = Array.from({ length: 12 }, (_, i) => ({
+  id: i,
+  size: Math.random() * 80 + 20,           // 20–100px
+  left: Math.random() * 100,               // 0–100%
+  delay: Math.random() * 6,               // 0–6s stagger
+  duration: Math.random() * 10 + 12,      // 12–22s rise
+  opacity: Math.random() * 0.07 + 0.03,  // very subtle: 3–10%
+}));
+
 export function HeroSection() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 1000], [0, 300]);
@@ -20,6 +29,34 @@ export function HeroSection() {
           className="w-full h-full object-cover object-center"
         />
       </motion.div>
+
+      {/* Bubble animations */}
+      <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+        {bubbles.map((b) => (
+          <motion.div
+            key={b.id}
+            className="absolute rounded-full border border-white"
+            style={{
+              width: b.size,
+              height: b.size,
+              left: `${b.left}%`,
+              bottom: '-120px',
+              opacity: b.opacity,
+            }}
+            animate={{
+              y: [0, -(window.innerHeight + 200)],
+              x: [0, (Math.random() - 0.5) * 80],
+              scale: [1, 1.15, 1],
+            }}
+            transition={{
+              duration: b.duration,
+              delay: b.delay,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </div>
 
       <div className="container relative z-20 mx-auto px-4 md:px-6">
         <motion.div style={{ opacity }} className="max-w-xl">
