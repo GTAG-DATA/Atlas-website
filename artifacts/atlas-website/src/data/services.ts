@@ -30,7 +30,7 @@ export const servicesData: ServiceData[] = [
     description:
       "Set up your company in DIFC, Dubai's leading financial hub. Designed for regulated and non-regulated business activities. Structured for compliance, credibility, and global operations.",
     heroImage:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80&auto=format&fit=crop",
+      "/images/difc-company-setup.avif",
     overview:
       "The Dubai International Financial Centre (DIFC) is the Middle East, Africa and South Asia's premier financial hub. As a dedicated onshore financial free zone, DIFC offers world-class infrastructure, a common law legal framework, and zero per cent tax rate on income and profits. Atlas guides you through every step of establishing your business presence in this prestigious jurisdiction, from selecting the right entity type to obtaining your DIFC licence and opening corporate bank accounts.",
     features: [
@@ -125,7 +125,7 @@ export const servicesData: ServiceData[] = [
     description:
       "Comprehensive family office formation services delivering bespoke structures, regulatory compliance, and integrated wealth management solutions for ultra-high-net-worth families.",
     heroImage:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&q=80&auto=format&fit=crop",
+      "/images/family-office-setup.avif",
     overview:
       "A DIFC Family Office provides ultra-high-net-worth families with a dedicated, regulated structure to manage, protect, and grow their wealth across generations. DIFC is one of the world's leading jurisdictions for family office formation, offering a sophisticated regulatory environment, robust asset protection laws, and access to a global network of investment managers, legal advisors, and private banks. Atlas provides end-to-end family office formation and ongoing management services tailored to each family's unique requirements.",
     features: [
@@ -220,7 +220,7 @@ export const servicesData: ServiceData[] = [
     description:
       "End-to-end investment fund formation and setup services in DIFC, including fund structuring, regulatory licensing, PPM drafting, and ongoing compliance support.",
     heroImage:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=80&auto=format&fit=crop",
+      "/images/fund-setup.avif",
     overview:
       "DIFC is an internationally recognised fund domiciles offering flexible fund structures, a sophisticated regulatory environment, and access to a deep pool of institutional and private investors. Atlas provides comprehensive fund formation services for private equity, venture capital, real estate, hedge, and other alternative investment funds, from initial structuring through to regulatory approval and investor onboarding.",
     features: [
@@ -315,7 +315,7 @@ export const servicesData: ServiceData[] = [
     description:
       "Specialised fund administration and SPV support services for investment funds, family offices, and investment vehicles operating in DIFC.",
     heroImage:
-      "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&q=80&auto=format&fit=crop",
+      "/images/fund-spv-support.avif",
     overview:
       "Atlas provides specialist administration and support services to investment funds, family offices, and special purpose vehicles (SPVs) in DIFC. Our team acts as a dedicated back-office partner, handling the administrative, compliance, and reporting obligations that allow fund managers and investors to focus on generating returns.",
     features: [
@@ -410,7 +410,7 @@ export const servicesData: ServiceData[] = [
     description:
       "End-to-end UAE visa processing and corporate banking support for business owners, key personnel, and their families operating through DIFC entities.",
     heroImage:
-      "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1200&q=80&auto=format&fit=crop",
+      "/images/residency-banking-concierge.avif",
     overview:
       "Establishing a company in DIFC is only half the story, your people need to be able to live and work in the UAE. Atlas provides a full concierge service for UAE residency visa processing and corporate banking setup, ensuring that your team can hit the ground running from day one.",
     features: [
@@ -505,7 +505,7 @@ export const servicesData: ServiceData[] = [
     description:
       "Establish a DIFC Foundation for asset protection and succession planning. A robust legal structure for holding and managing wealth, built for long-term control, governance, and legacy planning.",
     heroImage:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80&auto=format&fit=crop",
+      "/images/difc-foundations.avif",
     overview:
       "A DIFC Foundation is a powerful legal structure that sits between a company and a trust, offering unique flexibility for wealth holding, succession planning, and asset protection. Unlike a trust, a foundation is a legal person with its own identity — it can hold assets, enter contracts, and sue or be sued in its own name. Atlas provides comprehensive DIFC Foundation formation and management services for families, entrepreneurs, and institutions seeking robust structures for long-term wealth stewardship.",
     features: [
@@ -600,7 +600,7 @@ export const servicesData: ServiceData[] = [
     description:
       "Establish special purpose vehicles and holding structures in the DIFC for investment holding, wealth management, and asset protection.",
     heroImage:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80&auto=format&fit=crop",
+      "/images/difc-prescribed-company-spv.avif",
     overview:
       "The DIFC Prescribed Company (PC) is a streamlined, cost-effective special purpose vehicle designed for holding investments, assets, and shares. PCs are widely used by family offices, investment funds, private equity firms, and high-net-worth individuals to create clean, efficient holding structures within the DIFC's robust legal and regulatory framework. Atlas provides end-to-end PC formation and management services.",
     features: [
@@ -695,7 +695,7 @@ export const servicesData: ServiceData[] = [
     description:
       "Professional company secretarial services ensuring compliance with DIFC regulations and best practice corporate governance for all DIFC entity types.",
     heroImage:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&q=80&auto=format&fit=crop",
+      "/images/company-secretarial-governance.avif",
     overview:
       "Good corporate governance is the foundation of a well-run DIFC entity. Atlas provides comprehensive company secretarial and governance services to ensure your company remains compliant with DIFC Authority requirements, maintains proper records, and follows best practice governance standards. Our expert team acts as your dedicated company secretary, handling the full range of statutory and administrative obligations.",
     features: [
@@ -790,7 +790,7 @@ export const servicesData: ServiceData[] = [
     description:
       "UAE compliance and economic substance services for regulated businesses. Ensure adherence to ESR, corporate tax, and regulatory requirements — built to minimise risk and maintain operational integrity.",
     heroImage:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80&auto=format&fit=crop",
+      "/images/compliance-economic-substance.avif",
     overview:
       "The UAE's regulatory landscape has evolved significantly in recent years, with the introduction of Economic Substance Regulations (ESR), corporate tax, and enhanced AML/CFT requirements. Non-compliance carries serious consequences — including financial penalties, licence suspension, and reputational damage. Atlas provides comprehensive compliance and economic substance services to help UAE businesses navigate these obligations with confidence.",
     features: [
