@@ -3,10 +3,16 @@ import { Footer } from "@/components/Footer";
 import { ServiceCard } from "@/components/ServiceCard";
 import { motion } from "framer-motion";
 import { servicesData } from "@/data/services";
+import SEO from "@/components/SEO";
 
 export default function Services() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans pt-24">
+      <SEO
+        title="Our Services | DIFC Corporate Services Dubai | Atlas"
+        description="Explore Atlas Corporate Services — DIFC company setup, fund structuring, family office, prescribed companies, compliance, accounting, and residency services in Dubai."
+        canonical="/services"
+      />
       <Navbar />
 
       <main className="flex-grow">

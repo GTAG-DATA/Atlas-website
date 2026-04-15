@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
@@ -48,6 +49,11 @@ const socials = [
 export default function Contact() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans pt-24">
+      <SEO
+        title="Contact Us | Atlas Corporate Services Dubai"
+        description="Get in touch with Atlas Corporate Services. Schedule a free consultation for DIFC company setup, fund structuring, family office, and compliance services in Dubai."
+        canonical="/contact"
+      />
       <Navbar />
       
       <main className="flex-grow">

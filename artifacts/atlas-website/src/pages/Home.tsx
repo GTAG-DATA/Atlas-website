@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import SEO, { websiteSchema, localBusinessSchema, siteNavigationSchema } from "@/components/SEO";
 import { HeroSection } from "@/components/HeroSection";
 import { StatsSection } from "@/components/StatsSection";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -81,6 +82,12 @@ const blogPosts = allBlogPosts.slice(0, 3);
 export default function Home() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
+      <SEO
+        title="Atlas Corporate Services | DIFC Company Setup & Corporate Services Dubai"
+        description="Expert DIFC company formation, fund structuring, family office setup, compliance and governance services in Dubai. Trusted by global investors and fund managers."
+        canonical="/"
+        schema={[websiteSchema, localBusinessSchema, siteNavigationSchema]}
+      />
       <Navbar />
       
       <main className="flex-grow">

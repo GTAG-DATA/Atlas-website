@@ -14,7 +14,24 @@ const SITE_NAME = 'Atlas Corporate Services';
 const BASE_URL = 'https://www.atlascorp.ae';
 const DEFAULT_OG_IMAGE = `${BASE_URL}/opengraph.jpg`;
 
-// ── Shared Organisation schema (reused on every page) ─────────────────────────
+// ── WebSite schema — triggers Google Sitelinks & search box ──────────────────
+export const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Atlas Corporate Services",
+  "url": "https://www.atlascorp.ae",
+  "description": "DIFC company formation, fund structuring, family office setup and compliance services in Dubai.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.atlascorp.ae/services?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+// ── Organisation schema ───────────────────────────────────────────────────────
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -22,17 +39,25 @@ export const organizationSchema = {
   "url": "https://www.atlascorp.ae",
   "logo": "https://www.atlascorp.ae/assets/logo-D-IPHjNp.png",
   "description": "Atlas Corporate Services specialises in DIFC company formation, fund structuring, family office setup, compliance and ongoing corporate governance in Dubai.",
+  "email": "info@atlascorp.ae",
+  "telephone": "+971529798302",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Dubai",
+    "streetAddress": "GV-00-10-03-BC09, Level 3, Gate Village Building 10",
+    "addressLocality": "DIFC, Dubai",
     "addressCountry": "AE"
   },
   "areaServed": ["AE", "GB", "US", "SG", "IN"],
   "sameAs": [
-    "https://www.linkedin.com/company/atlas-corporate-services"
+    "https://www.instagram.com/atlas.corporate/",
+    "https://www.facebook.com/profile.php?id=61572146018529",
+    "https://www.linkedin.com/company/atlas-difc/",
+    "https://x.com/atlascorpdxb"
   ],
   "contactPoint": {
     "@type": "ContactPoint",
+    "telephone": "+971529798302",
+    "email": "info@atlascorp.ae",
     "contactType": "customer service",
     "areaServed": "AE",
     "availableLanguage": ["English", "Arabic"]
@@ -48,9 +73,12 @@ export const localBusinessSchema = {
   "logo": "https://www.atlascorp.ae/assets/logo-D-IPHjNp.png",
   "image": "https://www.atlascorp.ae/opengraph.jpg",
   "description": "Expert DIFC company formation, fund structuring, family office setup and compliance services in Dubai.",
+  "telephone": "+971529798302",
+  "email": "info@atlascorp.ae",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Dubai",
+    "streetAddress": "GV-00-10-03-BC09, Level 3, Gate Village Building 10",
+    "addressLocality": "DIFC, Dubai",
     "addressRegion": "Dubai",
     "addressCountry": "AE"
   },
@@ -59,8 +87,31 @@ export const localBusinessSchema = {
     "latitude": "25.2048",
     "longitude": "55.2708"
   },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
   "areaServed": "Dubai International Financial Centre",
   "priceRange": "$$$$"
+};
+
+// ── SiteNavigationElement — tells Google your key pages ──────────────────────
+export const siteNavigationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Atlas Corporate Services — Key Pages",
+  "itemListElement": [
+    { "@type": "SiteNavigationElement", "position": 1, "name": "DIFC Company Setup",               "url": "https://www.atlascorp.ae/service/difc-company-setup" },
+    { "@type": "SiteNavigationElement", "position": 2, "name": "Family Office Setup",              "url": "https://www.atlascorp.ae/service/family-office-setup" },
+    { "@type": "SiteNavigationElement", "position": 3, "name": "Fund Setup",                       "url": "https://www.atlascorp.ae/service/fund-setup" },
+    { "@type": "SiteNavigationElement", "position": 4, "name": "DIFC Foundations",                 "url": "https://www.atlascorp.ae/service/difc-foundations" },
+    { "@type": "SiteNavigationElement", "position": 5, "name": "DIFC Prescribed Company (SPV)",    "url": "https://www.atlascorp.ae/service/difc-prescribed-company-spv" },
+    { "@type": "SiteNavigationElement", "position": 6, "name": "Compliance & Economic Substance",  "url": "https://www.atlascorp.ae/service/compliance-economic-substance" },
+    { "@type": "SiteNavigationElement", "position": 7, "name": "Contact Us",                       "url": "https://www.atlascorp.ae/contact" },
+    { "@type": "SiteNavigationElement", "position": 8, "name": "Insights & Guides",                "url": "https://www.atlascorp.ae/insights" },
+  ]
 };
 
 export default function SEO({
@@ -75,7 +126,6 @@ export default function SEO({
   const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
 
-  // Always include organisation schema + any page-specific schema
   const schemas = [
     organizationSchema,
     ...(schema ? (Array.isArray(schema) ? schema : [schema]) : []),

@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ChevronRight, Mail } from "lucide-react";
 import { getServiceBySlug, servicesData } from "@/data/services";
+import SEO from "@/components/SEO";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -90,8 +91,36 @@ export default function ServiceDetail() {
 
   const otherServices = servicesData.filter((s) => s.slug !== service.slug).slice(0, 3);
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": service.description,
+    "provider": {
+      "@type": "Organization",
+      "name": "Atlas Corporate Services",
+      "url": "https://www.atlascorp.ae"
+    },
+    "areaServed": { "@type": "Place", "name": "Dubai International Financial Centre, UAE" },
+    "url": `https://www.atlascorp.ae/service/${service.slug}`,
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home",     "item": "https://www.atlascorp.ae/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.atlascorp.ae/services" },
+        { "@type": "ListItem", "position": 3, "name": service.title, "item": `https://www.atlascorp.ae/service/${service.slug}` }
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
+      <SEO
+        title={`${service.title} | Atlas Corporate Services Dubai`}
+        description={service.description}
+        canonical={`/service/${service.slug}`}
+        schema={serviceSchema}
+      />
       <Navbar />
 
       {/* Hero */}
