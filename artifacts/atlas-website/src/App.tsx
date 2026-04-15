@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Services from "@/pages/Services";
@@ -56,6 +57,7 @@ function App() {
             <Router />
           </WouterRouter>
           <Toaster />
+          <WhatsAppButton />
         </TooltipProvider>
       </QueryClientProvider>
     </HelmetProvider>
