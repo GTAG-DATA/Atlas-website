@@ -49,10 +49,10 @@ export default function Contact() {
                     
                     <div className="space-y-2">
                       <p className="flex items-center text-slate-600">
-                        <span className="font-bold text-foreground mr-2">Phone:</span> +971 4 400 0000
+                        <span className="font-bold text-foreground mr-2">Phone:</span> +971 52 979 8302
                       </p>
                       <p className="flex items-center text-slate-600">
-                        <span className="font-bold text-foreground mr-2">Email:</span> info@atlascorporate.ae
+                        <span className="font-bold text-foreground mr-2">Email:</span> info@atlascorp.ae
                       </p>
                       <p className="flex items-center text-slate-600">
                         <span className="font-bold text-foreground mr-2">Hours:</span> Monday - Friday, 9am - 6pm
@@ -62,9 +62,11 @@ export default function Contact() {
                 </div>
 
                 <div className="rounded-3xl overflow-hidden border border-slate-100 h-64 bg-slate-200">
-                  <img 
-                    src="https://framerusercontent.com/images/JRNXZ0ssmFSymmrwIh3eBrGXd4.jpg?width=5000&height=2813" 
-                    alt="DIFC Location" 
+                  <img
+                    src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=1200&q=80"
+                    alt="DIFC Dubai skyline"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                 </div>
