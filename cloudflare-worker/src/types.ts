@@ -4,6 +4,7 @@ export interface Env {
   ADMIN_PASSWORD: string;
   TOKEN_SECRET: string;
   SITE_URL: string;
+  RESEND_API_KEY: string;
 }
 
 export interface Post {

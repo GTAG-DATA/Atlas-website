@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -46,7 +47,34 @@ const socials = [
   },
 ];
 
+const API = 'https://www.atlascorp.ae/api/contact';
+
 export default function Contact() {
+  const [form, setForm] = useState({ name: '', email: '', phone: '', budget: '' });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) =>
+    setForm(f => ({ ...f, [field]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus('idle');
+    try {
+      const res = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      setStatus(res.ok ? 'success' : 'error');
+    } catch {
+      setStatus('error');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans pt-24">
       <SEO
@@ -145,41 +173,55 @@ export default function Contact() {
                   <h2 className="text-3xl font-bold font-display text-foreground mb-4">Schedule a free consultation!</h2>
                   <p className="text-slate-600">Secure your financial future with Atlas expert services. Contact us now.</p>
                 </div>
-                <form className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="John Doe" className="bg-slate-50 border-slate-200 py-6" />
+
+                {status === 'success' ? (
+                  <div className="text-center py-12">
+                    <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">Message Sent!</h3>
+                    <p className="text-slate-500 text-sm">We'll be in touch within 1 business day.</p>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="john@example.com" className="bg-slate-50 border-slate-200 py-6" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone</Label>
-                    <Input id="phone" type="tel" placeholder="+971 50 123 4567" className="bg-slate-50 border-slate-200 py-6" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="budget">Budget</Label>
-                    <Select>
-                      <SelectTrigger id="budget" className="bg-slate-50 border-slate-200 py-6">
-                        <SelectValue placeholder="Select a budget range" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="none">No capital required</SelectItem>
-                        <SelectItem value="under_500k">Under $500,000</SelectItem>
-                        <SelectItem value="50k_100k">$50,000-$100,000</SelectItem>
-                        <SelectItem value="500k_1m">$500,000-$999,999</SelectItem>
-                        <SelectItem value="1m_2.5m">$1,000,000-$2,499,999</SelectItem>
-                        <SelectItem value="2.5m_5m">$2,500,000-$4,999,999</SelectItem>
-                        <SelectItem value="5m_10m">$5,000,000-$9,999,999</SelectItem>
-                        <SelectItem value="over_10m">$10,000,000 or more</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <Button type="button" className="w-full rounded-full bg-primary hover:bg-primary/90 text-white py-6 text-base font-bold mt-4">
-                    Submit Request
-                  </Button>
-                </form>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Name *</Label>
+                      <Input id="name" required placeholder="John Doe" value={form.name} onChange={set('name')} className="bg-slate-50 border-slate-200 py-6" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email *</Label>
+                      <Input id="email" type="email" required placeholder="john@example.com" value={form.email} onChange={set('email')} className="bg-slate-50 border-slate-200 py-6" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone</Label>
+                      <Input id="phone" type="tel" placeholder="+971 50 123 4567" value={form.phone} onChange={set('phone')} className="bg-slate-50 border-slate-200 py-6" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="budget">Budget</Label>
+                      <Select onValueChange={(v) => setForm(f => ({ ...f, budget: v }))}>
+                        <SelectTrigger id="budget" className="bg-slate-50 border-slate-200 py-6">
+                          <SelectValue placeholder="Select a budget range" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="No capital required">No capital required</SelectItem>
+                          <SelectItem value="Under $500,000">Under $500,000</SelectItem>
+                          <SelectItem value="$50,000–$100,000">$50,000–$100,000</SelectItem>
+                          <SelectItem value="$500,000–$999,999">$500,000–$999,999</SelectItem>
+                          <SelectItem value="$1,000,000–$2,499,999">$1,000,000–$2,499,999</SelectItem>
+                          <SelectItem value="$2,500,000–$4,999,999">$2,500,000–$4,999,999</SelectItem>
+                          <SelectItem value="$5,000,000–$9,999,999">$5,000,000–$9,999,999</SelectItem>
+                          <SelectItem value="$10,000,000 or more">$10,000,000 or more</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    {status === 'error' && (
+                      <p className="text-red-500 text-sm">Something went wrong. Please try again or email us directly.</p>
+                    )}
+                    <Button type="submit" disabled={loading} className="w-full rounded-full bg-primary hover:bg-primary/90 text-white py-6 text-base font-bold mt-4">
+                      {loading ? 'Sending...' : 'Submit Request'}
+                    </Button>
+                  </form>
+                )}
               </motion.div>
             </div>
           </div>
