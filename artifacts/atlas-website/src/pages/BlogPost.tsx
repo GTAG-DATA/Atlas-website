@@ -10,6 +10,8 @@ export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = getBlogPostBySlug(slug);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
 
   if (!post) {
@@ -29,9 +31,31 @@ export default function BlogPost() {
 
   const recentPosts = blogPosts.filter(p => p.slug !== slug).slice(0, 3);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError(false);
+    try {
+      const res = await fetch('https://www.atlascorp.ae/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          message: `[Blog: ${post.title}]\n\n${form.message}`,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(true);
+      }
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const renderContent = (content: string) => {
@@ -302,11 +326,15 @@ export default function BlogPost() {
                     className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#142E36]/20 focus:border-[#142E36] transition-colors resize-none"
                   />
                 </div>
+                {submitError && (
+                  <p className="text-red-500 text-sm text-center">Something went wrong. Please try again.</p>
+                )}
                 <button
                   type="submit"
-                  className="w-full bg-[#142E36] hover:bg-[#142E36]/90 text-white font-semibold py-3 rounded-full text-sm transition-colors"
+                  disabled={submitting}
+                  className="w-full bg-[#142E36] hover:bg-[#142E36]/90 disabled:opacity-60 text-white font-semibold py-3 rounded-full text-sm transition-colors"
                 >
-                  Send Enquiry
+                  {submitting ? 'Sending...' : 'Send Enquiry'}
                 </button>
                 <p className="text-xs text-slate-400 text-center">
                   By submitting this form you agree to be contacted by Atlas Corporate Services. We respect your privacy.
