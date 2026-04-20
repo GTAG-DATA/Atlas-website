@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "wouter";
-import heroImg from "@assets/ChatGPT_Image_Jan_6,_2026,_04_59_10_PM_1775111154305.png";
+import heroImg from "@assets/hero.webp";
 
 export function HeroSection() {
   const { scrollY } = useScroll();
@@ -17,6 +17,8 @@ export function HeroSection() {
         <img
           src={heroImg}
           alt="DIFC Gate Dubai"
+          fetchPriority="high"
+          decoding="sync"
           className="w-full h-full object-cover object-center"
         />
       </motion.div>
