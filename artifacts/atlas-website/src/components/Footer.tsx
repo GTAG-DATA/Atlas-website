@@ -60,7 +60,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
           <div className="lg:col-span-2">
             <Link href="/">
-              <img src={logoImg} alt="Atlas Corporate Services" width="40" height="40" className="h-10 mb-6 cursor-pointer" />
+              <img src={logoImg} alt="Atlas Corporate Services" className="h-10 w-auto mb-6 cursor-pointer object-contain" />
             </Link>
             <p className="text-slate-500 mb-6 max-w-sm text-sm leading-relaxed">
               Your trusted partner for DIFC company setup and corporate services. Specialising in comprehensive solutions for international businesses in Dubai.
