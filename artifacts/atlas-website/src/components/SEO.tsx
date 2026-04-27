@@ -124,7 +124,11 @@ export default function SEO({
   schema,
 }: SEOProps) {
   const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
-  const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
+  // Always use trailing slash to match CF Pages served URL (avoids 308 redirect loop with Google)
+  const normalizedCanonical = canonical
+    ? (canonical === '/' ? '/' : canonical.endsWith('/') ? canonical : `${canonical}/`)
+    : undefined;
+  const canonicalUrl = normalizedCanonical ? `${BASE_URL}${normalizedCanonical}` : undefined;
 
   const schemas = [
     organizationSchema,
