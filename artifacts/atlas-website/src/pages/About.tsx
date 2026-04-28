@@ -36,7 +36,7 @@ const teamData = [
     image: "/team/bill-anderson.jpg",
     linkedin: "#",
     email: "info@atlascorp.ae",
-    phone: "+971529798302",
+    phone: "+971 52 979 8302",
     whatsapp: "971529798302",
     pastel: "bg-[#e8f0ee]",
     bio: "With his notable credentials as an FCCA, Bill holds pivotal roles as a Partner at the Gulf Tax Accounting Group (GTAG) and as the Managing Partner at Business Improvement Group (BIG). His illustrious career saw him as the Global CFO (Head of Finance & MI Operations) at the Royal Bank of Scotland (RBS) corporate banking division, where he was at the helm of global operations boasting over £2 billion in profits and a staggering £103 billion in total assets. Bill's expertise extends beyond banking — in 2008, he established a Wealth Management firm, further diversifying his portfolio. His leadership roles extend to being a former board member of the Irish Business Council in Dubai and playing instrumental roles in organisations such as EmiratiGroup, Abacus Financial Consultants, and various tech startups. As the Chief Strategy Officer at GTAG, Bill brings 25 years of rich experience spanning finance, strategy, business modelling, investor readiness, audit, corporate governance, compliance, business commercialisation, technology, and corporate restructuring.",
@@ -130,30 +130,35 @@ function ProfileModal({ index, onClose }: { index: number; onClose: () => void }
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto relative"
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl relative overflow-hidden"
+        style={{ maxHeight: "90vh" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 transition-colors"
+          className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-white shadow border border-slate-100 hover:bg-slate-50 flex items-center justify-center text-slate-500 transition-colors"
         >
           <X className="w-4 h-4" />
         </button>
 
         {/* Content */}
-        <div className="flex flex-col sm:flex-row">
-          {/* Photo */}
-          <div className={`sm:w-52 flex-shrink-0 ${member.pastel} rounded-tl-2xl rounded-bl-2xl flex items-end justify-center overflow-hidden`} style={{ minHeight: 260 }}>
+        <div className="flex flex-col sm:flex-row" style={{ maxHeight: "calc(90vh - 64px)" }}>
+          {/* Photo — fixed 220px wide, fills full height */}
+          <div
+            className={`flex-shrink-0 ${member.pastel} rounded-tl-2xl rounded-bl-2xl overflow-hidden`}
+            style={{ width: 220, minWidth: 220 }}
+          >
             <img
               src={member.image}
               alt={member.name}
-              className="w-full h-64 sm:h-full object-cover object-top"
+              className="w-full h-full object-cover object-top"
+              style={{ height: "100%", minHeight: 320, maxHeight: 520 }}
             />
           </div>
 
-          {/* Info */}
-          <div className="flex-1 p-7">
+          {/* Info — scrollable */}
+          <div className="flex-1 p-7 overflow-y-auto">
             <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#142E36] border border-[#142E36]/20 bg-[#142E36]/5 px-3 py-1 rounded-full mb-4">
               {member.position}
             </span>
