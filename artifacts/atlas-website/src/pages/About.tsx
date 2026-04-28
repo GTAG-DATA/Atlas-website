@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
-import { ArrowUpRight, ShieldCheck, Users, Globe, Award, Linkedin, ChevronLeft, ChevronRight, X, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Users, Globe, Award, Linkedin, ChevronLeft, ChevronRight, X, CheckCircle2, Phone } from "lucide-react";
 
 const pillars = [
   {
@@ -35,6 +35,9 @@ const teamData = [
     company: "Atlas Corporate Services",
     image: "/team/bill-anderson.jpg",
     linkedin: "#",
+    email: "info@atlascorp.ae",
+    phone: "+971529798302",
+    whatsapp: "971529798302",
     pastel: "bg-[#e8f0ee]",
     bio: "With his notable credentials as an FCCA, Bill holds pivotal roles as a Partner at the Gulf Tax Accounting Group (GTAG) and as the Managing Partner at Business Improvement Group (BIG). His illustrious career saw him as the Global CFO (Head of Finance & MI Operations) at the Royal Bank of Scotland (RBS) corporate banking division, where he was at the helm of global operations boasting over £2 billion in profits and a staggering £103 billion in total assets. Bill's expertise extends beyond banking — in 2008, he established a Wealth Management firm, further diversifying his portfolio. His leadership roles extend to being a former board member of the Irish Business Council in Dubai and playing instrumental roles in organisations such as EmiratiGroup, Abacus Financial Consultants, and various tech startups. As the Chief Strategy Officer at GTAG, Bill brings 25 years of rich experience spanning finance, strategy, business modelling, investor readiness, audit, corporate governance, compliance, business commercialisation, technology, and corporate restructuring.",
     bullets: [
@@ -45,48 +48,57 @@ const teamData = [
     ],
   },
   {
-    name: "Peter Whately",
+    name: "Peter Whatley, CA (SA)",
     position: "Partner",
     company: "Atlas Corporate Services",
     image: "/team/peter-whately.jpg",
     linkedin: "#",
+    email: "Peter.whatley@gtag.ae",
+    phone: "+971563148567",
+    whatsapp: "971563148567",
     pastel: "bg-[#eef0f8]",
-    bio: "Peter is a Partner at Atlas with deep expertise in DIFC company formation, corporate governance and regulatory compliance. He advises international clients on optimal structuring strategies and ongoing entity management across the Gulf region.",
+    bio: "Peter is a distinguished Chartered Accountant and an alumnus of the University of Port Elizabeth, South Africa. His vast experience in Direct and Indirect Taxation was honed at the South African Revenue Service, where he played a pivotal role in pre-VAT implementation education initiatives and later transitioned to the post-implementation VAT and Corporate Tax Inspectorate. Peter's journey as a Tax Partner at Grant Thornton and his senior finance leadership roles across renowned groups in the UAE, Qatar, and South Africa have equipped him with over 25 years of hands-on expertise. His areas of proficiency span Finance, Corporate Restructuring, Budgeting, Auditing, Taxation, Technology Implementation, Operations, Marketing, Supply Chain, and Contract Negotiations.",
     bullets: [
-      "Specialist in DIFC company formation and corporate governance",
-      "Advises international clients on optimal structuring strategies",
-      "Extensive experience in regulatory compliance across the Gulf region",
-      "Trusted advisor for businesses entering the UAE market",
+      "Chartered Accountant CA (SA), alumnus of the University of Port Elizabeth",
+      "Over 25 years of expertise in Direct and Indirect Taxation across the UAE, Qatar and South Africa",
+      "Tax Partner at Grant Thornton; former role at the South African Revenue Service",
+      "Specialist in Corporate Restructuring, Auditing, ERP and Contract Negotiations",
     ],
   },
   {
-    name: "David Daly",
+    name: "David Daly, ACMA",
     position: "Partner",
     company: "Atlas Corporate Services",
     image: "/team/david-daly.jpg",
     linkedin: "#",
+    email: "David.daly@gtag.ae",
+    phone: "+971507087072",
+    whatsapp: "971507087072",
     pastel: "bg-[#f5ede8]",
-    bio: "David is a Partner specialising in fund structuring, SPV formation and family office services. He brings extensive experience supporting private equity managers, asset owners and HNW families in establishing and maintaining their DIFC presence.",
+    bio: "David is a UK Qualified Accountant and a graduate of Trinity College Dublin. With over two decades of global experience in transformational settings across diverse industries, David has spent fourteen of those years at an executive level, with the last nine being rooted in the Middle East. He's an established author, penning a series of articles on VAT for the UAE published in The National and contributing to international platforms like Bloomberg and The Telegraph. David's expertise encompasses VAT, finance, project management, business turnaround, treasury, audit, IT systems & ERP, business process re-engineering, and contract negotiations.",
     bullets: [
-      "Specialist in fund structuring and SPV formation in DIFC",
-      "Supported private equity managers and HNW families in the Gulf",
-      "Extensive experience in family office setup and governance",
-      "Deep knowledge of DIFC and ADGM regulatory frameworks",
+      "UK Qualified Accountant (ACMA), graduate of Trinity College Dublin",
+      "Over 20 years of global experience; 9 years at executive level in the Middle East",
+      "Published author on UAE VAT in The National, Bloomberg and The Telegraph",
+      "Expert in VAT, business turnaround, ERP systems and contract negotiations",
     ],
   },
   {
-    name: "Alexia Kobusch",
+    name: "Alexia Kobusch, CA (SA)",
     position: "Partner",
     company: "Atlas Corporate Services",
     image: "/team/alexia-kobusch.jpg",
     linkedin: "#",
+    email: "Alexia@gtag.ae",
+    phone: "+971544251221",
+    whatsapp: "971544251221",
     pastel: "bg-[#f0eef8]",
-    bio: "Alexia is a Partner focused on compliance, economic substance and cross-border regulatory matters. She works closely with clients to navigate the evolving DIFC and UAE regulatory landscape, ensuring full compliance at every stage of their corporate lifecycle.",
+    bio: "Alexia serves as the Practice Manager at GTAG, bringing over two decades of rich experience in financial services, particularly in risk management, financial instruments, and accounting. A Chartered Accountant certified in South Africa, Alexia completed her articles at Deloitte in Johannesburg. She is also a qualified Representative, Key Individual, and Compliance Officer with the FSCA. Before joining GTAG, Alexia offered her consultancy expertise across various entities in the Financial Services industry, showcasing her profound knowledge and versatile skill set.",
     bullets: [
-      "Expert in DIFC compliance and economic substance regulations",
-      "Specialises in cross-border regulatory matters and AML compliance",
-      "Guides clients through the full UAE corporate lifecycle",
-      "Deep experience in DFSA regulatory requirements",
+      "Chartered Accountant CA (SA), completed articles at Deloitte Johannesburg",
+      "Over 20 years in financial services: risk management, financial instruments and accounting",
+      "Qualified Representative, Key Individual and Compliance Officer with the FSCA",
+      "Extensive consultancy experience across the Financial Services industry",
     ],
   },
 ];
@@ -162,17 +174,35 @@ function ProfileModal({ index, onClose }: { index: number; onClose: () => void }
               </ul>
             </div>
 
-            {/* LinkedIn */}
-            <div className="mt-5 pt-4 border-t border-slate-100 flex items-center gap-4">
-              <a href={member.linkedin} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-[#0c1e24] transition-colors">
-                <Linkedin className="w-4 h-4" /> LinkedIn
-              </a>
-              <Link href="/contact">
-                <button className="flex items-center gap-1 text-xs font-semibold text-amber-600 hover:text-amber-700 transition-colors">
-                  Book a call <ArrowUpRight className="w-3.5 h-3.5" />
-                </button>
-              </Link>
+            {/* Contact row */}
+            <div className="mt-5 pt-4 border-t border-slate-100 space-y-3">
+              <div className="flex flex-wrap items-center gap-3">
+                {/* WhatsApp */}
+                <a
+                  href={`https://wa.me/${member.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-xs font-semibold bg-[#25D366] hover:bg-[#1ebe5c] text-white px-3 py-1.5 rounded-full transition-colors"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  WhatsApp
+                </a>
+                {/* Phone */}
+                <a href={`tel:${member.phone}`}
+                  className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0c1e24] transition-colors">
+                  <Phone className="w-3.5 h-3.5" /> {member.phone}
+                </a>
+              </div>
+              <div className="flex flex-wrap items-center gap-4">
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-[#0c1e24] transition-colors">
+                  <Linkedin className="w-4 h-4" /> LinkedIn
+                </a>
+                <a href={`mailto:${member.email}`}
+                  className="text-xs font-semibold text-slate-400 hover:text-[#0c1e24] transition-colors">
+                  {member.email}
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -309,9 +339,18 @@ export default function About() {
               <p className="text-slate-400 text-sm mb-4">{ceo.company}</p>
               <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-4">{ceo.bio}</p>
 
-              {/* Social */}
-              <div className="flex items-center gap-3 mb-6">
-                <a href={ceo.linkedin} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
+              {/* Contact */}
+              <div className="flex flex-wrap items-center gap-3 mb-6" onClick={(e) => e.stopPropagation()}>
+                <a
+                  href={`https://wa.me/${ceo.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-xs font-semibold bg-[#25D366] hover:bg-[#1ebe5c] text-white px-3 py-1.5 rounded-full transition-colors"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  WhatsApp
+                </a>
+                <a href={ceo.linkedin} target="_blank" rel="noopener noreferrer"
                   className="w-8 h-8 rounded-full bg-slate-100 hover:bg-[#142E36] hover:text-white text-slate-500 flex items-center justify-center transition-colors">
                   <Linkedin className="w-3.5 h-3.5" />
                 </a>
