@@ -76,131 +76,105 @@ function TeamCarousel({ team }: { team: typeof teamData }) {
   const prev = () => setActive((a) => (a - 1 + team.length) % team.length);
   const next = () => setActive((a) => (a + 1) % team.length);
 
-  // Order cards: active center, others spread left/right
-  const getOrder = (i: number) => {
-    const diff = (i - active + team.length) % team.length;
-    if (diff === 0) return 0;           // center
-    if (diff === 1) return 1;           // right
-    if (diff === team.length - 1) return -1; // left
-    return 2;                            // far right / hidden
-  };
+  const current = team[active];
+  // Photos shown to the right: the other members in order
+  const photoQueue = [...team.slice(active + 1), ...team.slice(0, active)];
 
   return (
-    <div className="relative bg-[#060d1f] py-24 mb-20 overflow-hidden">
-      {/* Radial glow behind cards */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-indigo-600/20 rounded-full blur-3xl pointer-events-none" />
+    <div className="bg-white py-20 mb-20">
+      <div className="max-w-6xl mx-auto px-6">
 
-      <div className="max-w-6xl mx-auto px-6 text-center mb-16">
-        <p className="text-indigo-400 text-xs font-bold uppercase tracking-widest mb-4">Leadership</p>
-        <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-3 leading-tight">
-          Meet our
-        </h2>
-        <h2 className="text-3xl md:text-5xl font-bold font-display italic text-indigo-400 mb-0 leading-tight">
-          management team
-        </h2>
-      </div>
-
-      {/* Cards row */}
-      <div className="relative flex items-center justify-center" style={{ minHeight: 480 }}>
-
-        {/* Left arrow */}
-        <button
-          onClick={prev}
-          className="absolute left-4 md:left-10 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition-colors"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-
-        {/* Cards */}
-        <div className="relative w-full flex items-center justify-center gap-0" style={{ height: 480 }}>
-          {team.map((member, i) => {
-            const order = getOrder(i);
-            const isActive = order === 0;
-            const isLeft = order === -1;
-            const isRight = order === 1;
-            const isHidden = Math.abs(order) > 1;
-
-            let transform = "translateX(0) scale(1)";
-            let zIndex = 10;
-            let opacity = 1;
-
-            if (isLeft) { transform = "translateX(-260px) scale(0.82)"; zIndex = 5; opacity = 0.7; }
-            if (isRight) { transform = "translateX(260px) scale(0.82)"; zIndex = 5; opacity = 0.7; }
-            if (isHidden) { transform = "translateX(0) scale(0.7)"; zIndex = 1; opacity = 0; }
-
-            return (
-              <div
-                key={member.name}
-                onClick={() => !isActive && setActive(i)}
-                className="absolute rounded-2xl overflow-hidden cursor-pointer"
-                style={{
-                  width: isActive ? 340 : 260,
-                  height: isActive ? 480 : 400,
-                  transform,
-                  zIndex,
-                  opacity,
-                  transition: "all 0.5s cubic-bezier(0.4,0,0.2,1)",
-                }}
-              >
-                {/* Photo fills card */}
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover object-top"
-                />
-
-                {/* Gradient overlay — always show name at bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-
-                {/* Active card: bio text in middle */}
-                {isActive && (
-                  <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 px-6 text-center">
-                    <p className="text-white/80 text-xs leading-relaxed line-clamp-6">{member.bio}</p>
-                  </div>
-                )}
-
-                {/* Name + role at bottom */}
-                <div className="absolute bottom-0 inset-x-0 px-6 pb-6">
-                  <h3 className="text-white font-bold font-display text-lg leading-snug">{member.name}</h3>
-                  <p className="text-indigo-300 text-xs font-semibold mt-0.5">{member.position}</p>
-                  {isActive && (
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-white/60 hover:text-white transition-colors"
-                    >
-                      <Linkedin className="w-3.5 h-3.5" />
-                      LinkedIn
-                    </a>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+        {/* Header row */}
+        <div className="flex items-start justify-between mb-10">
+          <div>
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-slate-400 border border-slate-200 rounded-full px-4 py-1.5 mb-5">Leadership</span>
+            <h2 className="text-3xl md:text-4xl font-bold font-display text-[#0c1e24] leading-tight max-w-xs">
+              Meet our management team
+            </h2>
+          </div>
+          {/* Nav buttons */}
+          <div className="flex gap-3 mt-2">
+            <button
+              onClick={prev}
+              className="w-11 h-11 rounded-full bg-[#142E36] hover:bg-[#0c1e24] flex items-center justify-center text-white transition-colors"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={next}
+              className="w-11 h-11 rounded-full bg-[#142E36] hover:bg-[#0c1e24] flex items-center justify-center text-white transition-colors"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
-        {/* Right arrow */}
-        <button
-          onClick={next}
-          className="absolute right-4 md:right-10 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition-colors"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </div>
+        {/* Cards row */}
+        <div className="flex gap-4 items-stretch overflow-hidden">
 
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-2 mt-10">
-        {team.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setActive(i)}
-            className={`rounded-full transition-all duration-300 ${
-              i === active ? "w-6 h-2 bg-indigo-400" : "w-2 h-2 bg-white/20 hover:bg-white/40"
-            }`}
-          />
-        ))}
+          {/* Active info card */}
+          <div
+            className="flex-shrink-0 rounded-2xl p-7 flex flex-col justify-between"
+            style={{ width: 280, minHeight: 420, background: "#142E36" }}
+          >
+            <div>
+              <h3 className="text-xl font-bold font-display text-white mb-1 leading-snug">{current.name}</h3>
+              <p className="text-amber-400 text-xs font-semibold mb-5">{current.position}</p>
+              <p className="text-slate-300 text-sm leading-relaxed line-clamp-[10]">{current.bio}</p>
+            </div>
+            <div className="flex items-center gap-4 mt-6 pt-5 border-t border-white/10">
+              <a
+                href={current.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs font-semibold text-white/60 hover:text-white transition-colors"
+              >
+                <Linkedin className="w-4 h-4" />
+                LinkedIn
+              </a>
+              <Link href="/contact">
+                <button className="flex items-center gap-1 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors">
+                  Book a call <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Photo cards */}
+          {photoQueue.slice(0, 3).map((member, i) => (
+            <div
+              key={member.name}
+              onClick={() => setActive(team.indexOf(member))}
+              className="flex-1 rounded-2xl overflow-hidden relative cursor-pointer group min-w-0"
+              style={{ minHeight: 420 }}
+            >
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                style={{ minHeight: 420 }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 inset-x-0 p-5">
+                <h3 className="text-white font-bold font-display text-base leading-snug">{member.name}</h3>
+                <p className="text-amber-400 text-xs font-semibold mt-0.5">{member.position}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex gap-2 mt-7">
+          {team.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className={`rounded-full transition-all duration-300 ${
+                i === active ? "w-6 h-2 bg-[#142E36]" : "w-2 h-2 bg-slate-200 hover:bg-slate-400"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
