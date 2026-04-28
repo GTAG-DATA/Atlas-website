@@ -2,7 +2,8 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Link } from "wouter";
-import { ArrowUpRight, ShieldCheck, Users, Globe, Award, Linkedin } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, ShieldCheck, Users, Globe, Award, Linkedin, ChevronLeft, ChevronRight } from "lucide-react";
 
 const pillars = [
   {
@@ -27,7 +28,7 @@ const pillars = [
   },
 ];
 
-const team = [
+const teamData = [
   {
     name: "Bill Anderson, FCCA",
     position: "Partner",
@@ -70,9 +71,144 @@ const team = [
   },
 ];
 
+function TeamCarousel({ team }: { team: typeof teamData }) {
+  const [active, setActive] = useState(0);
+  const prev = () => setActive((a) => (a - 1 + team.length) % team.length);
+  const next = () => setActive((a) => (a + 1) % team.length);
+
+  // Order cards: active center, others spread left/right
+  const getOrder = (i: number) => {
+    const diff = (i - active + team.length) % team.length;
+    if (diff === 0) return 0;           // center
+    if (diff === 1) return 1;           // right
+    if (diff === team.length - 1) return -1; // left
+    return 2;                            // far right / hidden
+  };
+
+  return (
+    <div className="relative bg-[#060d1f] py-24 mb-20 overflow-hidden">
+      {/* Radial glow behind cards */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-indigo-600/20 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto px-6 text-center mb-16">
+        <p className="text-indigo-400 text-xs font-bold uppercase tracking-widest mb-4">Leadership</p>
+        <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-3 leading-tight">
+          Meet our
+        </h2>
+        <h2 className="text-3xl md:text-5xl font-bold font-display italic text-indigo-400 mb-0 leading-tight">
+          management team
+        </h2>
+      </div>
+
+      {/* Cards row */}
+      <div className="relative flex items-center justify-center" style={{ minHeight: 480 }}>
+
+        {/* Left arrow */}
+        <button
+          onClick={prev}
+          className="absolute left-4 md:left-10 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition-colors"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+
+        {/* Cards */}
+        <div className="relative w-full flex items-center justify-center gap-0" style={{ height: 480 }}>
+          {team.map((member, i) => {
+            const order = getOrder(i);
+            const isActive = order === 0;
+            const isLeft = order === -1;
+            const isRight = order === 1;
+            const isHidden = Math.abs(order) > 1;
+
+            let transform = "translateX(0) scale(1)";
+            let zIndex = 10;
+            let opacity = 1;
+
+            if (isLeft) { transform = "translateX(-260px) scale(0.82)"; zIndex = 5; opacity = 0.7; }
+            if (isRight) { transform = "translateX(260px) scale(0.82)"; zIndex = 5; opacity = 0.7; }
+            if (isHidden) { transform = "translateX(0) scale(0.7)"; zIndex = 1; opacity = 0; }
+
+            return (
+              <div
+                key={member.name}
+                onClick={() => !isActive && setActive(i)}
+                className="absolute rounded-2xl overflow-hidden cursor-pointer"
+                style={{
+                  width: isActive ? 340 : 260,
+                  height: isActive ? 480 : 400,
+                  transform,
+                  zIndex,
+                  opacity,
+                  transition: "all 0.5s cubic-bezier(0.4,0,0.2,1)",
+                }}
+              >
+                {/* Photo fills card */}
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover object-top"
+                />
+
+                {/* Gradient overlay — always show name at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+
+                {/* Active card: bio text in middle */}
+                {isActive && (
+                  <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 px-6 text-center">
+                    <p className="text-white/80 text-xs leading-relaxed line-clamp-6">{member.bio}</p>
+                  </div>
+                )}
+
+                {/* Name + role at bottom */}
+                <div className="absolute bottom-0 inset-x-0 px-6 pb-6">
+                  <h3 className="text-white font-bold font-display text-lg leading-snug">{member.name}</h3>
+                  <p className="text-indigo-300 text-xs font-semibold mt-0.5">{member.position}</p>
+                  {isActive && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-white/60 hover:text-white transition-colors"
+                    >
+                      <Linkedin className="w-3.5 h-3.5" />
+                      LinkedIn
+                    </a>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Right arrow */}
+        <button
+          onClick={next}
+          className="absolute right-4 md:right-10 z-20 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition-colors"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+
+      {/* Dot indicators */}
+      <div className="flex justify-center gap-2 mt-10">
+        {team.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActive(i)}
+            className={`rounded-full transition-all duration-300 ${
+              i === active ? "w-6 h-2 bg-indigo-400" : "w-2 h-2 bg-white/20 hover:bg-white/40"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function About() {
-  const ceo = team[0];
-  const rest = team.slice(1);
+  const ceo = teamData[0];
+  const rest = teamData.slice(1);
 
   return (
     <>
@@ -152,91 +288,7 @@ export default function About() {
         </div>
 
         {/* ── Management Team ──────────────────────────────────────── */}
-        <div className="bg-[#f8f9fa] py-20 mb-20">
-          <div className="max-w-5xl mx-auto px-6">
-            <p className="text-amber-600 text-xs font-bold uppercase tracking-widest mb-3">Leadership</p>
-            <h2 className="text-2xl md:text-3xl font-bold font-display text-[#0c1e24] mb-2">Management Team</h2>
-            <p className="text-slate-500 text-base mb-14 max-w-xl">
-              Experienced professionals committed to delivering expert corporate solutions across the DIFC and broader UAE.
-            </p>
-
-            {/* CEO featured card */}
-            <div className="bg-white rounded-2xl overflow-hidden mb-8 flex flex-col md:flex-row shadow-sm border border-slate-200">
-              {/* Photo */}
-              <div className="md:w-60 flex-shrink-0 bg-slate-100">
-                <img
-                  src={ceo.image}
-                  alt={ceo.name}
-                  className="w-full h-72 md:h-full object-cover object-top"
-                />
-              </div>
-              {/* Content */}
-              <div className="flex-1 p-8 md:p-10 flex flex-col justify-between">
-                <div>
-                  <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-600 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full mb-5">
-                    {ceo.position}
-                  </span>
-                  <h3 className="text-2xl font-bold font-display text-[#0c1e24] mb-1">{ceo.name}</h3>
-                  <p className="text-slate-400 text-sm mb-5">{ceo.company}</p>
-                  <p className="text-slate-600 text-sm leading-relaxed">{ceo.bio}</p>
-                </div>
-                <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-5">
-                  <a
-                    href={ceo.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-[#0c1e24] transition-colors"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                    LinkedIn
-                  </a>
-                  <Link href="/contact">
-                    <button className="flex items-center gap-1.5 text-xs font-semibold text-amber-600 hover:text-amber-700 transition-colors">
-                      Book a call
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Partner cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {rest.map((member) => (
-                <div
-                  key={member.name}
-                  className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col"
-                >
-                  {/* Photo */}
-                  <div className="overflow-hidden bg-slate-100">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-56 object-cover object-top hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  {/* Info */}
-                  <div className="p-6 flex flex-col flex-1">
-                    <span className="inline-block text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">{member.position}</span>
-                    <h3 className="text-lg font-bold font-display text-[#0c1e24] mb-3">{member.name}</h3>
-                    <p className="text-sm text-slate-500 leading-relaxed flex-1">{member.bio}</p>
-                    <div className="mt-5 pt-4 border-t border-slate-100">
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-[#0c1e24] transition-colors"
-                      >
-                        <Linkedin className="w-3.5 h-3.5" />
-                        LinkedIn
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <TeamCarousel team={teamData} />
 
         {/* Location */}
         <div className="bg-slate-50 py-16 mb-16">
