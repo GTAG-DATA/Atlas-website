@@ -176,7 +176,6 @@ export default function About() {
                   <span className="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full">
                     Chief Executive Officer
                   </span>
-                  <span className="text-xs text-slate-400">{ceo.since}</span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold font-display text-white mb-1">{ceo.name}</h3>
                 <p className="text-slate-400 text-sm mb-6">{ceo.company}</p>
@@ -223,7 +222,6 @@ export default function About() {
                 <div className="p-6 flex flex-col flex-1">
                   <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-1">{member.position}</p>
                   <h3 className="text-lg font-bold font-display text-[#0c1e24] mb-0.5">{member.name}</h3>
-                  <p className="text-xs text-slate-400 mb-4">{member.since}</p>
                   <p className="text-sm text-slate-500 leading-relaxed flex-1">{member.bio}</p>
                   <div className="mt-5 pt-4 border-t border-slate-100">
                     <a
