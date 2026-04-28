@@ -29,13 +29,13 @@ const pillars = [
 
 const team = [
   {
-    name: "Bill Anderson",
-    position: "Chief Executive Officer",
+    name: "Bill Anderson, FCCA",
+    position: "Partner",
     company: "Atlas Corporate Services",
-    since: "Since 2019",
+    since: "",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
     linkedin: "#",
-    bio: "Bill brings over 20 years of experience in international corporate structuring, financial regulation and cross-border investment advisory. Prior to founding Atlas, he held senior roles at leading law firms and financial institutions across London, Singapore and Dubai. He has advised sovereign wealth funds, family offices and global asset managers on their Gulf and DIFC structuring strategies. Bill holds a degree in Law from the University of Edinburgh and is a member of the Chartered Governance Institute.",
+    bio: "With his notable credentials as an FCCA, Bill holds pivotal roles as a Partner at the Gulf Tax Accounting Group (GTAG) and as the Managing Partner at Business Improvement Group (BIG). His illustrious career saw him as the Global CFO (Head of Finance & MI Operations) at the Royal Bank of Scotland (RBS) corporate banking division, where he was at the helm of global operations boasting over £2 billion in profits and a staggering £103 billion in total assets. Bill's expertise extends beyond banking — in 2008, he established a Wealth Management firm, further diversifying his portfolio. His leadership roles extend to being a former board member of the Irish Business Council in Dubai and playing instrumental roles in organisations such as EmiratiGroup, Abacus Financial Consultants, and various tech startups. As the Chief Strategy Officer at GTAG, Bill brings 25 years of rich experience spanning finance, strategy, business modelling, investor readiness, audit, corporate governance, compliance, business commercialisation, technology, and corporate restructuring.",
     featured: true,
   },
   {
@@ -174,7 +174,7 @@ export default function About() {
               <div>
                 <div className="flex items-center gap-3 mb-5">
                   <span className="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full">
-                    Chief Executive Officer
+                    {ceo.position}
                   </span>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold font-display text-white mb-1">{ceo.name}</h3>
