@@ -4,162 +4,168 @@
   <!-- Core pages -->
   <url>
     <loc>https://www.atlascorp.ae/</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/services</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/services/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/contact</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/contact/</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.atlascorp.ae/about/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Service pages -->
   <url>
-    <loc>https://www.atlascorp.ae/service/difc-company-setup</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/service/difc-company-setup/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/service/family-office-setup</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/service/family-office-setup/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/service/fund-setup</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/service/fund-setup/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/service/fund-spv-support</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/service/fund-spv-support/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/service/residency-banking-concierge</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/service/residency-banking-concierge/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/service/difc-foundations</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/service/difc-foundations/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/service/difc-prescribed-company-spv</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/service/difc-prescribed-company-spv/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/service/company-secretarial-governance</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/service/company-secretarial-governance/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/service/compliance-economic-substance</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/service/compliance-economic-substance/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/service/accounting-tax</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/service/accounting-tax/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Insights -->
   <url>
-    <loc>https://www.atlascorp.ae/insights</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/insights/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/insights/difc-101</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/insights/difc-101/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/insights/prescribed-company</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/insights/prescribed-company/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/insights/economic-substance</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/insights/economic-substance/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/insights/corporate-tax</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/insights/corporate-tax/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/insights/innovation-licence</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/insights/innovation-licence/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Blog -->
   <url>
-    <loc>https://www.atlascorp.ae/blog</loc>
-    <lastmod>2026-04-15</lastmod>
+    <loc>https://www.atlascorp.ae/blog/</loc>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/blog/difc-2026-fund-regulations</loc>
+    <loc>https://www.atlascorp.ae/blog/difc-2026-fund-regulations/</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/blog/family-office-difc-2026-guide</loc>
+    <loc>https://www.atlascorp.ae/blog/family-office-difc-2026-guide/</loc>
     <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/blog/uae-corporate-tax-year-end-checklist</loc>
+    <loc>https://www.atlascorp.ae/blog/uae-corporate-tax-year-end-checklist/</loc>
     <lastmod>2026-01-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/blog/adgm-vs-difc-2026</loc>
+    <loc>https://www.atlascorp.ae/blog/adgm-vs-difc-2026/</loc>
     <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/blog/difc-prescribed-companies-structuring</loc>
+    <loc>https://www.atlascorp.ae/blog/difc-prescribed-companies-structuring/</loc>
     <lastmod>2026-01-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.atlascorp.ae/blog/difc-foundations-wealth-protection</loc>
+    <loc>https://www.atlascorp.ae/blog/difc-foundations-wealth-protection/</loc>
     <lastmod>2025-12-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
