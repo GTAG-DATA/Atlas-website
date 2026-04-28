@@ -144,16 +144,16 @@ function ProfileModal({ index, onClose }: { index: number; onClose: () => void }
 
         {/* Content */}
         <div className="flex flex-col sm:flex-row" style={{ maxHeight: "calc(90vh - 64px)" }}>
-          {/* Photo — fixed 220px wide, fills full height */}
+          {/* Photo — fixed 220×220 square */}
           <div
-            className={`flex-shrink-0 ${member.pastel} rounded-tl-2xl rounded-bl-2xl overflow-hidden`}
+            className={`flex-shrink-0 ${member.pastel} rounded-tl-2xl rounded-bl-2xl overflow-hidden self-stretch`}
             style={{ width: 220, minWidth: 220 }}
           >
             <img
               src={member.image}
               alt={member.name}
-              className="w-full h-full object-cover object-top"
-              style={{ height: "100%", minHeight: 320, maxHeight: 520 }}
+              className="w-full object-cover object-top"
+              style={{ width: 220, height: 220 }}
             />
           </div>
 
@@ -180,31 +180,27 @@ function ProfileModal({ index, onClose }: { index: number; onClose: () => void }
             </div>
 
             {/* Contact row */}
-            <div className="mt-5 pt-4 border-t border-slate-100 space-y-3">
+            <div className="mt-5 pt-4 border-t border-slate-100 space-y-2.5">
+              {/* Row 1: WhatsApp + Phone */}
               <div className="flex flex-wrap items-center gap-3">
-                {/* WhatsApp */}
-                <a
-                  href={`https://wa.me/${member.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-xs font-semibold bg-[#25D366] hover:bg-[#1ebe5c] text-white px-3 py-1.5 rounded-full transition-colors"
-                >
+                <a href={`https://wa.me/${member.whatsapp}`} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-xs font-semibold bg-[#25D366] hover:bg-[#1ebe5c] text-white px-3 py-1.5 rounded-full transition-colors">
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                   WhatsApp
                 </a>
-                {/* Phone */}
                 <a href={`tel:${member.phone}`}
                   className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-[#0c1e24] transition-colors">
                   <Phone className="w-3.5 h-3.5" /> {member.phone}
                 </a>
               </div>
-              <div className="flex flex-wrap items-center gap-4">
+              {/* Row 2: LinkedIn (blue pill) + Email */}
+              <div className="flex flex-wrap items-center gap-3">
                 <a href={member.linkedin} target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-[#0c1e24] transition-colors">
-                  <Linkedin className="w-4 h-4" /> LinkedIn
+                  className="flex items-center gap-2 text-xs font-semibold bg-[#0077B5] hover:bg-[#006097] text-white px-3 py-1.5 rounded-full transition-colors">
+                  <Linkedin className="w-3.5 h-3.5" /> LinkedIn
                 </a>
                 <a href={`mailto:${member.email}`}
-                  className="text-xs font-semibold text-slate-400 hover:text-[#0c1e24] transition-colors">
+                  className="text-xs font-semibold text-slate-500 hover:text-[#0c1e24] transition-colors">
                   {member.email}
                 </a>
               </div>
@@ -387,10 +383,10 @@ export default function About() {
               Click on a profile card to read the full bio and navigate between partners.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {teamData.map((member, i) => (
+              {teamData.slice(1).map((member, i) => (
                 <div
                   key={member.name}
-                  onClick={() => setModalIndex(i)}
+                  onClick={() => setModalIndex(i + 1)}
                   className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 cursor-pointer group"
                 >
                   {/* Photo with pastel bg */}
