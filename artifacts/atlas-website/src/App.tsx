@@ -17,6 +17,7 @@ import InsightArticle from "@/pages/InsightArticle";
 import Terms from "@/pages/Terms";
 import Privacy from "@/pages/Privacy";
 import Disclaimer from "@/pages/Disclaimer";
+import About from "@/pages/About";
 
 const queryClient = new QueryClient();
 
@@ -41,7 +42,7 @@ function Router() {
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/insights" component={Insights} />
       <Route path="/insights/:slug" component={InsightArticle} />
-      <Route path="/about" component={Home} />
+      <Route path="/about" component={About} />
       <Route path="/terms" component={Terms} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/disclaimer" component={Disclaimer} />
