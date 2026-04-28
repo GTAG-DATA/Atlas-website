@@ -33,7 +33,7 @@ const team = [
     position: "Partner",
     company: "Atlas Corporate Services",
     since: "",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
+    image: "/team/bill-anderson.jpg",
     linkedin: "#",
     bio: "With his notable credentials as an FCCA, Bill holds pivotal roles as a Partner at the Gulf Tax Accounting Group (GTAG) and as the Managing Partner at Business Improvement Group (BIG). His illustrious career saw him as the Global CFO (Head of Finance & MI Operations) at the Royal Bank of Scotland (RBS) corporate banking division, where he was at the helm of global operations boasting over £2 billion in profits and a staggering £103 billion in total assets. Bill's expertise extends beyond banking — in 2008, he established a Wealth Management firm, further diversifying his portfolio. His leadership roles extend to being a former board member of the Irish Business Council in Dubai and playing instrumental roles in organisations such as EmiratiGroup, Abacus Financial Consultants, and various tech startups. As the Chief Strategy Officer at GTAG, Bill brings 25 years of rich experience spanning finance, strategy, business modelling, investor readiness, audit, corporate governance, compliance, business commercialisation, technology, and corporate restructuring.",
     featured: true,
