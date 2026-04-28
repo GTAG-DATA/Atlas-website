@@ -190,7 +190,7 @@ function ProfileModal({ index, onClose }: { index: number; onClose: () => void }
         }}
       >
         {/* Accent bar */}
-        <div style={{ height: 4, background: `linear-gradient(90deg, ${S.accent} 0%, ${S.accent} 30%, ${S.ink} 30%, ${S.ink} 100%)` }} />
+        <div style={{ height: 4, background: "#142E36" }} />
 
         {/* Close */}
         <button
