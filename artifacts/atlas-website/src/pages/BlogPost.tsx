@@ -157,11 +157,11 @@ export default function BlogPost() {
             "name": "Atlas Corporate Services",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://www.atlascorp.ae/assets/logo-D-IPHjNp.png"
+              "url": "https://www.atlascorp.ae/logo.png"
             }
           },
-          "url": `https://www.atlascorp.ae/blog/${post.slug}`,
-          "mainEntityOfPage": `https://www.atlascorp.ae/blog/${post.slug}`
+          "url": `https://www.atlascorp.ae/blog/${post.slug}/`,
+          "mainEntityOfPage": `https://www.atlascorp.ae/blog/${post.slug}/`
         }}
       />
       <Navbar />
