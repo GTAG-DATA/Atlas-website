@@ -42,4 +42,4 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: a17938b32e7eb98cc78cc27ee3d42f6d
         run: |
           pnpm add -g wrangler
-          wrangler pages deploy dist/public --project-name=atlas --branch=main
+          wrangler pages deploy dist/public --project-name=atlas-website --branch=main
