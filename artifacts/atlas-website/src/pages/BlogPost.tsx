@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { getBlogPostBySlug, blogPosts } from "@/data/blog";
-import { ArrowLeft, Calendar, Clock, Tag, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Tag, CheckCircle2, ChevronDown } from "lucide-react";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -79,14 +79,35 @@ export default function BlogPost() {
           </h3>
         );
       } else if (line.startsWith('**Q:') && line.endsWith('**')) {
-        // FAQ question
+        // FAQ question — collect the answer (next non-empty line)
+        const question = line.replace(/\*\*/g, '');
+        i++;
+        const answerLines: string[] = [];
+        while (i < lines.length && lines[i].trim() !== '' && !lines[i].startsWith('**Q:') && !lines[i].startsWith('## ') && !lines[i].startsWith('### ')) {
+          answerLines.push(lines[i]);
+          i++;
+        }
+        const answer = answerLines.join(' ').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         elements.push(
-          <div key={i} className="mt-6 mb-1">
-            <p className="font-semibold text-[#0c1e24] text-base">
-              {line.replace(/\*\*/g, '')}
-            </p>
-          </div>
+          <details
+            key={`faq-${i}`}
+            className="group border border-gray-200 rounded-lg mt-3 overflow-hidden"
+          >
+            <summary className="flex items-center justify-between gap-3 px-5 py-4 cursor-pointer list-none select-none bg-white hover:bg-slate-50 transition-colors">
+              <span className="font-semibold text-[#0c1e24] text-sm leading-snug">
+                {question}
+              </span>
+              <ChevronDown className="w-4 h-4 text-amber-500 shrink-0 transition-transform duration-200 group-open:rotate-180" />
+            </summary>
+            <div className="px-5 pb-5 pt-1 bg-slate-50 border-t border-gray-100">
+              <p
+                className="text-gray-600 leading-relaxed text-sm"
+                dangerouslySetInnerHTML={{ __html: answer }}
+              />
+            </div>
+          </details>
         );
+        continue;
       } else if (line.startsWith('**') && line.endsWith('**')) {
         elements.push(
           <p key={i} className="font-semibold text-[#142E36] mt-6 mb-2">
